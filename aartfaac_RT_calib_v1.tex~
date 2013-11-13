@@ -1,61 +1,19 @@
-%% LyX 2.0.2 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
-\documentclass[twocolumn,english]{aa}
-\usepackage[T1]{fontenc}
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
+\documentclass{aa}
+\usepackage[varg]{txfonts}
 \usepackage{color}
-\usepackage{babel}
-\usepackage{verbatim}
 \usepackage{graphicx}
-\usepackage[unicode=true,
- bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
- breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
- {hyperref}
-\hypersetup{pdftitle={Your Title},
- pdfauthor={Your Name},
- pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
-\usepackage{breakurl}
-
-\makeatletter
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-%% Because html converters don't know tabularnewline
-\providecommand{\tabularnewline}{\\}
-%% A simple dot to overcome graphicx limitations
-\newcommand{\lyxdot}{.}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-% for subfigures/subtables
-%\ifCLASSOPTIONcompsoc
-%\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
-%\else
-%\usepackage[caption=false,font=footnotesize]{subfig}
-%\fi
-
-\@ifundefined{showcaptionsetup}{}{%
- \PassOptionsToPackage{caption=false}{subfig}}
 \usepackage{subfig}
-\makeatother
-
+\bibpunct{(}{)}{;}{a}{}{,} % to follow the A&A style
 \begin{document}
 
 \title{Real-time calibration of the AARTFAAC array for transient detection}
 
+\author{Peeyush Prasad \inst{1} \and Stefan J. Wijnholds \inst{2} \and Folkert Huizinga \inst{1} \and Ralph Wijers \inst{1}}
+\institute{Universetiet Van Amsterdam \and ASTRON, The Netherlands Foundation for Radio Astronomy}
 
-\author{Peeyush~Prasad%
-\thanks{Peeyush Prasad is with the Anton Pannekoek Institute, University of
-Amsterdam, The Netherlands. e-mail: \protect\href{http://p.prasad@uva.nl}{p.prasad@uva.nl}.%
-}, Stefan J. Wijnholds%
-\thanks{Stefan Wijnholds is with ASTRON, The Netherlands Institute for Radio
-Astronomy, The Netherlands. e-mail: \protect\href{http://wijnholds@astron.nl}{wijnholds@astron.nl}.%
-} and~Ralph~Wijers%
-\thanks{Ralph Wijers is with the Anton Pannekoek Institute, University of
-Amsterdam, The Netherlands. e-mail: \protect\href{http://r.a.m.j.wijers@uva.nl}{r.a.m.j.wijers@uva.nl}.%
-}}
-\maketitle
-\begin{abstract}
+\date{Received <date> / Accepted <date>}
+
+\abstract{
 The search for transient phenomena at low radio frequencies is now
 coming of age with the development of large field of view radio sky
 monitors, made feasible by new developments in calibration algorithms
@@ -75,27 +33,11 @@ conditions. We find a tracking calibration approach with solution
 propagation satisfies our time, computing and fidelity constraints.
 Autonomously calibrating and imaging snapshots of a second, our approach
 leads to an image noise typically \textasciitilde{}TODOx higher than
-the thermal limit.
+the thermal limit.}
 
 \keywords{Radio Interferometry - Calibration - Radio Transients}
-\end{abstract}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\maketitle
 
 
 \section{\label{sec:Introduction}Introduction}
@@ -104,8 +46,8 @@ the thermal limit.
 detail later) and motivation of its role.}
 \end{itemize}
 The detection and characterization of low frequency radio transients
-is a Key Science Project \cite{fender2006lofar} for the Low Frequency
-Array (LOFAR)\cite{vanhaarlem2013lofar} radio telescope. In this
+is a Key Science Project \citep{fender2006lofar} for the Low Frequency
+Array (LOFAR)\citep{vanhaarlem2013lofar} radio telescope. In this
 context, the Amsterdam-ASTRON Radio Transients Facility and Analysis
 Center (AARTFAAC%
 \footnote{see www.aartfaac.org%
@@ -127,7 +69,7 @@ Sky Monitors. Table. \ref{tab:AARTFAAC_specs} compares various wide-field
 instruments with transient searches as an explicit goal.
 \begin{itemize}
 \item \textcolor{blue}{Why search for low freq. transients? NOTE: Ralph's
-AARTFAAC overview paper will be the science case, we summarize/cite
+AARTFAAC overview paper will be the science case, we summarize/citep
 it here.}
 \end{itemize}
 The universe has been found to be very dynamic, with a plethora of
@@ -136,7 +78,7 @@ These discoveries are currently biased towards objects emitting at
 higher energies, in the X-ray or $\gamma$-ray regime, primarily due
 to the success of various satellite based All-Sky monitors operating
 at those energy levels. At radio frequencies, searches for transients
-have usually been limited to archival searches \cite{bower2007submillijansky,bower2011search},
+have usually been limited to archival searches \citep{bower2007submillijansky,bower2011search},
 follow-up studies of discovered transients{[}{]}, and a few dedicated
 observing programs{[}{]}.However, the dynamic nature of the sky at
 low radio frequencies has not been studied in detail yet, mostly due
@@ -144,7 +86,7 @@ to the restricted fields of view, and the low availability of existing
 instruments for carrying out dedicated searches for transients. This
 is set to change with the advent of a number of sensitive, wide field
 of view (WFoV) instruments at the lowest frequencies, like the LOFAR,
-the Mileura Widefield Array (MWA) \cite{lonsdale2009murchison}and
+the Mileura Widefield Array (MWA) \citep{lonsdale2009murchison}and
 others. 
 
 These low-frequency instruments should be sensitive to a variety of
@@ -152,10 +94,10 @@ phenomena, including Pulsar giant pulses, bright radio flares from
 brown dwarfs and active stars, emission from OH masers, Jovian bursts,
 and most importantly, an unknown population of bright bursters. Recent
 serendipitous discoveries of short bursts of bright radio emission
-at low frequencies\cite{lorimer2007bright} have shown the potential
+at low frequencies\citep{lorimer2007bright} have shown the potential
 variety of sources filling the unnaturally empty phase space of LF
 radio transients. The discovery of very bright, possibly extra-galactic
- The science case for the AARTFAAC is detailed in \cite{wijers2013aartfaac}.
+ The science case for the AARTFAAC is detailed in \citep{wijers2013aartfaac}.
 \begin{itemize}
 \item \textcolor{blue}{What are the various approaches for searching for
 transients, what parameter space does the AARTFAAC sample?}
@@ -185,7 +127,7 @@ emission, which are expected to be short from light travel time arguments,
 and the fact that beamforming can provide high temporal resolutions
 and sensitivities, although over a reduced field of view. \textcolor{red}{Another
 promising alternative for detecting short term transients is the bispectrum
-method of \cite{law2012all}. This uses interferometric closure quantities
+method of \citep{law2012all}. This uses interferometric closure quantities
 from triplets of time differenced visibilities, which makes it independent
 of instrumental phase errors. However, for an array with a large number
 of elements and low SNR per baseline, the methods' absolute sensitivity
@@ -213,7 +155,7 @@ resources. Thus, image plane detection of short duration bright transients
 is now feasible. It has been found that a tiling strategy (implying
 a wider field of view at low sensitivity) is more conducive to transient
 detection, than a stare strategy (implying higher sensitivity within
-a limited field of view)\cite{nemiroff2003tile}. \textcolor{red}{Thus,
+a limited field of view)\citep{nemiroff2003tile}. \textcolor{red}{Thus,
 imaging all-sky monitors are matched for this application, and effectively
 sample the }
 \begin{itemize}
@@ -250,7 +192,7 @@ A large field of view, image plane transient detector typically searches
 image timeseries for transients by extracting and analysing light
 curves of existing sources, or by detecting new sources referenced
 to a database of lightcurves. The Transients Detection pipeline (TraP)
-\cite{swinbank2013trap} component of the AARTFAAC ASM carries out
+\citep{swinbank2013trap} component of the AARTFAAC ASM carries out
 source extraction from individual timeslices via thresholding and
 fitting 2D gaussian models to regions of emission. Hence, high point-source
 sensitivity and accurate flux recovery across the full field of view
@@ -332,7 +274,7 @@ array simplifies the calibration and imaging from the ASM to a certain
 extent. 
 
 A successful approach to widefield calibration is the Peeling algorithm
-\cite{noordam2004peel,vdTol2007selfcallofar}, in which self-calibration
+\citep{noordam2004peel,vdTol2007selfcallofar}, in which self-calibration
 towards sources within the field of view is carried out in decreasing
 order of their brightness, with removal of the brightest remaining
 source's calibrated contribution to all visibilities. This source
@@ -340,7 +282,7 @@ is selected via rephasing the array to its direction, and the contribution
 of other sources is attenuated via fringe washing. Thus, a single
 source calibration approach is adequate, and a Least Squares estimation
 of the antenna gains in the direction of the source can be carried
-out using one of several methods \cite{boonstra2003gain}. The solution
+out using one of several methods \citep{boonstra2003gain}. The solution
 yields a set of time-variable, antenna based phase corrections per
 source, and a source model. However, the algorithm requires the storage
 of the estimated visibilities, with multiple calibration and imaging
@@ -354,10 +296,10 @@ of wide-field arrays.
 \end{itemize}
 Other contemporary instruments with similar specifications and goals
 as ours use mostly Peeling based approaches. Their specifications
-are compared in Table. \ref{tab:AARTFAAC_specs}. The MWA\cite{lonsdale2009murchison},
+are compared in Table. \ref{tab:AARTFAAC_specs}. The MWA\citep{lonsdale2009murchison},
 located in Western Australia has developed an algorithm for carrying
 out real-time, full polarization direction dependent calibration of
-snapshots of $\sim$8sec via a Peeling mechanism\cite{mitchell2008real}.
+snapshots of $\sim$8sec via a Peeling mechanism\citep{mitchell2008real}.
 They use the sequential deconvolution of several bright sources in
 decreasing order of apparent flux, in order to iteratively fit apparent
 angular offsets induced by ionospheric phase shifts and antenna gains
@@ -379,7 +321,7 @@ for our implementation. The AARTFAAC calibration has a stricter latency
 bound, and its lowered sensitivity and better PSF make an iterative
 deconvolution unattractive.
 
-The LWA\cite{ellingsonLWA1} is co-located with the VLA in New Mexico
+The LWA\citep{ellingsonLWA1} is co-located with the VLA in New Mexico
 (USA). Along with forming beams in real-time (its primary mode of
 operation), it can also operate in an 'All-sky' mode for a single
 tuning of 70 kHz. The calibration of antenna phases utilizes the method
@@ -399,7 +341,7 @@ of a disturbed ionosphere would add a random noise on the parameter
 estimates, while any bias due to ionospheric systematics would probably
 be averaged out over the time period over which the fringe is fitted.
 
-Field-based calibration\cite{cottona2004beyond} is another technique
+Field-based calibration\citep{cottona2004beyond} is another technique
 for direction dependent ionospheric phase calibration, and was developed
 for the VLA 74 MHz observations. Over a time interval of 1-2 mins,
 it measures and converts the apparent position shifts of 5-10 detectable
@@ -534,7 +476,7 @@ consequently appear at lower SNR. The highest spectral resolution
 of 24 kHz would allow a DM limit of \textasciitilde{}200, although
 at a sensitivity a factor $\sim$24 less. An empirical relationship
 between the scatter broadening time due to the Interstellar medium
-and the DM has been derived by \cite{bhat2004multifrequency} and
+and the DM has been derived by \citep{bhat2004multifrequency} and
 implies a DM limit of $\sim$100 at 60 MHz. This upper limit would
 allow larger spectral integrations. The ability to spread subbands
 over the full analog bandwidth allows searching for ultra steep spectrum
@@ -542,7 +484,7 @@ sources, and can aid in distinguishing between terrestrial and celestial
 transient sources. The large spectral baseline will also help in carrying
 out image-based dedispersion in the future.}
 
-\textcolor{red}{A figure of merit for transient detection\cite{cordes2004dynamic}
+\textcolor{red}{A figure of merit for transient detection\citep{cordes2004dynamic}
 is $A\Omega\left(\frac{T}{\Delta t}\right)$, where A is the collecting
 area, $\Omega$ is the solid angle coverage, T is the total duration
 of observation, and $\Delta t$ is the time resolution. Short transient
@@ -556,7 +498,7 @@ the AARTFAAC's FoM is comparable to the LWA, which has similar field
 of view, but would be larger considering the higher temporal and spectral
 resolution, and a lower confusion noise contribution (see Table. \ref{tab:AARTFAAC_specs}). }
 
-Backer \cite{backer1999pers} has shown that the signal to noise ratio
+Backer \citep{backer1999pers} has shown that the signal to noise ratio
 achieved in a continuous widefield search scales with the array filling
 factor $f$ as $\sqrt{f}$. Thus, the highly sampled aperture of the
 AARTFAAC dense array would be an advantage for our application. The
@@ -569,7 +511,7 @@ The latter directly links to the depth of deconvolution being carried
 out, and is elaborated upon in Section \ref{sub:Confusion,-peeling-and}.
 The large number of antennas also make the AARTFAAC a very sensitive
 instrument, with a combined $A_{eff}/T_{sys}$ of \textcolor{red}{$\sim$}0.7
-$m^{2}/K$\cite{wijnholds2011situ}, and an instantaneous thermal
+$m^{2}/K$\citep{wijnholds2011situ}, and an instantaneous thermal
 noise of $\sim$8 Jy, for the standard imaging mode of 1sec/24 kHz.
 This implies that instantaneous images will be confusion noise, and
 not thermal noise limited.
@@ -600,7 +542,8 @@ pipeline. The calibration component of this pipeline is the subject
 of this paper.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{AFAAC_blkdia_latest}
+\centering
+\includegraphics[width=1\textwidth]{Figs/AFAAC_blkdia_latest.png}
 
 \caption{\label{fig:The-AARTFAAC-calibration}The AARTFAAC calibration and
 imaging pipeline within the full ASM flow, and leading onto the transient
@@ -614,10 +557,10 @@ scheme for transient detection}
 
 Here, we present our approach for latency bound, precise calibration
 of the AARTFAAC with a low computational footprint. We use a model-sky
-based, multi-source SelfCal approach\cite{wijnholds2009multisource}.
+based, multi-source SelfCal approach\citep{wijnholds2009multisource}.
 Calibration of an array of identical, wide-field antennas entails
 deriving the direction dependent response of every antenna, each of
-which is excited by multiple, simultaneously present calibrator sources.
+which is excitepd by multiple, simultaneously present calibrator sources.
 The system noise contribution is also estimated, and subtracted while
 calibrating the visibilities. The input to the algorithm is a running
 timeseries of measured visibilities set from all antennas (or the
@@ -657,7 +600,7 @@ band is divided into multiple channels, and the parameter estimation
 is carried out separately per channel. A fundamental assumption is
 that the bandwidth over which the ACM is formed is narrow enough for
 phase rotations to compensate for temporal delays between the reception
-of the signal at different antennas\cite{zatman1998narrow}. This
+of the signal at different antennas\citep{zatman1998narrow}. This
 is appropriate as the maximum time of flight on the longest baseline
 of 350 m (\textasciitilde{}1.16 $\mu s$) is much less than the inverse
 of the typical calibration channel bandwidth of $90$ kHz. 
@@ -668,7 +611,7 @@ of the typical calibration channel bandwidth of $90$ kHz.
 Array calibration can be formulated as a non-linear parameter estimation
 problem, and statistically efficient estimators generated via a Non-linear
 Least Squares approach. Our approach to calibrating a single incoming
-timeslice closely follows that of \cite{wijnholds2009multisource},
+timeslice closely follows that of \citep{wijnholds2009multisource},
 which establishes asymptotically efficient estimators for the model
 parameters via a Maximum-Likelihood (ML) formulation. Given a set
 of $p$ antennas whose locations are known precisely and $q$ calibrator
@@ -712,7 +655,7 @@ matrix.
 
 Due to the difficulty in solving this minimization problem in closed
 form, a numerical optimization based on a weighted least squares covariance
-matching estimation technique (COMET) is utilized \cite{ottersten1998covariance}.
+matching estimation technique (COMET) is utilized \citep{ottersten1998covariance}.
 This is known to lead to estimates that are equivalent to ML estimates
 for a large number of samples, thus being asymptotically efficient
 and reaching the theoretical limit of the error on the estimator,
@@ -761,7 +704,7 @@ relevant for a transient detection instrument, and can be achieved
 to a higher accuracy than an absolute flux extraction. A COMET based
 estimator for the noise covariance has been shown to be well suited
 if a linearly parameterized model of the noise covariance matrix is
-used for this problem\cite{ottersten1998covariance}. However, antennas
+used for this problem\citep{ottersten1998covariance}. However, antennas
 in a crowded array like the AARTFAAC can mutually couple with each
 other, resulting in coloring of the noise. Our noise model also includes
 such effects, and is discussed in more detail in Section \ref{sub:System-noise-estimation}.
@@ -787,7 +730,7 @@ Galatic plane &  &  &  &  & Rogers spectra\tabularnewline
 \hline 
 \end{tabular}}\caption{\label{tab:Details-of-model}Details of model sources used for All-sky
 Selfcal. The $S_{60}$ has been generated using the spectral indices
-of \cite{helmboldt2008radio}, while a secular decrease in the flux
+of \citep{helmboldt2008radio}, while a secular decrease in the flux
 of CasA of -0.8\% has been assumed. }
 \end{table*}
 
@@ -825,7 +768,7 @@ estimation (Minor Cycle)}
 Once an appropriate model for the observed visibilities has been created,
 direction independent gains can be estimated using an appropriate
 estimator. The AARTFAAC calibration is latency bound, hence we implement
-the StefCal\cite{salvini2013stef} algorithm for gain estimation.
+the StefCal\citep{salvini2013stef} algorithm for gain estimation.
 This algorithm scales as $\mathcal{O}(N^{2})$ for N parameters, as
 against the $\mathcal{O}(N^{3})$ scaling of traditional solvers.
 This is primarily due to linearizing the cost function, allowing the
@@ -857,7 +800,7 @@ for their estimation.
 (deconvolved) model source flux are required for model generation.
 This can be framed as a parameter estimation problem, for which a
 closed form estimator based on the COMET approach has been developed
-by \cite{wijnholds2008fundamental} in an approach called Least Squares
+by \citep{wijnholds2008fundamental} in an approach called Least Squares
 Imaging. Here, the array configuration is assumed known to a high
 accuracy, while the number of sources requiring flux estimation is
 assumed to be smaller than the number of resolution elements in the
@@ -889,7 +832,7 @@ Pedestrian language?>}
 \textbf{\emph{Model source position estimation:}}\emph{ }The tracking
 calibration approach also incorporates a Direction of Arrival (DoA)
 algorithm using a vector subspace technique called Weighted Subspace
-Fitting (WSF)\cite{viberg1991detection}. This allows us to estimate
+Fitting (WSF)\citep{viberg1991detection}. This allows us to estimate
 the instantaneous direction of a model source, thus compensating for
 the image wander of the sources due to ionospheric refraction. The
 WSF is an algorithm for determining the directions of multiple narrow-band,
@@ -932,7 +875,7 @@ of DIE estimation are carried out using the latest estimates of the
 other parameters. This is depicted pictorially in Figure. \ref{fig:Block-diagram-depicting}.
 
 \begin{figure}[tbh]
-\includegraphics[width=1\columnwidth]{convergent_cal_blkdia}\caption{\label{fig:Block-diagram-depicting}Block diagram depicting the snapshot
+\includegraphics[width=1\columnwidth]{Figs/convergent_cal_blkdia}\caption{\label{fig:Block-diagram-depicting}Block diagram depicting the snapshot
 iterative calibration control flow in the AARTFAAC optimal calibration
 scheme. }
 \end{figure}
@@ -946,14 +889,14 @@ Both Galactic emission and coupling between closely spaced antennas
 can cause correlation noise on the visibility formed from a pair of
 antennas. Mutual coupling due to the antennas being placed closer
 than half a wavelength at the lower frequencies can result in fluctuation
-of the PSF gain and sidelobe levels as a function of pointing direction\cite{agrawal1972mutual}.
+of the PSF gain and sidelobe levels as a function of pointing direction\citep{agrawal1972mutual}.
 This implies that antenna pattern multiplication (assuming that a
 single element of an array behaves similarly to it being isolated)
 may not apply. Mutual coupling is a short baseline effect, and can
 be ignored between the antennas of the different stations making up
 the AARTFAAC. The impact of mutual coupling to the antenna primary
 beam in the typical LBA\_OUTER mode of observation is expected to
-be $<-17dB$ from simulations\cite{wijnholds2011situ}.
+be $<-17dB$ from simulations\citep{wijnholds2011situ}.
 
 The very bright synchrotron background of the Galactic plane at low
 frequencies also poses problems. Firstly, the total system noise temperature
@@ -961,7 +904,7 @@ being dominated by Galactic emission also leads to correlated noise
 between antennas. This, in turn, again leads to poorer sensitivity
 of the PSF formed by including these baselines as a function of pointing
 direction and away from the zenith compared to the sensitivity expected
-after pattern multiplication, as found by\cite{ellingson2011sensitivity}.
+after pattern multiplication, as found by\citep{ellingson2011sensitivity}.
 They also found that the effect of the galactic correlated noise dominates
 that due to mutual coupling, and is a function of the location of
 the galactic plane within the field of view. The Galactic noise correlation
@@ -978,7 +921,7 @@ brightness needs to be subtracted due to the limited dynamic range
 of the generated images.
 
 The coupling effects and the correlation of galactic noise have been
-phenomenologically modeled by \cite{wijnholds2010self} by an additive
+phenomenologically modeled by \citep{wijnholds2010self} by an additive
 non-diagonal noise covariance matrix (defined over a limited set of
 short baselines) in the measurement equation. An alternating weighted
 least squares approach is taken to estimate the parameters in the
@@ -1018,7 +961,7 @@ hardware, and as such sample different components of the receiver
 bandpass. The ASM generates channel collapsed calibrated visibilities
 for imaging spanning multiple subbands and typically over a MHz. However,
 the LBA bandpass can have variations of upto 80\% from the peak resonance
-at $\sim$$58$ MHz\cite{vanhaarlem2013lofar}.Thus, bandpass calibration
+at $\sim$$58$ MHz\citep{vanhaarlem2013lofar}.Thus, bandpass calibration
 is necessary, and the calibrated visibilities are scaled by the known
 bandpass response of the LBA unilaterally. This is adequate to spectrally
 collapse narrow bandwidths, and allow a multi-frequency synthesis
@@ -1030,7 +973,7 @@ over TODO hours.
 
 The low resolution of the AARTFAAC allows the use of a number of bright
 sources for calibrating visibility amplitudes. Recently, Scaife and
-Heald\cite{scaife2012broad} have modeled the low frequency spectra
+Heald\citep{scaife2012broad} have modeled the low frequency spectra
 of several bright and compact sources to provide a low-frequency,
 broadband flux scale. Their set of six sources span the full RA range,
 while due to the very wide field of view of the AARTFAAC, a few of
@@ -1059,9 +1002,9 @@ is due to ionospheric scintillation, which creates structured noise
 at timescales of 10s of seconds. Another contributor is the error
 in modeling the primary beam. The fluxes from VLSS have been scaled
 to 60 MHz assuming a spectral index of 0.7, while the $S_{60}$ for
-CasA and CygA has been taken using the VLA 74 MHz flux from \cite{kassim200774},
+CasA and CygA has been taken using the VLA 74 MHz flux from \citep{kassim200774},
 with a spectral index (and the frequency dependent secular flux decrease)
-published by Baars et. al. \cite{baars1977absolute} spectral index
+published by Baars et. al. \citep{baars1977absolute} spectral index
 fits. The deviations from published fluxes are acceptable to a transient
 detection system as long as systematics are absent. This is seen to
 be true due to the limited range of fit errors on the calibrated sources.
@@ -1109,7 +1052,7 @@ and environmental parameters.
 \end{itemize}
 An Alternating Least squares approach is already known to have high
 computational efficiency over closed form estimators, as well as fast
-convergence \cite{boonstra2003gain}. Thus this approach is particularly
+convergence \citep{boonstra2003gain}. Thus this approach is particularly
 suitable for our case due to our latency and compute budgets. However,
 Least squares algorithms are quite sensitive to an initial estimate,
 which can otherwise lead to convergence to local minima. Due to the
@@ -1171,7 +1114,7 @@ Table \textcolor{red}{<TODO>}. A schematic view of the tracking calibration
 and its major components is shown in Figure. \textcolor{black}{\ref{fig:trackcalSchematic}.}
 
 \begin{figure}[tbh]
-\includegraphics[width=1\columnwidth]{tracking_cal_schematic}
+\includegraphics[width=1\columnwidth]{Figs/tracking_cal_schematic}
 
 \caption{\label{fig:trackcalSchematic}Schematic view of tracking calibration
 for bounded latency precise calibration.}
@@ -1248,7 +1191,7 @@ A timeslice from Dataset 3 is used for this analysis, and could be
 considered typical in terms of data quality and observing conditions.
 This data is however, affected by significant scintillation, which
 is expected for wide field instruments. The fraction of data affected
-by RFI in the Low Band is surprisingly small\cite{offringa2012lofar},
+by RFI in the Low Band is surprisingly small\citep{offringa2012lofar},
 and is not considered to affect our conclusions. Figure. \ref{fig:Convergence-behaviour-of}
 shows the typical number of major and minor cycle iterations taken
 for convergence via their convergence curves. We see that for a default
@@ -1258,9 +1201,9 @@ to apply tracking calibration for the AARTFAAC.
 
 \begin{figure*}[tbh]
 \subfloat[Typical minor cycle convergence of StefCal in the first major cycle.
-Note the steep slope initially.]{\includegraphics[width=1\columnwidth]{stefcal_convergence_1st_calext}
+Note the steep slope initially.]{\includegraphics[width=1\columnwidth]{Figs/stefcal_convergence_1st_calext}
 
-}\subfloat[Major cycle convergence.]{\includegraphics[width=1\columnwidth]{calext_convergence}
+}\subfloat[Major cycle convergence.]{\includegraphics[width=1\columnwidth]{Figs/calext_convergence}
 
 }
 
@@ -1289,8 +1232,8 @@ unless RFI or other unmodeled sources have a large contribution.
 \begin{figure*}[tbh]
 \subfloat[The cumulative amplitude error of calibrated visibilities relative
 to the fit model on a single timeslice. The higher amplitude deviations
-are caused by the presence of actual, unmodeled sources. ]{\includegraphics[width=1\columnwidth]{amp_err_54873657_cumsum} }\subfloat[The cumulative phase difference of calibrated visibilities after model
-fitting on a single timeslice.]{\includegraphics[width=1\columnwidth]{ph_err_54873657_cumsum}}
+are caused by the presence of actual, unmodeled sources. ]{\includegraphics[width=1\columnwidth]{Figs/amp_err_54873657_cumsum} }\subfloat[The cumulative phase difference of calibrated visibilities after model
+fitting on a single timeslice.]{\includegraphics[width=1\columnwidth]{Figs/ph_err_54873657_cumsum}}
 
 \caption{\label{fig:The-model-amplitude}The amplitude and phase errors of
 calibrated visibilities compared to the fit model. }
@@ -1312,7 +1255,7 @@ than a threshold on the fitting error. The final slopes for the major
 and minor cycle are also shown in the figure. 
 
 \begin{figure*}[tbh]
-\includegraphics[width=0.9\paperwidth]{/Users/peeyush/WORK/AARTFAAC/rawdat/full_conv_newconst/SB000_iter_resid_lsimg_wo_short_blines}
+\includegraphics[width=0.9\paperwidth]{Figs/SB000_iter_resid_lsimg_wo_short_blines}
 
 \caption{\label{fig:Major-and-minor}Number of iterations of major and minor
 cycles, and their error surface slopes after convergence. The first
@@ -1336,7 +1279,7 @@ the model source flux estimates and their positions. The system noise
 is excluded from the comparison.(Why?)
 
 \begin{figure*}[tbh]
-`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{/Users/peeyush/WORK/AARTFAAC/Reobs/11Jul12/LBA_OUTER_BAND_SPREAD/full_track_newconst/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries}The error timeseries of tracking
+`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries}The error timeseries of tracking
 calibration solutions as compared to those obtained after iterating
 to convergence. }
 \end{figure*}
@@ -1379,7 +1322,7 @@ on the short scale, most probably caused due to the ionosphere. This
 limits the ultimate noise on the extracted light-curve. 
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{/Users/peeyush/WORK/AARTFAAC/rawdat/fluxext_figs/SB002_LBA_BAND_SPREAD_figs/avggain_unweightedsigmas/gain_monlightcurves_newafaac_beam}
+\includegraphics[width=1\textwidth]{Figs/gain_monlightcurves_newafaac_beam}
 
 \caption{\textcolor{red}{\label{fig:Light-curves-of}}Light curves of a few
 field sources from images of the calibrated visibilities.}
@@ -1429,7 +1372,7 @@ incomplete. These residual sidelobes increase the background noise
 level, and can introduce spurious structure into the image. 
 
 The very short baselines of the AARTFAAC array were expected to be
-minimally affected by the latter. Recent results \cite{intema2009ionospheric},
+minimally affected by the latter. Recent results \citep{intema2009ionospheric},
 however, have indicated towards the presence of a turbulent layer
 below the peak TEC which has more power in the smaller scale fluctuations
 than in the case of pure Kolmogorov turbulence. This is exacerbated
@@ -1442,7 +1385,7 @@ of each antenna.
 Note that short baselines between closely spaced stations were expected
 to be immune to ionospheric effects, and are expected to play a significant
 role in constraining the calibration of the full LOFAR instrument
-\cite{vdTol2007selfcallofar}. 
+\citep{vdTol2007selfcallofar}. 
 
 During our test observations, the most common effects seen seem to
 be due to small 'bubbles' of turbulent plasma, which are able to affect
@@ -1453,7 +1396,7 @@ on the estimated flux of CasA, over the course of $\sim18$ mins for
 dataset 3.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth,height=4cm]{/Users/peeyush/Documents/ASTRON_Daily_Image/Oct2013/combined_plot_utc_tstamp}
+\includegraphics[width=1\textwidth,height=4cm]{Figs/combined_plot_utc_tstamp}
 
 \caption{\label{fig:Estimated-flux-of}Estimated flux of model sources CasA
 and CygA randomly sampled over \textasciitilde{}7 Hrs. The scintillations
@@ -1470,7 +1413,7 @@ algorithm. Systematic variations of upto 20\% of a PSF are present
 be a strong function of frequency, as expected due to the ionosphere.
 
 \begin{figure}[tbh]
-\includegraphics[width=1.1\columnwidth]{/Users/peeyush/Documents/Posters/2013/MRU_Bonn-Apr13/nighttime_SB0_wsf_deviation_to_SB4_try}
+\includegraphics[width=1.1\columnwidth]{Figs/nighttime_SB0_wsf_deviation_to_SB4_try}
 
 \caption{\label{fig:Deviation-of-the}Deviation of the WSF estimated position
 of 3C461 over \textasciitilde{}1000 sec, as compared to its catalog
@@ -1527,7 +1470,7 @@ by the model source position estimation, while an individual iteration
 of DIE calibration is seen to be quite light-weight.
 
 \begin{figure}[tbh]
-\includegraphics[width=1\columnwidth]{pipeline_profile}\caption{\label{fig:Profile-of-calibration}Profile of calibration pipeline}
+\includegraphics[width=1\columnwidth]{Figs/pipeline_profile}\caption{\label{fig:Profile-of-calibration}Profile of calibration pipeline}
 
 
 \end{figure}
@@ -1554,7 +1497,7 @@ and in conjunction with Figure. \ref{fig:Estimated-flux-of}, show
 a nice segregation of the sources of error into instrumental and observational.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{/Users/peeyush/Documents/ASTRON_Daily_Image/Oct2013/combined_plot_gains}\caption{\label{fig:gain-Temporal-stability}Temporal stability of the complex
+\includegraphics[width=1\textwidth]{Figs/combined_plot_gains}\caption{\label{fig:gain-Temporal-stability}Temporal stability of the complex
 gain of a randomly chosen set of 6 antennas from the 288 AARTFAAC
 antennas over a period of \textasciitilde{}7 hrs.}
 \end{figure*}
@@ -1614,7 +1557,7 @@ term image differences (\textasciitilde{}secs) are enough to reduce
 noise amplitude by 20-30\%.
 
 \begin{figure*}[tbh]
-\includegraphics[width=0.9\paperwidth]{/Users/peeyush/WORK/AARTFAAC/Reobs/11Jul12/LBA_OUTER_BAND_SPREAD/full_conv/diffimg_v1/raw_diff_same_stats/raw_vs_diff_vs_theory}
+\includegraphics[width=0.9\paperwidth]{Figs/raw_vs_diff_vs_theory}
 
 \caption{\label{fig:Reduction-in-image}Reduction in image noise as a function
 of integration time over raw and differenced consecutive image pairs.
@@ -1689,7 +1632,7 @@ paper.>
 
 \subsection{The active Sun}
 
-The quiet Sun is a well-known broadband radio source at tens of MHz\cite{Wild1950Sun},
+The quiet Sun is a well-known broadband radio source at tens of MHz,
 due to black-body radiation from the Corona being in the Rayleigh
 regime \textcolor{red}{<check + ref>}. When active, it can be very
 variable due to Solar bursts, and is characterized by an inverted
@@ -1730,7 +1673,7 @@ The effect of this can be seen as the phases being subsequently brought
 back on track via a convergent calibration.
 
 \begin{figure*}[tbh]
-`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{/Users/peeyush/WORK/AARTFAAC/Reobs/11Jul12/LBA_OUTER_BAND_SPREAD/full_track_newconst/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
+`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
 calibration solutions as compared to those obtained after iterating
 to convergence. }
 \end{figure*}
@@ -1839,7 +1782,7 @@ Thus, the tracking calibration is an appropriate strategy for an autonomous,
 real-time instrument like the AARTFAAC ASM.
 
 
-\section*{Acknowledgments}
+\begin {acknowledgements}
 
 This work was funded by the ERC grant <num> awarded to Prof. Ralph
 Wijers.We thank the LOFAR team for building an extremely configurable
@@ -1848,9 +1791,9 @@ observations for the AARTFAAC. We thank The Netherlands Foundation
 for Radio Astronomy (ASTRON) for support provided in carrying out
 the commissioning observations. Finally, we thank the anonymous referee
 for helpful comments which have increased the clarity of this paper.
-
-\bibliographystyle{plain}
-\bibliography{/Users/peeyush/Documents/Publications/references}
+\end{acknowledgements}
+\bibliographystyle{aa}
+\bibliography{ref}
 
 
 

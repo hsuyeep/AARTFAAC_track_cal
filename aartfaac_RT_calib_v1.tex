@@ -1317,7 +1317,29 @@ operation, we choose a TBP of TODO Hz and TODO sec.
 
 
 \subsection{\label{sub:Computational-performance}Computational performance}
+%* Architectural Independent Description
+%  - Inherent parallelism in the problem
+%  - Data flow, parallelism
+%  - Elaborate on the main hotspot
+%* Architectural Dependent description (GPU, CPU, Eigen)
+%  - Memory footprint (hot cache etc)
+%* Real world numbers
+%  - Hardware specification
+%  - Timings of each individual function as defined in the paper (Fig 2)
+%  - FLOPS, TIME, FCALLS, PERCENTAGES
+%* Computational hardware recommendation
+\begin{enumerate}
+\item{Realtime}
+\item{Parallelism in the problem}
+\item{Dataflow}
+\end{enumerate}
 
+\subsubsection{Architectual dependent description}
+\begin{enumerate}
+\item{Implemented in C++}
+\item{CPU Only (Eigen3)}
+\item{Small memory footprint (hot cache)}
+\end{enumerate}
 The AARTFAAC Real-time  calibration algorithm has been implemented  in C++ using
 Eigen3{[}Eigen  ref{]},   a  high   performance  template  library   for  linear
 algebra. The high throughput pipeline  is built on the Pelican {[}pelican ref{]}
@@ -1329,9 +1351,42 @@ be calibrated  in $\sim$0.8sec on  a single core  of a commodity  processor. The
 computational cost is  dominated by the model source  position estimation, while
 an individual iteration of DIE calibration is seen to be quite light-weight.
 
+\subsubsection{Performance results}
+\begin{enumerate}
+\item{Valid vs invalid data}
+\item{Explain and refer to table}
+\item{std of runtime}
+\end{enumerate}
+\begin{table*}[tbh]
+\center{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Function & Time measured & Time spent & Time measured & Time spent\tabularnewline
+\hline 
+\hline 
+Initialization & Night & 5\%  & Day & -\tabularnewline
+\hline 
+Model source pos est. & Night & 83\%  & Day & -\tabularnewline
+\hline 
+Major cycle & Night & 7\%  & Day & -\tabularnewline
+\hline 
+Minor cycle & Night & 5\%  & Day & -\tabularnewline
+\hline 
+\end{tabular}}
+
+\caption{\label{tab:Performance-results} Overview of the time spent in
+calibration function blocks for various datasets (daytime and nighttime). We
+measured the overall time (flagging, calibrating, imaging) of a single ACM
+to be 250 ms on an Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz per core.}
+\end{table*}
+\textcolor{red}{TODO: Obtain daytime results}
+
+
 %% \begin{figure}[tbh]
 %% \includegraphics[width=1\columnwidth]{Figs/pipeline_profile}\caption{\label{fig:Profile-of-calibration}Profile of calibration pipeline}
 %% \end{figure}
+
+
 
 \subsection{\label{sub:Stability}Stability}
 

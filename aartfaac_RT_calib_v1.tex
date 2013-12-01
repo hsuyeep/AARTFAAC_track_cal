@@ -617,25 +617,39 @@ this  problem\citep{ottersten1998covariance}.  However,  antennas in  a  crowded
 array  like the  AARTFAAC  can mutually  couple  with each  other, resulting  in
 coloring  of the  noise. Our  noise  model also  includes such  effects, and  is
 discussed in more detail in Section \ref{sub:System-noise-estimation}.
-
+\begin{comment}
+ Values  of  A-team   and  galactic  plane  contribution  is   based  on  actual
+ contribution to visibilities in night time data (for CasA/CygA and Galaxy), and
+ day  time data  for  VirA,TauA and  the  Sun.  The  total  power of  calibrated
+ visibilties = sum(abs(acccalgal(:)).^2), where acccalgal = (gainsol' * gainsol)
+ .* acc; The Galactic contribution  = sum (abs(sigman(:)).^2), but also includes
+ the autocorrs, which is  a sum of Tsys and Tsky, and  which cannot be separated
+ without external measurements of Tsys. This explains the high value of galactic
+ contribution, against an expected 40% contribution.  The RAteam contribution is
+ estimated by generating model  visibilities from fluxes estimated by LSimaging,
+ ie, the apparent  flux, and so is elevation dependent.  NOTE  that we dont have
+ observations in which  all Ateam sources are at high  elevations, in which case
+ we multiply their visibility contribution by the approximate beam attenuation.
+    SNR was removed from the table, as it does not provide very much extra information as compared to the total flux contribution from a source.
+\end{comment}
 \begin{table*}[tbh]
 \center{%
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline 
-Src & $S_{60}(Jy)$ & 74 MHz Size  & SNR & \% total flux  & Comment\tabularnewline
+Src & $S_{60}(Jy)$ & 74 MHz Size  & \% total flux  & Comment\tabularnewline
 \hline 
 \hline 
-3C461 (CasA) & 19605.31 & 7' &  &  & Baars spectra, helmboldt decay\tabularnewline
+3C461 (CasA) & 19605.31 & 7' & $\sim$0.04 & Baars spectra, helmboldt decay\tabularnewline
 \hline 
-3C405 (CygA) & 19201.65 & 4.5' &  &  & Baars spectra\tabularnewline
+3C405 (CygA) & 19201.65 & 4.5' & $\sim$0.04 & Baars spectra\tabularnewline
 \hline 
-3C144 (TauA) & 2417.31 & 8' &  &  & Baars spectra\tabularnewline
+3C144 (TauA) & 2417.31 & 8' &  & Baars spectra\tabularnewline
 \hline 
-3C274 (VirA) & 1656.46 & 14' &  &  & Helmboldt spectra\tabularnewline
+3C274 (VirA) & 1656.46 & 14' & $\sim$0.006& Helmboldt spectra\tabularnewline
 \hline 
-Sun (active) &  &  &  &  & \tabularnewline
+Sun (quiet) &  &  & $\sim$0.06 & \tabularnewline
 \hline 
-Galatic plane &  &  &  &  & Rogers spectra\tabularnewline
+Galatic plane &  &  & $\sim$85.5 & Rogers spectra\tabularnewline
 \hline 
 \end{tabular}}
 \caption{\label{tab:Details-of-model}Details of  model sources used  for All-sky
@@ -761,11 +775,12 @@ within each Major cycle, multiple Minor cycles of DIE estimation are carried out
 using the latest estimates of the other parameters. This is depicted pictorially
 in Figure \ref{fig:Block-diagram-depicting}.
 
-\begin{figure}[tbh]
-\includegraphics[width=1\columnwidth]{Figs/convergent_cal_blkdia}\caption{\label{fig:Block-diagram-depicting}Block diagram depicting the snapshot
+\begin{figure*}[tbh]
+\centering
+\includegraphics[width=0.8\textwidth]{Figs/Fig2_blkdiag}\caption{\label{fig:Block-diagram-depicting}Block diagram depicting the snapshot
 iterative calibration control flow in the AARTFAAC optimal calibration
 scheme. }
-\end{figure}
+\end{figure*}
 
 \subsubsection{\label{sub:System-noise-estimation}System noise estimation in the
 presence of Galactic emission and antenna mutual coupling}
@@ -1075,16 +1090,16 @@ curve. This is a motivation to apply tracking calibration for the AARTFAAC.
 %% and Minor cycles of an instantaneous calibration.}
 %% \end{figure*}
 
-\begin{figure*}[tbh]
-\centering
-\includegraphics[width=1\textwidth]{Figs/major_minor_cycle_conv.png}
+\begin{figure}[tbh]
+%% \centering
+\includegraphics[width=1\columnwidth]{Figs/major_minor_cycle_conv.png}
 
 \caption{\label{fig:Convergence-behaviour-of}Typical   major  and   minor  cycle
   convergence rates on  a single timeslice. The stars  indicate calibration with
   no prior knowledge of gain solutions, as used in convergent calibration, while
   the diamonds  show the convergence rate after  pre-initializing with solutions
   from a previous timeslice.}
-\end{figure*}
+\end{figure}
 
 \textbf{\emph{Model efficacy:  }}The parameters of the  brightest sources making
 up  the sky  model are  given  in Table.  \ref{tab:Details-of-model}, where  the
@@ -1105,8 +1120,7 @@ have a large contribution.
 \begin{figure*}[tbh]
 \subfloat[The cumulative amplitude error of calibrated visibilities relative
 to the fit model on a single timeslice. The higher amplitude deviations
-are caused by the presence of actual, unmodeled sources. ]{\includegraphics[width=1\columnwidth]{Figs/amp_err_54873657_cumsum} }\subfloat[The cumulative phase difference of calibrated visibilities after model
-fitting on a single timeslice.]{\includegraphics[width=1\columnwidth]{Figs/ph_err_54873657_cumsum}}
+are caused by the presence of actual, unmodeled sources. ]{\includegraphics[width=1\columnwidth]{Figs/model_efficacy} }\subfloat[Model error as a function of point source model complexity.]{\includegraphics[width=1\columnwidth]{Figs/ph_err_54873657_cumsum}}
 
 \caption{\label{fig:The-model-amplitude}The amplitude and phase errors of
 calibrated visibilities compared to the fit model. }
@@ -1127,7 +1141,7 @@ error. The  final slopes for  the major  and minor cycle  are also shown  in the
 figure.
 
 \begin{figure*}[tbh]
-\includegraphics[width=0.9\paperwidth]{Figs/SB000_iter_resid_lsimg_wo_short_blines}
+\includegraphics[width=0.7\textwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter}
 
 \caption{\label{fig:Major-and-minor}Number of iterations of major and minor
 cycles, and their error surface slopes after convergence. The first
@@ -1150,7 +1164,7 @@ parameters consisting  of DIE gains, the  model source flux  estimates and their
 positions. The system noise is excluded from the comparison.(Why?)
 
 \begin{figure*}[tbh]
-`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries}The error timeseries of tracking
+`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/cmpcalsol}}\caption{\label{fig:The-error-timeseries}The error timeseries of tracking
 calibration solutions as compared to those obtained after iterating
 to convergence. }
 \end{figure*}
@@ -1192,7 +1206,7 @@ due  to  the  ionosphere.  This  limits  the ultimate  noise  on  the  extracted
 light-curve.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{Figs/gain_monlightcurves_newafaac_beam}
+\includegraphics[width=1\textwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_6_convcal_7_el_fftimg_bin_save_mat_tseries}
 
 \caption{\textcolor{red}{\label{fig:Light-curves-of}}Light curves of a few
 field sources from images of the calibrated visibilities.}
@@ -1260,12 +1274,14 @@ brightest     sources,     as    well     as     position    wander.      Figure
 flux of CasA, over the course of $\sim18$ mins for dataset 3.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth,height=4cm]{Figs/combined_plot_utc_tstamp}
+\center{
+\includegraphics[width=\textwidth]{Figs/combined_plot_portrait}
 
 \caption{\label{fig:Estimated-flux-of}Estimated flux  of model sources  CasA and
   CygA randomly sampled over \textasciitilde{}7 Hrs. The scintillations point to
   ionospheric electron  fluctuations with linear  sizes comparable to  the short
   baseline lengths of the AARTFAAC.}
+}
 \end{figure*}
 
 
@@ -1277,7 +1293,7 @@ sufficient t cause a calibration bias?), and are seen to be a strong function of
 frequency, as expected due to the ionosphere.
 
 \begin{figure}[tbh]
-\includegraphics[width=1.1\columnwidth]{Figs/nighttime_SB0_wsf_deviation_to_SB4_try}
+\includegraphics[width=1\columnwidth]{Figs/CasAsrcposoff}
 
 \caption{\label{fig:Deviation-of-the}Deviation of the WSF estimated position
 of 3C461 over \textasciitilde{}1000 sec, as compared to its catalog
@@ -1407,7 +1423,7 @@ the instrument to different observing conditions, and in conjunction with Figure
 into instrumental and observational.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{Figs/combined_plot_gains}\caption{\label{fig:gain-Temporal-stability}Temporal stability of the complex
+\includegraphics[width=1\textwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol_bin_gains.png}\caption{\label{fig:gain-Temporal-stability}Temporal stability of the complex
 gain of a randomly chosen set of 6 antennas from the 288 AARTFAAC
 antennas over a period of \textasciitilde{}7 hrs.}
 \end{figure*}
@@ -1562,7 +1578,7 @@ minutes.   The effect  of this  can  be seen  as the  phases being  subsequently
 brought back on track via a convergent calibration.
 
 \begin{figure*}[tbh]
-`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
+`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/cmpcalsol}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
 calibration solutions as compared to those obtained after iterating
 to convergence. }
 \end{figure*}

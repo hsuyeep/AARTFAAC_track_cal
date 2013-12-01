@@ -12,3 +12,6 @@ clean:
 	rm aartfaac_RT_calib_v1.aux
 	rm aartfaac_RT_calib_v1.blg
 	rm aartfaac_RT_calib_v1.bbl
+
+figs: *.m
+	matlab -nodesktop -noFigureWindows -nosplash plt*.m

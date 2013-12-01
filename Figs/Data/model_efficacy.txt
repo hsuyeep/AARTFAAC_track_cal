@@ -1,0 +1,16 @@
+% Model efficacy is computed as the frobenius norm of the residual ACM after
+% the ACM has been differenced.
+% Values generated from:
+% fid = fopen ('~/WORK/AARTFAAC/Reobs/11Jul12/LBA_OUTER_BAND_SPREAD/SB002_LBA_\
+% OUTER_SPREAD_1ch.bin', 'rb'); as the norm (accsubAteam, 'fro'), after adding 
+% bright sources in decreasing order of flux.
+% Note that this particular dataset had only CasA and CygA visible among the 
+% A-team sources. The remaining two sources were 410 and 230 Jy.
+% src. in model  flux      norm
+% (3CR offsets)
+ 324             11000     3.5472
+ 283              8100	   0.8500
+ 287               410     0.8498
+ 285               230     0.8478
+
+

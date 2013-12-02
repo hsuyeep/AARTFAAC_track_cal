@@ -1,4 +1,5 @@
 pdf:aartfaac_RT_calib_v1.tex ref.bib
+	make -i clean
 	pdflatex aartfaac_RT_calib_v1
 	bibtex aartfaac_RT_calib_v1
 	pdflatex aartfaac_RT_calib_v1

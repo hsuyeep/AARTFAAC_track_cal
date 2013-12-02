@@ -1090,16 +1090,16 @@ curve. This is a motivation to apply tracking calibration for the AARTFAAC.
 %% and Minor cycles of an instantaneous calibration.}
 %% \end{figure*}
 
-\begin{figure*}[tbh]
-\centering
-\includegraphics[width=0.8\textwidth]{Figs/major_minor_cycle_conv.png}
+\begin{figure}[tbh]
+%% \centering
+\includegraphics[width=1\columnwidth]{Figs/major_minor_cycle_conv.png}
 
 \caption{\label{fig:Convergence-behaviour-of}Typical   major  and   minor  cycle
   convergence rates on  a single timeslice. The stars  indicate calibration with
   no prior knowledge of gain solutions, as used in convergent calibration, while
   the diamonds  show the convergence rate after  pre-initializing with solutions
   from a previous timeslice.}
-\end{figure*}
+\end{figure}
 
 \textbf{\emph{Model efficacy:  }}The parameters of the  brightest sources making
 up  the sky  model are  given  in Table.  \ref{tab:Details-of-model}, where  the
@@ -1120,8 +1120,7 @@ have a large contribution.
 \begin{figure*}[tbh]
 \subfloat[The cumulative amplitude error of calibrated visibilities relative
 to the fit model on a single timeslice. The higher amplitude deviations
-are caused by the presence of actual, unmodeled sources. ]{\includegraphics[width=1\columnwidth]{Figs/amp_err_54873657_cumsum} }\subfloat[The cumulative phase difference of calibrated visibilities after model
-fitting on a single timeslice.]{\includegraphics[width=1\columnwidth]{Figs/ph_err_54873657_cumsum}}
+are caused by the presence of actual, unmodeled sources. ]{\includegraphics[width=1\columnwidth]{Figs/model_efficacy} }\subfloat[Model error as a function of point source model complexity.]{\includegraphics[width=1\columnwidth]{Figs/ph_err_54873657_cumsum}}
 
 \caption{\label{fig:The-model-amplitude}The amplitude and phase errors of
 calibrated visibilities compared to the fit model. }
@@ -1142,7 +1141,7 @@ error. The  final slopes for  the major  and minor cycle  are also shown  in the
 figure.
 
 \begin{figure*}[tbh]
-\includegraphics[width=0.9\paperwidth]{Figs/SB000_iter_resid_lsimg_wo_short_blines}
+\includegraphics[width=0.7\textwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter}
 
 \caption{\label{fig:Major-and-minor}Number of iterations of major and minor
 cycles, and their error surface slopes after convergence. The first
@@ -1165,7 +1164,7 @@ parameters consisting  of DIE gains, the  model source flux  estimates and their
 positions. The system noise is excluded from the comparison.(Why?)
 
 \begin{figure*}[tbh]
-`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries}The error timeseries of tracking
+`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/cmpcalsol}}\caption{\label{fig:The-error-timeseries}The error timeseries of tracking
 calibration solutions as compared to those obtained after iterating
 to convergence. }
 \end{figure*}
@@ -1207,7 +1206,7 @@ due  to  the  ionosphere.  This  limits  the ultimate  noise  on  the  extracted
 light-curve.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{Figs/gain_monlightcurves_newafaac_beam}
+\includegraphics[width=1\textwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_6_convcal_7_el_fftimg_bin_save_mat_tseries}
 
 \caption{\textcolor{red}{\label{fig:Light-curves-of}}Light curves of a few
 field sources from images of the calibrated visibilities.}
@@ -1276,7 +1275,7 @@ flux of CasA, over the course of $\sim18$ mins for dataset 3.
 
 \begin{figure*}[tbh]
 \center{
-\includegraphics[width=0.8\textwidth]{Figs/combined_plot_portrait}
+\includegraphics[width=\textwidth]{Figs/combined_plot_portrait}
 
 \caption{\label{fig:Estimated-flux-of}Estimated flux  of model sources  CasA and
   CygA randomly sampled over \textasciitilde{}7 Hrs. The scintillations point to
@@ -1294,7 +1293,7 @@ sufficient t cause a calibration bias?), and are seen to be a strong function of
 frequency, as expected due to the ionosphere.
 
 \begin{figure}[tbh]
-\includegraphics[width=1.1\columnwidth]{Figs/nighttime_SB0_wsf_deviation_to_SB4_try}
+\includegraphics[width=1\columnwidth]{Figs/CasAsrcposoff}
 
 \caption{\label{fig:Deviation-of-the}Deviation of the WSF estimated position
 of 3C461 over \textasciitilde{}1000 sec, as compared to its catalog
@@ -1345,35 +1344,36 @@ operation, we choose a TBP of TODO Hz and TODO sec.
 %  - Timings of each individual function as defined in the paper (Fig 2)
 %  - FLOPS, TIME, FCALLS, PERCENTAGES
 %* Computational hardware recommendation
-\begin{enumerate}
-\item{Realtime}
-\item{Parallelism in the problem}
-\item{Dataflow}
-\end{enumerate}
+The AARTFAAC All-sky monitor is a realtime system, meaning we need to keep up
+with the incomming datastreams from the correlator. Each stream represents a
+subband which itself holds a number of channels. A single channel corresponds
+to a single ACM, or set of visibilties we calibrate. \\
+As such, we can process each subband independently and each channel within a
+subband independently for that subband, giving us two stages of parallellism.
 
 \subsubsection{Architectual dependent description}
-\begin{enumerate}
-\item{Implemented in C++}
-\item{CPU Only (Eigen3)}
-\item{Small memory footprint (hot cache)}
-\end{enumerate}
-The AARTFAAC Real-time  calibration algorithm has been implemented  in C++ using
-Eigen3{[}Eigen  ref{]},   a  high   performance  template  library   for  linear
-algebra. The high throughput pipeline  is built on the Pelican {[}pelican ref{]}
-framework, which is suitable for creating a loosely coupled worker pool fed by a
-single    server    in    a    First    come   first    serve    mode.    Figure
-\ref{fig:Profile-of-calibration}   depicts   the  implementation   computational
-profile while calibrating a single time/frequency unit to convergence, which can
-be calibrated  in $\sim$0.8sec on  a single core  of a commodity  processor. The
-computational cost is  dominated by the model source  position estimation, while
-an individual iteration of DIE calibration is seen to be quite light-weight.
+For our implementation we chose a cpu based approach using C++ as the main
+language in combination with Eigen3 (TODO REF), a C++ high performance template
+library for linear algebra. \\
+The high throughput pipeline is built on the Pelican (TODO REF) framework,
+which is suitable for creating a loosely coupled realtime worker pool
+(pipelines), fed by a single server in a first come, first served mode.  Each
+pipeline receives a single subband for timestep $t$ from the server, next it
+flags bad antennae and calibrates each individual channel per thread and
+finally creates a single image by combining the channels again.
 
 \subsubsection{Performance results}
-\begin{enumerate}
-\item{Valid vs invalid data}
-\item{Explain and refer to table}
-\item{std of runtime}
-\end{enumerate}
+As the system processes a channel per cpu i.e. per thread, we define the
+performance as the processing time of a single channel. See table
+\ref{tab:Performance-results}, for an overview of the time spent the various
+calibration functions. Note that these timings were obtained for data that has
+a calibration solution. When no solution is found, the timings depend on the
+maximum number of iterations allowed in both the minor and major cycle. \\
+The computational cost is dominated by the model source position estimation,
+while an individual iteration of DIE calibration is seen to be quite
+light-weight. We measured the total time (flagging, calibration, imaging) of a
+subband with $N$ channels using $N$ cpus to be $250$ milliseconds on a Intel(R)
+Core(TM) i7-2600 CPU @ 3.40GHz.
 \begin{table*}[tbh]
 \center{%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1393,10 +1393,10 @@ Minor cycle & Night & 5\%  & Day & -\tabularnewline
 
 \caption{\label{tab:Performance-results} Overview of the time spent in
 calibration function blocks for various datasets (daytime and nighttime). We
-measured the overall time (flagging, calibrating, imaging) of a single ACM
-to be 250 ms on an Intel(R) Core(TM) i7-2600 CPU @ 3.40GHz per core.}
+measured the overall time (flagging, calibrating, imaging) of an ACM to
+be 250 ms ($\sigma = 15$) using current generation hardware.}
 \end{table*}
-\textcolor{red}{TODO: Obtain daytime results}
+\textcolor{red}{TODO: Obtain daytime results, explain difference}
 
 
 %% \begin{figure}[tbh]
@@ -1424,7 +1424,7 @@ the instrument to different observing conditions, and in conjunction with Figure
 into instrumental and observational.
 
 \begin{figure*}[tbh]
-\includegraphics[width=1\textwidth]{Figs/combined_plot_gains}\caption{\label{fig:gain-Temporal-stability}Temporal stability of the complex
+\includegraphics[width=1\textwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol_bin_gains.png}\caption{\label{fig:gain-Temporal-stability}Temporal stability of the complex
 gain of a randomly chosen set of 6 antennas from the 288 AARTFAAC
 antennas over a period of \textasciitilde{}7 hrs.}
 \end{figure*}
@@ -1579,7 +1579,7 @@ minutes.   The effect  of this  can  be seen  as the  phases being  subsequently
 brought back on track via a convergent calibration.
 
 \begin{figure*}[tbh]
-`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/SB002_LBA_OUTER_BAND_SPREAD_0200_gainerr}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
+`\center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/cmpcalsol}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
 calibration solutions as compared to those obtained after iterating
 to convergence. }
 \end{figure*}

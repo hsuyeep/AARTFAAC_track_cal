@@ -18,13 +18,28 @@ for ind = 1:nsrcs
 %       dat0 (isnan(peakfl(ind,:)) == 0) = dat;
 %       plot (dat0); grid on; axis tight;
         plot (tseries (:, 1)/86400 + num, tseries (:, ind+1), char (col(1))); 
+%       plot (tseries (:, ind+1), char (col(1))); 
 % 		hold on;
 		grid on; axis tight;  
 		ylim ([0 20]);
         legend (sprintf ('%s', srcname{ind}));
 		datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
-end
+end;
 
-	[pathstr, name, ext] = fileparts (fname);	
-	print (gcf, strcat (strrep (strcat (name, ext), '.', '_'), '.png'), '-dpng'); 
-% print (gcf, '../SB002_LBA_OUTER_SPREAD_1ch_6_convcal_7_el_fftimg.bin_save.mat.tseries.png', '-dpng');
+samexaxis ('join');
+p=mtit('Light curves of bright field sources',...
+	   'xoff',-.07,'yoff',.015);
+% suplabel ('Light curves of bright field sources', 't');
+xlabel ('UTC past 00:00, 12Jul12');
+suplabel ('Flux (arbit.)', 'y');
+[pathstr, name, ext] = fileparts (fname);	
+printfig (strcat (strrep (strcat (name, ext), '.', '_')), 7, 7);
+
+% Plot histograms of each light curve separately as subplots
+figure;
+for ind = 1:nsrcs
+        subplot (1, nsrcs, ind);
+		hist (tseries (:, ind+1), 20);
+end;
+		
+%print (gcf, strcat (strrep (strcat (name, ext), '.', '_'), '.png'), '-dpng'); 

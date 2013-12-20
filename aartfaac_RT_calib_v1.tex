@@ -1352,17 +1352,18 @@ Finally all channels within a pipline are imaged and combined into an image
 cube for further analysis.}
 \end{figure}
 
-\subsubsection{Architectual dependent description}
-As the calibration algorithm's major, minor cycle and the WSF are iterative in
-nature, we chose a cpu based approach using C++ as the main language in
-combination with Eigen3 \citep{eigenweb}. Eigen 3 is A high performance
-template library for linear algebra with a clean and expressive API. \\
-The high throughput pipeline is built on the Pelican (TODO REF)
-framework, which is suitable for creating a loosely coupled realtime worker
-pool (pipelines), fed by a single server in a first come, first served mode.
-Each pipeline receives a single subband for timestep $t$ from the server, next
-it flags bad antennae and calibrates each individual channel per thread and
-finally creates a single image by combining the channels again, see Figure
+\subsubsection{Implementation details}
+As the calibration algorithm's major, minor cycle and the WSF (Nelder-Mead
+Simplex) are iterative in nature, we chose a cpu based approach using C++ as
+the main language in combination with Eigen3 \citep{eigenweb}. Eigen 3 is A
+high performance template library for linear algebra with a clean and
+expressive API. \\
+The high throughput pipeline is built on the Pelican (TODO REF) framework,
+which is suitable for creating a loosely coupled realtime worker pool
+(pipelines), fed by a single server in a first come, first served mode.  Each
+pipeline receives a single subband for timestep $t$ from the server, next it
+flags bad antennae and calibrates each individual channel per thread. Finally a
+single image is created by combining the channels again, see Figure
 \ref{fig:pipeline}.
 
 \subsubsection{Performance results}

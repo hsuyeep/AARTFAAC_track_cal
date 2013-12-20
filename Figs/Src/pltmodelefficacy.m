@@ -11,4 +11,4 @@ ylabel ('$\|$Model residue$\|_{Frob}$ ', 'Interpreter','Latex');
 title ('Model residue Vs. model complexity ');
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
-print (gcf, '../model_efficacy.png', '-dpng');
+print (gcf, '../model_efficacy.png', '-dpng', '-r300');

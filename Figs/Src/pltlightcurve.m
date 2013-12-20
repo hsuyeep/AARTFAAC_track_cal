@@ -24,6 +24,8 @@ for ind = 1:nsrcs
 		ylim ([0 20]);
         legend (sprintf ('%s', srcname{ind}));
 		datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+		set(gca,'FontSize', 16,'fontWeight','bold')
+		set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 end;
 
 samexaxis ('join');
@@ -32,8 +34,12 @@ p=mtit('Light curves of bright field sources',...
 % suplabel ('Light curves of bright field sources', 't');
 xlabel ('UTC past 00:00, 12Jul12');
 suplabel ('Flux (arbit.)', 'y');
+set(gca,'FontSize', 16,'fontWeight','bold')
+set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 [pathstr, name, ext] = fileparts (fname);	
-printfig (strcat (strrep (strcat (name, ext), '.', '_')), 7, 7);
+print (gcf, strcat (strrep (strcat (name, ext), '.', '_'), '.png'), '-dpng', '-r300'); 
+
+% printfig (strcat (strrep (strcat (name, ext), '.', '_')), 7, 7);
 
 % Plot histograms of each light curve separately as subplots
 figure;

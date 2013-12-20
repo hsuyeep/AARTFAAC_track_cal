@@ -8,12 +8,18 @@ num = mjdsec2datenum (t_first); % Convert time of first rec. to datenum
 
 figure;
 %    subplot (2,2,1)
-	subplot (121);
     plot (iter(:,1)/86400.+num, iter(:,2), 'ob');
     title ('Major cycle iterations   ');
     axis tight; grid on;
     datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
     xlabel (sprintf ('UTC past %s', datestr(num, 1))); % For datetick
+	ylabel ('Number of iterations  ');
+	set(gca,'FontSize', 16,'fontWeight','bold')
+	set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
+	[pathstr, name, ext] = fileparts (fname);	
+    % printfig (strcat (strrep (strcat (name, ext), '.', '_')), 8, 4);
+    print (strcat (strrep (strcat (name, ext), '.', '_'), '_major'), '-dpng', '-r300');
+
 %   hist (caliter(1,:));
 %   title ('Histogram of cal_ext iterations');
 %    subplot (2,2,2)
@@ -26,12 +32,15 @@ figure;
 %   title ('Histogram of stefcal iterations');
         
 %    subplot (2,2,3) 
-    subplot (122) 
     plot (iter(:,1)/86400.+num, iter(:,4), 'ob');
     title ('Minor cycle iterations   ');
     axis tight; grid on;
     datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
     xlabel (sprintf ('UTC past %s', datestr(num, 1))); % For datetick
+	ylabel ('Number of iterations  ');
+	set(gca,'FontSize', 16,'fontWeight','bold')
+	set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
+    print (strcat (strrep (strcat (name, ext), '.', '_'), '_minor'), '-dpng', '-r300');
 
 %    subplot (2,2,4)
 %    plot (iter(:,1)/86400.+num, iter(:,5), 'ob');
@@ -40,8 +49,8 @@ figure;
 %    datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 %    xlabel (sprintf ('UTC past %s', datestr(num, 1))); % For datetick
 
-	set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
-	[pathstr, name, ext] = fileparts (fname);	
-    printfig (strcat (strrep (strcat (name, ext), '.', '_')), 8, 4);
+%	set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
+%	[pathstr, name, ext] = fileparts (fname);	
+%    printfig (strcat (strrep (strcat (name, ext), '.', '_')), 8, 4);
 	% print (gcf, strcat (strrep (strcat (name, ext), '.', '_'), '.png'), '-dpng'); 
 	

@@ -11,7 +11,8 @@ ylabel ('MSE Phase error (rad)');
 hold on;
 grid on;
 axis tight;
-title ('Temporal variation of relative error between calib. sols (Phase + all params).');
+title ('Temporal variation of phase error between calib. sols.');
 datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
-
-print (gcf, '../cmpcalsol.png', '-dpng');
+set(gca,'FontSize', 16,'fontWeight','bold')
+set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
+print (gcf, '../cmpcalsol.png', '-dpng', '-r300');

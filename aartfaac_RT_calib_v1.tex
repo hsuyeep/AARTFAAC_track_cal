@@ -1532,7 +1532,7 @@ The computational cost is dominated by the model source position estimation,
 while an individual iteration of DIE calibration is seen to be quite
 light-weight. We measured the total time (flagging, calibration, imaging) of a
 subband with $N$ channels using $N$ cpus to be $250$ ms ($\sigma = 15$) for
-nighttime data and $TODO$ ms ($\sigma = TODO$) for daytime data on a Intel(R)
+nighttime data and $1700$ ms ($\sigma = 100$) for daytime data on a Intel(R)
 Core(TM) i7-2600 CPU @ 3.40GHz.
 \begin{table*}[tbh]
 \center{%
@@ -1541,27 +1541,22 @@ Core(TM) i7-2600 CPU @ 3.40GHz.
 Function & Time measured & Time spent & Time measured & Time spent\tabularnewline
 \hline 
 \hline 
-Initialization & Night & 5\%  & Day & -\tabularnewline
+Initialization & Night & 5\%  & Day & 3\%\tabularnewline
 \hline 
-Model source pos est. & Night & 83\%  & Day & -\tabularnewline
+Model source pos est. & Night & 83\%  & Day & 92\%\tabularnewline
 \hline 
-Major cycle & Night & 7\%  & Day & -\tabularnewline
+Major cycle & Night & 7\%  & Day & 4\%\tabularnewline
 \hline 
-Minor cycle & Night & 5\%  & Day & -\tabularnewline
+Minor cycle & Night & 5\%  & Day & 1\%\tabularnewline
 \hline 
 \end{tabular}}
 
 \caption{\label{tab:Performance-results} Overview of the time spent in
 calibration function blocks for various datasets (daytime and nighttime). We
 measured the overall time (flagging, calibrating, imaging) of an ACM to be
-$250$ ms ($\sigma = 15$) for nighttime data and $1700$ ms ($\sigma 200$) for
+$250$ ms ($\sigma = 15$) for nighttime data and $1700$ ms ($\sigma = 100$) for
 daytime data using current generation hardware.}
 \end{table*}
-\textcolor{red}{TODO: Obtain daytime results, explain difference}
-%% \begin{figure}[tbh]
-%% \includegraphics[width=1\columnwidth]{Figs/pipeline_profile}\caption{\label{fig:Profile-of-calibration}Profile of calibration pipeline}
-%% \end{figure}
-
 
 \section{\label{sec:Challenges-to-tracking}Challenges to tracking calibration}
 

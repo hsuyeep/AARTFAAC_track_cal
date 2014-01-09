@@ -19,10 +19,11 @@ for ant=2:96:576 % Plot only one antenna per station
 	plot ((gtseries (:,1)-t_first)/86400.+num, gtseries (:,(antoff+ant)), char(col(colind)));
 	hold on;
 	colind = colind + 1;
+	fprintf (1, 'Ant: %d, mean ph: %f, var phase: %f\n', ant, mean(gtseries(:,(antoff+ant))), std (gtseries (:, (antoff+ant))));
 end;
 xlabel (sprintf ('UTC past %s', datestr(num, 1))); ylabel ('Phase (rad)');
 axis tight; grid on;
-% datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 
@@ -35,6 +36,7 @@ for ant=3:96:576 % Plot only one antenna per station
 	% plot (gtseries (:,(antoff+ant)), char(col(colind)));
 	plot ((gtseries (:,1)-t_first)/86400.+num, gtseries (:,(antoff+ant)), char(col(colind)));
 	hold on;
+	fprintf (1, 'Ant: %d, mean gain: %f, var gain: %f\n', ant, mean(gtseries(:,(antoff+ant))), std (gtseries (:, (antoff+ant))));
 	colind = colind + 1;
 end;
 %%% USE THIS axis setting ONLY FOR DAWN DATA

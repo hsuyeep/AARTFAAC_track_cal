@@ -7,8 +7,9 @@ grid on;
 xlabel ('Number of model sources  ');
 set (gca, 'XTick', [1, 2, 3, 4]);
 % ylabel ('$\|Model residue\|_Frob', 'Interpreter','Latex');
-ylabel ('$\|$Model residue$\|_{Frob}$ ', 'Interpreter','Latex');
+% NOTE: from http://www.mathworks.com/matlabcentral/answers/100493
+ylabel ('{\boldmath$\|$Model residue$\|_{Frob}$} ', 'Interpreter','Latex');
 title ('Model residue Vs. model complexity ');
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
-print (gcf, '../model_efficacy.png', '-dpng', '-r300');
+print (gcf, '../model_efficacy.eps', '-depsc', '-r300');

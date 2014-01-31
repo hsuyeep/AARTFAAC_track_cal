@@ -1,0 +1,1162 @@
+%!PS-Adobe-2.0 EPSF-1.2
+%%Creator: MATLAB, The MathWorks, Inc. Version 7.14.0.739 (R2012a). Operating System: Darwin 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011; root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64.
+%%Title: ../cmpcalsol.eps
+%%CreationDate: 01/31/2014  11:00:58
+%%DocumentNeededFonts: Helvetica-Bold
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%Extensions: CMYK
+%%Pages: 1
+%%BoundingBox:    42   180   575   613
+%%EndComments
+
+%%BeginProlog
+% MathWorks dictionary
+/MathWorks 160 dict begin
+% definition operators
+/bdef {bind def} bind def
+/ldef {load def} bind def
+/xdef {exch def} bdef
+/xstore {exch store} bdef
+% operator abbreviations
+/c  /clip ldef
+/cc /concat ldef
+/cp /closepath ldef
+/gr /grestore ldef
+/gs /gsave ldef
+/mt /moveto ldef
+/np /newpath ldef
+/cm /currentmatrix ldef
+/sm /setmatrix ldef
+/rm /rmoveto ldef
+/rl /rlineto ldef
+/s {show newpath} bdef
+/sc {setcmykcolor} bdef
+/sr /setrgbcolor ldef
+/sg /setgray ldef
+/w /setlinewidth ldef
+/j /setlinejoin ldef
+/cap /setlinecap ldef
+/rc {rectclip} bdef
+/rf {rectfill} bdef
+% page state control
+/pgsv () def
+/bpage {/pgsv save def} bdef
+/epage {pgsv restore} bdef
+/bplot /gsave ldef
+/eplot {stroke grestore} bdef
+% orientation switch
+/portraitMode 0 def /landscapeMode 1 def /rotateMode 2 def
+% coordinate system mappings
+/dpi2point 0 def
+% font control
+/FontSize 0 def
+/FMS {/FontSize xstore findfont [FontSize 0 0 FontSize neg 0 0]
+  makefont setfont} bdef
+/reencode {exch dup where {pop load} {pop StandardEncoding} ifelse
+  exch dup 3 1 roll findfont dup length dict begin
+  { 1 index /FID ne {def}{pop pop} ifelse } forall
+  /Encoding exch def currentdict end definefont pop} bdef
+/isroman {findfont /CharStrings get /Agrave known} bdef
+/FMSR {3 1 roll 1 index dup isroman {reencode} {pop pop} ifelse
+  exch FMS} bdef
+/csm {1 dpi2point div -1 dpi2point div scale neg translate
+ dup landscapeMode eq {pop -90 rotate}
+  {rotateMode eq {90 rotate} if} ifelse} bdef
+% line types: solid, dotted, dashed, dotdash
+/SO { [] 0 setdash } bdef
+/DO { [.5 dpi2point mul 4 dpi2point mul] 0 setdash } bdef
+/DA { [6 dpi2point mul] 0 setdash } bdef
+/DD { [.5 dpi2point mul 4 dpi2point mul 6 dpi2point mul 4
+  dpi2point mul] 0 setdash } bdef
+% macros for lines and objects
+/L {lineto stroke} bdef
+/MP {3 1 roll moveto 1 sub {rlineto} repeat} bdef
+/AP {{rlineto} repeat} bdef
+/PDlw -1 def
+/W {/PDlw currentlinewidth def setlinewidth} def
+/PP {closepath eofill} bdef
+/DP {closepath stroke} bdef
+/MR {4 -2 roll moveto dup  0 exch rlineto exch 0 rlineto
+  neg 0 exch rlineto closepath} bdef
+/FR {MR stroke} bdef
+/PR {MR fill} bdef
+/L1i {{currentfile picstr readhexstring pop} image} bdef
+/tMatrix matrix def
+/MakeOval {newpath tMatrix currentmatrix pop translate scale
+0 0 1 0 360 arc tMatrix setmatrix} bdef
+/FO {MakeOval stroke} bdef
+/PO {MakeOval fill} bdef
+/PD {currentlinewidth 2 div 0 360 arc fill
+   PDlw -1 eq not {PDlw w /PDlw -1 def} if} def
+/FA {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arc tMatrix setmatrix stroke} bdef
+/PA {newpath tMatrix currentmatrix pop	translate 0 0 moveto scale
+  0 0 1 5 -2 roll arc closepath tMatrix setmatrix fill} bdef
+/FAn {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arcn tMatrix setmatrix stroke} bdef
+/PAn {newpath tMatrix currentmatrix pop translate 0 0 moveto scale
+  0 0 1 5 -2 roll arcn closepath tMatrix setmatrix fill} bdef
+/vradius 0 def /hradius 0 def /lry 0 def
+/lrx 0 def /uly 0 def /ulx 0 def /rad 0 def
+/MRR {/vradius xdef /hradius xdef /lry xdef /lrx xdef /uly xdef
+  /ulx xdef newpath tMatrix currentmatrix pop ulx hradius add uly
+  vradius add translate hradius vradius scale 0 0 1 180 270 arc 
+  tMatrix setmatrix lrx hradius sub uly vradius add translate
+  hradius vradius scale 0 0 1 270 360 arc tMatrix setmatrix
+  lrx hradius sub lry vradius sub translate hradius vradius scale
+  0 0 1 0 90 arc tMatrix setmatrix ulx hradius add lry vradius sub
+  translate hradius vradius scale 0 0 1 90 180 arc tMatrix setmatrix
+  closepath} bdef
+/FRR {MRR stroke } bdef
+/PRR {MRR fill } bdef
+/MlrRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lry uly sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 90 270 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 270 90 arc tMatrix setmatrix
+  closepath} bdef
+/FlrRR {MlrRR stroke } bdef
+/PlrRR {MlrRR fill } bdef
+/MtbRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lrx ulx sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 180 360 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 0 180 arc tMatrix setmatrix
+  closepath} bdef
+/FtbRR {MtbRR stroke } bdef
+/PtbRR {MtbRR fill } bdef
+/stri 6 array def /dtri 6 array def
+/smat 6 array def /dmat 6 array def
+/tmat1 6 array def /tmat2 6 array def /dif 3 array def
+/asub {/ind2 exch def /ind1 exch def dup dup
+  ind1 get exch ind2 get sub exch } bdef
+/tri_to_matrix {
+  2 0 asub 3 1 asub 4 0 asub 5 1 asub
+  dup 0 get exch 1 get 7 -1 roll astore } bdef
+/compute_transform {
+  dmat dtri tri_to_matrix tmat1 invertmatrix 
+  smat stri tri_to_matrix tmat2 concatmatrix } bdef
+/ds {stri astore pop} bdef
+/dt {dtri astore pop} bdef
+/db {2 copy /cols xdef /rows xdef mul dup 3 mul string
+  currentfile exch readhexstring pop
+  dup 0 3 index getinterval /rbmap xdef
+  dup 2 index dup getinterval /gbmap xdef
+  1 index dup 2 mul exch getinterval /bbmap xdef pop pop}bdef
+/it {gs np dtri aload pop moveto lineto lineto cp c
+  cols rows 8 compute_transform 
+  rbmap gbmap bbmap true 3 colorimage gr}bdef
+/il {newpath moveto lineto stroke}bdef
+currentdict end def
+%%EndProlog
+
+%%BeginSetup
+MathWorks begin
+
+0 cap
+
+end
+%%EndSetup
+
+%%Page: 1 1
+%%BeginPageSetup
+%%PageBoundingBox:    42   180   575   613
+MathWorks begin
+bpage
+%%EndPageSetup
+
+%%BeginObject: obj1
+bplot
+
+/dpi2point 4.16667 def
+portraitMode 0075 2550 csm
+
+  100    -7  2223  1805 MR c np
+85 dict begin %Colortable dictionary
+/c0 { 0.000000 0.000000 0.000000 sr} bdef
+/c1 { 1.000000 1.000000 1.000000 sr} bdef
+/c2 { 0.900000 0.000000 0.000000 sr} bdef
+/c3 { 0.000000 0.820000 0.000000 sr} bdef
+/c4 { 0.000000 0.000000 0.800000 sr} bdef
+/c5 { 0.910000 0.820000 0.320000 sr} bdef
+/c6 { 1.000000 0.260000 0.820000 sr} bdef
+/c7 { 0.000000 0.820000 0.820000 sr} bdef
+c0
+1 j
+1 sg
+   0    0 2402 1803 PR
+2.08333 w
+0 1470 1861 0 0 -1470 312 1604 4 MP
+PP
+-1861 0 0 1470 1861 0 0 -1470 312 1604 5 MP stroke
+1.38889 w
+DO
+0 sg
+ 312 1604 mt  312  135 L
+ 312  135 mt  312  135 L
+ 684 1604 mt  684  135 L
+ 684  135 mt  684  135 L
+1056 1604 mt 1056  135 L
+1056  135 mt 1056  135 L
+1428 1604 mt 1428  135 L
+1428  135 mt 1428  135 L
+1800 1604 mt 1800  135 L
+1800  135 mt 1800  135 L
+2173 1604 mt 2173  135 L
+2173  135 mt 2173  135 L
+ 312 1447 mt 2173 1447 L
+2173 1447 mt 2173 1447 L
+ 312 1291 mt 2173 1291 L
+2173 1291 mt 2173 1291 L
+ 312 1135 mt 2173 1135 L
+2173 1135 mt 2173 1135 L
+ 312  979 mt 2173  979 L
+2173  979 mt 2173  979 L
+ 312  823 mt 2173  823 L
+2173  823 mt 2173  823 L
+ 312  667 mt 2173  667 L
+2173  667 mt 2173  667 L
+ 312  511 mt 2173  511 L
+2173  511 mt 2173  511 L
+ 312  355 mt 2173  355 L
+2173  355 mt 2173  355 L
+ 312  199 mt 2173  199 L
+2173  199 mt 2173  199 L
+SO
+2.08333 w
+ 312 1604 mt 2173 1604 L
+ 312  134 mt 2173  134 L
+ 312 1604 mt  312  134 L
+2173 1604 mt 2173  134 L
+ 312 1604 mt 2173 1604 L
+ 312 1604 mt  312  134 L
+ 312 1604 mt  312 1585 L
+ 312  135 mt  312  153 L
+%%IncludeResource: font Helvetica-Bold
+/Helvetica-Bold /ISOLatin1Encoding 66.6667 FMSR
+
+ 179 1680 mt 
+(01:43:40) s
+ 684 1604 mt  684 1585 L
+ 684  135 mt  684  153 L
+ 551 1680 mt 
+(01:46:33) s
+1056 1604 mt 1056 1585 L
+1056  135 mt 1056  153 L
+ 923 1680 mt 
+(01:49:26) s
+1428 1604 mt 1428 1585 L
+1428  135 mt 1428  153 L
+1295 1680 mt 
+(01:52:19) s
+1800 1604 mt 1800 1585 L
+1800  135 mt 1800  153 L
+1667 1680 mt 
+(01:55:12) s
+2173 1604 mt 2173 1585 L
+2173  135 mt 2173  153 L
+2040 1680 mt 
+(01:58:04) s
+ 312 1447 mt  330 1447 L
+2173 1447 mt 2154 1447 L
+ 208 1472 mt 
+(0.1) s
+ 312 1291 mt  330 1291 L
+2173 1291 mt 2154 1291 L
+ 208 1316 mt 
+(0.2) s
+ 312 1135 mt  330 1135 L
+2173 1135 mt 2154 1135 L
+ 208 1160 mt 
+(0.3) s
+ 312  979 mt  330  979 L
+2173  979 mt 2154  979 L
+ 208 1004 mt 
+(0.4) s
+ 312  823 mt  330  823 L
+2173  823 mt 2154  823 L
+ 208  848 mt 
+(0.5) s
+ 312  667 mt  330  667 L
+2173  667 mt 2154  667 L
+ 208  692 mt 
+(0.6) s
+ 312  511 mt  330  511 L
+2173  511 mt 2154  511 L
+ 208  536 mt 
+(0.7) s
+ 312  355 mt  330  355 L
+2173  355 mt 2154  355 L
+ 208  380 mt 
+(0.8) s
+ 312  199 mt  330  199 L
+2173  199 mt 2154  199 L
+ 208  224 mt 
+(0.9) s
+ 312 1604 mt 2173 1604 L
+ 312  134 mt 2173  134 L
+ 312 1604 mt  312  134 L
+2173 1604 mt 2173  134 L
+gs 312 135 1862 1470 MR c np
+gr
+
+/c8 { 1.000000 0.000000 0.000000 sr} bdef
+c8
+  12   12  312 1250 FO
+  12   12  314  877 FO
+  12   12  316 1247 FO
+  12   12  318 1011 FO
+  12   12  321 1181 FO
+  12   12  323 1108 FO
+  12   12  325 1153 FO
+  12   12  327 1283 FO
+  12   12  329 1084 FO
+  12   12  331 1151 FO
+  12   12  334 1185 FO
+  12   12  336 1088 FO
+  12   12  338 1465 FO
+  12   12  340 1094 FO
+  12   12  342 1361 FO
+  12   12  344 1122 FO
+  12   12  347 1396 FO
+  12   12  349 1226 FO
+  12   12  351 1360 FO
+  12   12  353 1359 FO
+  12   12  355 1185 FO
+  12   12  357 1295 FO
+  12   12  360 1267 FO
+  12   12  362 1130 FO
+  12   12  364 1267 FO
+  12   12  366 1303 FO
+  12   12  368 1341 FO
+  12   12  370 1512 FO
+  12   12  373 1450 FO
+  12   12  375 1417 FO
+  12   12  377 1482 FO
+  12   12  379 1484 FO
+  12   12  381 1414 FO
+  12   12  383 1477 FO
+  12   12  386 1547 FO
+  12   12  388 1241 FO
+  12   12  390 1202 FO
+  12   12  392 1310 FO
+  12   12  394 1585 FO
+  12   12  396 1586 FO
+  12   12  399 1551 FO
+  12   12  401 1551 FO
+  12   12  403 1310 FO
+  12   12  405 1412 FO
+  12   12  407 1450 FO
+  12   12  409 1516 FO
+  12   12  412 1376 FO
+  12   12  414 1438 FO
+  12   12  416 1370 FO
+  12   12  418 1198 FO
+  12   12  420 1270 FO
+  12   12  422 1306 FO
+  12   12  425 1206 FO
+  12   12  427 1376 FO
+  12   12  429 1374 FO
+  12   12  431 1305 FO
+  12   12  433 1272 FO
+  12   12  435 1271 FO
+  12   12  438 1267 FO
+  12   12  440 1237 FO
+  12   12  442 1273 FO
+  12   12  444 1275 FO
+  12   12  446 1520 FO
+  12   12  448 1312 FO
+  12   12  451 1516 FO
+  12   12  453 1551 FO
+  12   12  455 1523 FO
+  12   12  457 1549 FO
+  12   12  459 1549 FO
+  12   12  461 1582 FO
+  12   12  464 1510 FO
+  12   12  468 1512 FO
+  12   12  470 1509 FO
+  12   12  472 1436 FO
+  12   12  474 1334 FO
+  12   12  477 1540 FO
+  12   12  479 1368 FO
+  12   12  481 1401 FO
+  12   12  483 1470 FO
+  12   12  485 1478 FO
+  12   12  487 1435 FO
+  12   12  490 1502 FO
+  12   12  492 1087 FO
+  12   12  494 1055 FO
+  12   12  496 1225 FO
+  12   12  498 1158 FO
+  12   12  500 1124 FO
+  12   12  503 1332 FO
+  12   12  505 1430 FO
+  12   12  507 1330 FO
+  12   12  509 1259 FO
+  12   12  511 1403 FO
+  12   12  514 1260 FO
+  12   12  516 1265 FO
+  12   12  518 1443 FO
+  12   12  520 1165 FO
+  12   12  522 1377 FO
+  12   12  524 1477 FO
+  12   12  527 1240 FO
+  12   12  529 1445 FO
+  12   12  531 1405 FO
+  12   12  533 1407 FO
+  12   12  535 1266 FO
+  12   12  537 1334 FO
+  12   12  540 1328 FO
+  12   12  542 1157 FO
+  12   12  544 1196 FO
+  12   12  546 1234 FO
+  12   12  548 1403 FO
+  12   12  550 1234 FO
+  12   12  553 1193 FO
+  12   12  555 1231 FO
+  12   12  557 1229 FO
+  12   12  559 1362 FO
+  12   12  561 1222 FO
+  12   12  563 1252 FO
+  12   12  566 1113 FO
+  12   12  568  946 FO
+  12   12  570 1073 FO
+  12   12  572 1076 FO
+  12   12  574 1143 FO
+  12   12  576 1285 FO
+  12   12  579  945 FO
+  12   12  581 1210 FO
+  12   12  583 1144 FO
+  12   12  585 1079 FO
+  12   12  587  875 FO
+  12   12  594 1018 FO
+  12   12  596 1025 FO
+  12   12  598 1192 FO
+  12   12  600 1160 FO
+  12   12  602 1161 FO
+  12   12  605 1128 FO
+  12   12  607 1268 FO
+  12   12  609 1301 FO
+  12   12  611 1231 FO
+  12   12  613 1165 FO
+  12   12  615 1304 FO
+  12   12  618 1415 FO
+  12   12  620 1482 FO
+  12   12  622 1521 FO
+  12   12  624 1585 FO
+  12   12  626 1312 FO
+  12   12  628 1518 FO
+  12   12  631 1415 FO
+  12   12  633 1527 FO
+  12   12  635 1420 FO
+  12   12  637 1525 FO
+  12   12  639 1422 FO
+  12   12  641 1453 FO
+  12   12  644 1590 FO
+  12   12  646 1481 FO
+  12   12  648 1441 FO
+  12   12  650 1583 FO
+  12   12  652 1410 FO
+  12   12  654 1340 FO
+  12   12  657 1581 FO
+  12   12  659 1516 FO
+  12   12  661 1446 FO
+  12   12  663 1480 FO
+  12   12  665 1514 FO
+  12   12  667 1408 FO
+  12   12  670 1479 FO
+  12   12  672 1583 FO
+  12   12  674 1306 FO
+  12   12  676 1589 FO
+  12   12  678 1447 FO
+  12   12  680 1518 FO
+  12   12  683 1520 FO
+  12   12  685 1550 FO
+  12   12  687 1376 FO
+  12   12  689 1447 FO
+  12   12  691 1380 FO
+  12   12  693 1341 FO
+  12   12  696 1270 FO
+  12   12  698 1480 FO
+  12   12  702 1510 FO
+  12   12  704 1482 FO
+  12   12  706 1343 FO
+  12   12  709 1415 FO
+  12   12  711 1381 FO
+  12   12  713 1480 FO
+  12   12  715 1448 FO
+  12   12  717 1376 FO
+  12   12  719 1304 FO
+  12   12  722  989 FO
+  12   12  724 1094 FO
+  12   12  726 1100 FO
+  12   12  728 1095 FO
+  12   12  730 1064 FO
+  12   12  732  919 FO
+  12   12  735  854 FO
+  12   12  737 1156 FO
+  12   12  739 1050 FO
+  12   12  741  813 FO
+  12   12  743  880 FO
+  12   12  746 1052 FO
+  12   12  748 1021 FO
+  12   12  750 1087 FO
+  12   12  752  952 FO
+  12   12  754 1053 FO
+  12   12  756 1082 FO
+  12   12  759  813 FO
+  12   12  761 1013 FO
+  12   12  763  908 FO
+  12   12  765  868 FO
+  12   12  767 1042 FO
+  12   12  769  736 FO
+  12   12  772  872 FO
+  12   12  774  765 FO
+  12   12  776  760 FO
+  12   12  778  829 FO
+  12   12  780  859 FO
+  12   12  782  822 FO
+  12   12  785  558 FO
+  12   12  787 1060 FO
+  12   12  789  724 FO
+  12   12  791  798 FO
+  12   12  793  761 FO
+  12   12  795  726 FO
+  12   12  798  489 FO
+  12   12  800  962 FO
+  12   12  802  855 FO
+  12   12  804  884 FO
+  12   12  806 1053 FO
+  12   12  808  913 FO
+  12   12  811  515 FO
+  12   12  813  684 FO
+  12   12  815  683 FO
+  12   12  817  450 FO
+  12   12  819  446 FO
+  12   12  821  546 FO
+  12   12  824  615 FO
+  12   12  826  710 FO
+  12   12  828  677 FO
+  12   12  830  906 FO
+  12   12  832  513 FO
+  12   12  834 1110 FO
+  12   12  837  777 FO
+  12   12  839  932 FO
+  12   12  841 1168 FO
+  12   12  843  470 FO
+  12   12  847 1003 FO
+  12   12  854 1306 FO
+  12   12  856 1234 FO
+  12   12  858  968 FO
+  12   12  860 1336 FO
+  12   12  863 1302 FO
+  12   12  865  848 FO
+  12   12  867 1215 FO
+  12   12  869 1087 FO
+  12   12  871 1168 FO
+  12   12  873 1127 FO
+  12   12  876 1132 FO
+  12   12  878 1201 FO
+  12   12  880 1203 FO
+  12   12  882 1373 FO
+  12   12  886 1414 FO
+  12   12  889 1245 FO
+  12   12  891 1346 FO
+  12   12  893 1211 FO
+  12   12  895 1245 FO
+  12   12  897 1346 FO
+  12   12  899 1279 FO
+  12   12  902 1204 FO
+  12   12  904 1140 FO
+  12   12  906 1005 FO
+  12   12  908  866 FO
+  12   12  910 1006 FO
+  12   12  912  875 FO
+  12   12  915 1050 FO
+  12   12  917 1086 FO
+  12   12  919 1050 FO
+  12   12  921 1056 FO
+  12   12  923 1230 FO
+  12   12  925 1059 FO
+  12   12  928 1169 FO
+  12   12  930 1309 FO
+  12   12  932 1171 FO
+  12   12  934 1164 FO
+  12   12  936 1056 FO
+  12   12  938 1020 FO
+  12   12  941  881 FO
+  12   12  943  743 FO
+  12   12  945  814 FO
+  12   12  947  777 FO
+  12   12  949 1011 FO
+  12   12  951  982 FO
+  12   12  954 1149 FO
+  12   12  956  839 FO
+  12   12  958  841 FO
+  12   12  960  667 FO
+  12   12  962  634 FO
+  12   12  964  734 FO
+  12   12  967  562 FO
+  12   12  969  431 FO
+  12   12  971  526 FO
+  12   12  973  659 FO
+  12   12  975  956 FO
+  12   12  982  580 FO
+  12   12  984  548 FO
+  12   12  986  651 FO
+  12   12  988  779 FO
+  12   12  991  847 FO
+  12   12  993  610 FO
+  12   12  995  447 FO
+  12   12  997  850 FO
+  12   12  999  716 FO
+  12   12 1001  576 FO
+  12   12 1004  871 FO
+  12   12 1006  808 FO
+  12   12 1008  603 FO
+  12   12 1010  773 FO
+  12   12 1012  772 FO
+  12   12 1014  876 FO
+  12   12 1017 1015 FO
+  12   12 1019 1173 FO
+  12   12 1021 1080 FO
+  12   12 1023 1037 FO
+  12   12 1025 1173 FO
+  12   12 1027 1209 FO
+  12   12 1030 1208 FO
+  12   12 1032 1174 FO
+  12   12 1034  980 FO
+  12   12 1036 1317 FO
+  12   12 1038 1278 FO
+  12   12 1040 1378 FO
+  12   12 1043 1080 FO
+  12   12 1045 1184 FO
+  12   12 1047 1194 FO
+  12   12 1049 1135 FO
+  12   12 1051  972 FO
+  12   12 1053 1220 FO
+  12   12 1056 1326 FO
+  12   12 1058 1325 FO
+  12   12 1060 1366 FO
+  12   12 1062 1199 FO
+  12   12 1064 1304 FO
+  12   12 1066 1232 FO
+  12   12 1069 1450 FO
+  12   12 1071 1485 FO
+  12   12 1073 1454 FO
+  12   12 1075 1488 FO
+  12   12 1077 1448 FO
+  12   12 1079 1340 FO
+  12   12 1082 1274 FO
+  12   12 1084 1347 FO
+  12   12 1086 1525 FO
+  12   12 1088 1454 FO
+  12   12 1090 1486 FO
+  12   12 1092 1589 FO
+  12   12 1095 1520 FO
+  12   12 1097 1522 FO
+  12   12 1099 1388 FO
+  12   12 1101 1456 FO
+  12   12 1103 1310 FO
+  12   12 1105 1520 FO
+  12   12 1108 1519 FO
+  12   12 1114 1558 FO
+  12   12 1116 1552 FO
+  12   12 1118 1484 FO
+  12   12 1121 1590 FO
+  12   12 1123 1456 FO
+  12   12 1125 1556 FO
+  12   12 1127 1590 FO
+  12   12 1129 1551 FO
+  12   12 1131 1517 FO
+  12   12 1134 1474 FO
+  12   12 1136 1548 FO
+  12   12 1138 1552 FO
+  12   12 1140 1475 FO
+  12   12 1142 1583 FO
+  12   12 1144 1579 FO
+  12   12 1147 1510 FO
+  12   12 1149 1551 FO
+  12   12 1151 1578 FO
+  12   12 1153 1371 FO
+  12   12 1155 1370 FO
+  12   12 1157 1338 FO
+  12   12 1160 1399 FO
+  12   12 1162 1337 FO
+  12   12 1164 1231 FO
+  12   12 1166 1370 FO
+  12   12 1168 1327 FO
+  12   12 1170 1298 FO
+  12   12 1173 1117 FO
+  12   12 1175 1055 FO
+  12   12 1177 1193 FO
+  12   12 1179 1332 FO
+  12   12 1181 1368 FO
+  12   12 1183 1440 FO
+  12   12 1186 1506 FO
+  12   12 1188 1405 FO
+  12   12 1190 1438 FO
+  12   12 1192 1404 FO
+  12   12 1194 1333 FO
+  12   12 1196 1367 FO
+  12   12 1199 1263 FO
+  12   12 1201 1508 FO
+  12   12 1203 1548 FO
+  12   12 1205 1475 FO
+  12   12 1207 1439 FO
+  12   12 1210 1342 FO
+  12   12 1212 1481 FO
+  12   12 1214 1480 FO
+  12   12 1216 1474 FO
+  12   12 1218 1546 FO
+  12   12 1220 1546 FO
+  12   12 1223 1368 FO
+  12   12 1225 1407 FO
+  12   12 1227 1403 FO
+  12   12 1229 1435 FO
+  12   12 1231 1160 FO
+  12   12 1233 1356 FO
+  12   12 1236 1287 FO
+  12   12 1238 1046 FO
+  12   12 1240  946 FO
+  12   12 1242 1111 FO
+  12   12 1244 1117 FO
+  12   12 1246 1013 FO
+  12   12 1249 1281 FO
+  12   12 1251 1118 FO
+  12   12 1253 1255 FO
+  12   12 1255 1081 FO
+  12   12 1257 1291 FO
+  12   12 1259 1191 FO
+  12   12 1262 1363 FO
+  12   12 1264 1437 FO
+  12   12 1266 1507 FO
+  12   12 1268 1295 FO
+  12   12 1270 1403 FO
+  12   12 1272 1431 FO
+  12   12 1275 1260 FO
+  12   12 1277 1150 FO
+  12   12 1279 1458 FO
+  12   12 1281 1387 FO
+  12   12 1283 1248 FO
+  12   12 1285 1247 FO
+  12   12 1288 1112 FO
+  12   12 1290 1113 FO
+  12   12 1292 1183 FO
+  12   12 1294 1085 FO
+  12   12 1296 1218 FO
+  12   12 1303  841 FO
+  12   12 1305 1043 FO
+  12   12 1307  803 FO
+  12   12 1309  939 FO
+  12   12 1311  801 FO
+  12   12 1314  836 FO
+  12   12 1316  942 FO
+  12   12 1318 1073 FO
+  12   12 1320  635 FO
+  12   12 1322  765 FO
+  12   12 1324  698 FO
+  12   12 1327  800 FO
+  12   12 1329  696 FO
+  12   12 1331  696 FO
+  12   12 1333  625 FO
+  12   12 1335  840 FO
+  12   12 1337  802 FO
+  12   12 1340  734 FO
+  12   12 1342  905 FO
+  12   12 1344  667 FO
+  12   12 1346  730 FO
+  12   12 1348  835 FO
+  12   12 1350  837 FO
+  12   12 1353 1044 FO
+  12   12 1355  834 FO
+  12   12 1357  938 FO
+  12   12 1359 1206 FO
+  12   12 1361  938 FO
+  12   12 1363  833 FO
+  12   12 1366 1106 FO
+  12   12 1370  764 FO
+  12   12 1372 1031 FO
+  12   12 1374  793 FO
+  12   12 1376  761 FO
+  12   12 1379  888 FO
+  12   12 1381  660 FO
+  12   12 1383  929 FO
+  12   12 1385  757 FO
+  12   12 1387 1260 FO
+  12   12 1389 1095 FO
+  12   12 1392  860 FO
+  12   12 1394 1199 FO
+  12   12 1396 1229 FO
+  12   12 1398 1124 FO
+  12   12 1400 1161 FO
+  12   12 1402 1059 FO
+  12   12 1405 1128 FO
+  12   12 1407 1227 FO
+  12   12 1409 1033 FO
+  12   12 1411  861 FO
+  12   12 1413  701 FO
+  12   12 1415 1277 FO
+  12   12 1418 1071 FO
+  12   12 1420 1185 FO
+  12   12 1422 1250 FO
+  12   12 1424  979 FO
+  12   12 1426 1247 FO
+  12   12 1428 1241 FO
+  12   12 1431 1109 FO
+  12   12 1433 1312 FO
+  12   12 1435 1077 FO
+  12   12 1437 1069 FO
+  12   12 1439 1034 FO
+  12   12 1442  967 FO
+  12   12 1444 1167 FO
+  12   12 1446  664 FO
+  12   12 1448  763 FO
+  12   12 1450 1070 FO
+  12   12 1452  971 FO
+  12   12 1455  938 FO
+  12   12 1457  967 FO
+  12   12 1459 1178 FO
+  12   12 1461 1106 FO
+  12   12 1463  932 FO
+  12   12 1465  904 FO
+  12   12 1468  873 FO
+  12   12 1470  866 FO
+  12   12 1472 1173 FO
+  12   12 1474 1137 FO
+  12   12 1476 1135 FO
+  12   12 1478 1033 FO
+  12   12 1481  796 FO
+  12   12 1483  793 FO
+  12   12 1485  627 FO
+  12   12 1487  727 FO
+  12   12 1489  593 FO
+  12   12 1491 1030 FO
+  12   12 1494  824 FO
+  12   12 1496  521 FO
+  12   12 1498  716 FO
+  12   12 1500  789 FO
+  12   12 1502  986 FO
+  12   12 1504 1057 FO
+  12   12 1507 1057 FO
+  12   12 1509  959 FO
+  12   12 1511  726 FO
+  12   12 1513  931 FO
+  12   12 1515 1101 FO
+  12   12 1517 1008 FO
+  12   12 1520 1114 FO
+  12   12 1522 1256 FO
+  12   12 1524 1364 FO
+  12   12 1526 1233 FO
+  12   12 1528 1339 FO
+  12   12 1530 1547 FO
+  12   12 1533 1590 FO
+  12   12 1535 1591 FO
+  12   12 1537 1518 FO
+  12   12 1539 1584 FO
+  12   12 1541 1518 FO
+  12   12 1543 1517 FO
+  12   12 1546 1552 FO
+  12   12 1548 1515 FO
+  12   12 1550 1590 FO
+  12   12 1552 1518 FO
+  12   12 1554 1582 FO
+  12   12 1556 1443 FO
+  12   12 1559 1341 FO
+  12   12 1561 1544 FO
+  12   12 1563 1444 FO
+  12   12 1565 1506 FO
+  12   12 1567 1337 FO
+  12   12 1569 1437 FO
+  12   12 1572 1227 FO
+  12   12 1574 1154 FO
+  12   12 1576 1148 FO
+  12   12 1578 1152 FO
+  12   12 1580 1117 FO
+  12   12 1582 1081 FO
+  12   12 1585 1358 FO
+  12   12 1587 1296 FO
+  12   12 1589 1295 FO
+  12   12 1591 1292 FO
+  12   12 1593 1435 FO
+  12   12 1595 1435 FO
+  12   12 1598 1372 FO
+  12   12 1600 1474 FO
+  12   12 1602 1405 FO
+  12   12 1604 1544 FO
+  12   12 1606 1477 FO
+  12   12 1608 1579 FO
+  12   12 1611 1340 FO
+  12   12 1613 1480 FO
+  12   12 1615 1546 FO
+  12   12 1617 1472 FO
+  12   12 1619 1478 FO
+  12   12 1621 1474 FO
+  12   12 1624 1506 FO
+  12   12 1626 1604 FO
+  12   12 1628 1564 FO
+  12   12 1630 1597 FO
+  12   12 1637 1489 FO
+  12   12 1639 1281 FO
+  12   12 1641 1351 FO
+  12   12 1643 1453 FO
+  12   12 1647 1272 FO
+  12   12 1650 1376 FO
+  12   12 1652 1129 FO
+  12   12 1654 1265 FO
+  12   12 1656 1023 FO
+  12   12 1658 1088 FO
+  12   12 1660 1226 FO
+  12   12 1663  986 FO
+  12   12 1665  980 FO
+  12   12 1667  910 FO
+  12   12 1669  843 FO
+  12   12 1671  912 FO
+  12   12 1674  917 FO
+  12   12 1676 1258 FO
+  12   12 1678 1332 FO
+  12   12 1680  990 FO
+  12   12 1682 1262 FO
+  12   12 1684  914 FO
+  12   12 1687  951 FO
+  12   12 1689 1123 FO
+  12   12 1691 1066 FO
+  12   12 1693 1604 FO
+  12   12 1695 1599 FO
+  12   12 1697 1524 FO
+  12   12 1700 1488 FO
+  12   12 1702 1380 FO
+  12   12 1704 1346 FO
+  12   12 1706 1276 FO
+  12   12 1708 1348 FO
+  12   12 1710 1377 FO
+  12   12 1713 1346 FO
+  12   12 1715 1175 FO
+  12   12 1717 1342 FO
+  12   12 1719 1344 FO
+  12   12 1721 1239 FO
+  12   12 1723 1207 FO
+  12   12 1726 1413 FO
+  12   12 1728 1375 FO
+  12   12 1730 1270 FO
+  12   12 1732 1237 FO
+  12   12 1734 1299 FO
+  12   12 1736 1131 FO
+  12   12 1739 1095 FO
+  12   12 1741 1301 FO
+  12   12 1743 1090 FO
+  12   12 1749 1342 FO
+  12   12 1752 1093 FO
+  12   12 1754 1125 FO
+  12   12 1756 1163 FO
+  12   12 1758 1164 FO
+  12   12 1760 1167 FO
+  12   12 1762  920 FO
+  12   12 1765 1056 FO
+  12   12 1767 1159 FO
+  12   12 1769 1086 FO
+  12   12 1771  812 FO
+  12   12 1773  949 FO
+  12   12 1775  880 FO
+  12   12 1778  877 FO
+  12   12 1780  878 FO
+  12   12 1782  772 FO
+  12   12 1784  807 FO
+  12   12 1786  804 FO
+  12   12 1788  842 FO
+  12   12 1791  942 FO
+  12   12 1793  972 FO
+  12   12 1795 1110 FO
+  12   12 1797  665 FO
+  12   12 1799  904 FO
+  12   12 1801  839 FO
+  12   12 1804  803 FO
+  12   12 1806 1206 FO
+  12   12 1808  698 FO
+  12   12 1810  809 FO
+  12   12 1812  769 FO
+  12   12 1814  730 FO
+  12   12 1817  802 FO
+  12   12 1819  832 FO
+  12   12 1821  832 FO
+  12   12 1823 1034 FO
+  12   12 1825 1202 FO
+  12   12 1827 1171 FO
+  12   12 1830  968 FO
+  12   12 1832  938 FO
+  12   12 1834  732 FO
+  12   12 1836 1030 FO
+  12   12 1838  964 FO
+  12   12 1840 1123 FO
+  12   12 1843  856 FO
+  12   12 1845  622 FO
+  12   12 1847  658 FO
+  12   12 1849  888 FO
+  12   12 1851  921 FO
+  12   12 1853  918 FO
+  12   12 1856  790 FO
+  12   12 1858 1160 FO
+  12   12 1860  792 FO
+  12   12 1862  956 FO
+  12   12 1864  695 FO
+  12   12 1866  563 FO
+  12   12 1869 1036 FO
+  12   12 1871  865 FO
+  12   12 1873  802 FO
+  12   12 1875  868 FO
+  12   12 1877 1238 FO
+  12   12 1879  968 FO
+  12   12 1882  794 FO
+  12   12 1884  865 FO
+  12   12 1886  697 FO
+  12   12 1888  761 FO
+  12   12 1890  598 FO
+  12   12 1892 1135 FO
+  12   12 1895  763 FO
+  12   12 1897  691 FO
+  12   12 1899  625 FO
+  12   12 1901  625 FO
+  12   12 1903  724 FO
+  12   12 1906  624 FO
+  12   12 1908  559 FO
+  12   12 1910  453 FO
+  12   12 1912  625 FO
+  12   12 1914  627 FO
+  12   12 1916  760 FO
+  12   12 1919  626 FO
+  12   12 1921  593 FO
+  12   12 1923  727 FO
+  12   12 1925  695 FO
+  12   12 1927  764 FO
+  12   12 1929  761 FO
+  12   12 1932  701 FO
+  12   12 1934  733 FO
+  12   12 1936  908 FO
+  12   12 1938 1076 FO
+  12   12 1940 1041 FO
+  12   12 1942  837 FO
+  12   12 1945  899 FO
+  12   12 1951  592 FO
+  12   12 1953  728 FO
+  12   12 1955  728 FO
+  12   12 1958  690 FO
+  12   12 1960  624 FO
+  12   12 1962  620 FO
+  12   12 1966  554 FO
+  12   12 1968 1060 FO
+  12   12 1971  959 FO
+  12   12 1973  757 FO
+  12   12 1975  689 FO
+  12   12 1977  765 FO
+  12   12 1979  758 FO
+  12   12 1981  726 FO
+  12   12 1984  935 FO
+  12   12 1986 1067 FO
+  12   12 1988  762 FO
+  12   12 1990  859 FO
+  12   12 1992  766 FO
+  12   12 1994  826 FO
+  12   12 1997  760 FO
+  12   12 1999  690 FO
+  12   12 2001  587 FO
+  12   12 2003  624 FO
+  12   12 2005  692 FO
+  12   12 2007  762 FO
+  12   12 2010  729 FO
+  12   12 2012  756 FO
+  12   12 2014  761 FO
+  12   12 2016  757 FO
+  12   12 2018  626 FO
+  12   12 2020  625 FO
+  12   12 2023  721 FO
+  12   12 2025  660 FO
+  12   12 2027  621 FO
+  12   12 2029  488 FO
+  12   12 2031  455 FO
+  12   12 2033  448 FO
+  12   12 2036  488 FO
+  12   12 2038  485 FO
+  12   12 2040  615 FO
+  12   12 2042  446 FO
+  12   12 2044  451 FO
+  12   12 2046  382 FO
+  12   12 2049  513 FO
+  12   12 2051  277 FO
+  12   12 2053  413 FO
+  12   12 2055  486 FO
+  12   12 2057  554 FO
+  12   12 2059  717 FO
+  12   12 2062  610 FO
+  12   12 2064  310 FO
+  12   12 2066  515 FO
+  12   12 2068  548 FO
+  12   12 2070  485 FO
+  12   12 2072  614 FO
+  12   12 2075  418 FO
+  12   12 2077  388 FO
+  12   12 2079  589 FO
+  12   12 2081  416 FO
+  12   12 2083  652 FO
+  12   12 2085  719 FO
+  12   12 2088  519 FO
+  12   12 2090  547 FO
+  12   12 2092  616 FO
+  12   12 2094  412 FO
+  12   12 2096  445 FO
+  12   12 2098  880 FO
+  12   12 2101  643 FO
+  12   12 2103  918 FO
+  12   12 2105  877 FO
+  12   12 2107  479 FO
+  12   12 2109  912 FO
+  12   12 2111  484 FO
+  12   12 2114  547 FO
+  12   12 2116  481 FO
+  12   12 2118  515 FO
+  12   12 2120  750 FO
+  12   12 2122  549 FO
+  12   12 2124  379 FO
+  12   12 2127  649 FO
+  12   12 2129  579 FO
+  12   12 2131  553 FO
+  12   12 2133  516 FO
+  12   12 2135  521 FO
+  12   12 2138  553 FO
+  12   12 2140  550 FO
+  12   12 2142  650 FO
+  12   12 2144  717 FO
+  12   12 2146  888 FO
+  12   12 2148  512 FO
+  12   12 2151  920 FO
+  12   12 2153  483 FO
+  12   12 2155  585 FO
+  12   12 2157  652 FO
+  12   12 2159  412 FO
+  12   12 2161  548 FO
+  12   12 2164  512 FO
+  12   12 2166  747 FO
+  12   12 2168  478 FO
+  12   12 2170  510 FO
+  12   12 2172  478 FO
+gs 312 135 1862 1470 MR c np
+gr
+
+0 sg
+ 173 1451 mt  -90 rotate
+(Mean Absolute phase deviation \(rad\)) s
+90 rotate
+ 737 1749 mt 
+(UTC past 12-Jul-2012, 00:00:00) s
+ 393   82 mt 
+(Temporal variation of phase error between calib. sols.) s
+
+end %%Color Dict
+
+eplot
+%%EndObject
+
+epage
+end
+
+showpage
+
+%%Trailer
+%%EOF

@@ -4,7 +4,7 @@ pdf:aartfaac_RT_calib_v1.tex ref.bib
 	bibtex aartfaac_RT_calib_v1
 	pdflatex aartfaac_RT_calib_v1
 	pdflatex aartfaac_RT_calib_v1
-#	open aartfaac_RT_calib_v1.pdf
+	open aartfaac_RT_calib_v1.pdf
 	
 clean: 
 	rm aartfaac_RT_calib_v1.pdf

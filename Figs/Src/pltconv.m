@@ -29,4 +29,4 @@ legend ('Convergent cal. minor cycle ', 'Tracking cal. minor cycle ', ...
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 % print (gcf, '../major_cycle_conv.png', '-dpng');
-print (gcf, '../major_minor_cycle_conv.png', '-dpng');
+print (gcf, '../major_minor_cycle_conv.eps', '-depsc', '-r300');

@@ -26,8 +26,9 @@ ind=3;
 % end;
 hold off;
 axis tight;
-xlabel (sprintf ('UTC past %s', datestr(num, 1))); ylabel ('Azimuth offset');
 % axis ([xlim -0.1 0.1]);
+ylim([-0.1 0.1]);
+xlabel (sprintf ('UTC past %s, 00:00:00', datestr(num, 1))); ylabel ('Azi. offset (deg)', 'interpreter', 'none');
 grid on;
 % set (gca, 'XLim', [num, (t_last-t_first)/86400. + num], 'XTick', linspace (num, (t_last-t_first)/86400. + num, 4));
 datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
@@ -46,17 +47,17 @@ ind=4;
 	plot ((SB4(:,1)-t_first)/86400+num, 180/pi*(SB4(:,ind)), char(col(colind)));
 	ind=ind+3;
 % end;
-xlabel (sprintf ('UTC past %s', datestr(num, 1))); ylabel ('Elevation offset  ');
 grid on;
 axis tight;
-% ylim([-0.1 0.1]);
+ylim([-0.1 0.1]);
+xlabel (sprintf ('UTC past %s, 00:00:00', datestr(num, 1))); ylabel ('Ele. offset (deg)', 'interpreter', 'none');
 % set (gca, 'XLim', [num, (t_last-t_first)/86400. + num], 'XTick', linspace (num, (t_last-t_first)/86400. + num, 4));
 datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 legend ('40 MHz', '70 MHz');
 
-samexaxis ('join');
+samexaxis ('join', 'YLabelDistance', 1.0);
 p=mtit('Variation of estimated position of CasA from catalog position.     ',...
-	   'xoff',-.07,'yoff',.015);
+       'xoff',-.07,'yoff',.015);
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
-print (gcf, '../CasAsrcposoff.png', '-dpng', '-r300');
+print (gcf, '../CasAsrcposoff.eps', '-depsc', '-r300');

@@ -341,16 +341,15 @@ These      include     a      hardware     correlator      based      on     the
 Uniboards  \footnote{http://www.radionet-eu.org/uniboard}   for  estimating  the
 visibilities in  real-time, and a  software solution running on  general purpose
 hardware for the calibration, imaging and transient detection pipelines.  Figure
-\ref{fig:Block-diagram-depicting}  shows  the top  level  view  of the  AARTFAAC
+\ref{fig:The-AARTFAAC-calibration}  shows  the top  level  view  of the  AARTFAAC
 transient  detection  streaming pipeline.   The  calibration  component of  this
 pipeline is the subject of this paper.
 
 \begin{figure*}[tbh]
 \centering
 \includegraphics[width=1\textwidth]{Figs/AFAAC_blkdia_latest.png}
-\caption{The    AARTFAAC   calibration   and
-  imaging  pipeline within the  full ASM  flow, and  leading onto  the transient
-  detection pipeline (TraP).}
+\caption{AARTFAAC  calibration  and imaging  pipeline  within  the full  all-sky
+  monitor flow, and leading onto the transient detection pipeline (TraP).}
 \label{fig:The-AARTFAAC-calibration}
 \end{figure*}
 
@@ -986,15 +985,15 @@ a larger DM range.  Both, however have a computational cost. Adequate SNR of the
 model sources on each baseline  is required for maintaining reasonable errors on
 the parameter estimates during calibration.  At LOFAR frequencies, model sources
 sufficiently dominate  the visibilities  to allow calibration  using only  a few
-thousand  visibility  samples, and  so  their Signal  to  Noise  Ratio does  not
-constrain  the  resolution.   Considering  the  wide field  of  view,  bandwidth
-smearing  effects  can   affect  the  flux  of  sources  at   the  edge  of  the
-field. Keeping a limit  of 10\% flux attenuation at the edge  of the field for a
-fractional bandwidth  of $10^{-3}$ puts a  limit of $\sim48 kHz$  on the channel
-width.   The time  resolution  is constrained  by  the feasible  latency of  the
-calibration and  imaging pipeline, and is chosen  to be 1 second.   Thus, in our
-standard autonomous  mode of operation,  we choose a  resolution of 16kHz  and 1
-seconds for real-time calibration.
+thousand time samples, and so their Signal to Noise Ratio does not constrain the
+resolution.  Considering the wide field  of view, bandwidth smearing effects can
+affect the  flux of sources at  the edge of the  field. Keeping a  limit of 10\%
+flux  attenuation  at the  edge  of  the field  for  a  fractional bandwidth  of
+$10^{-3}$  puts  a  limit of  $\sim48  kHz$  on  the  channel width.   The  time
+resolution is constrained by the feasible latency of the calibration and imaging
+pipeline, and is  chosen to be 1 second.  Thus, in  our standard autonomous mode
+of  operation, we  choose a  resolution  of 16kHz  and 1  seconds for  real-time
+calibration.
 
 \begin{table*}[tbh]
 \caption{Flux ratios of bright sources withina snapshot from Obs. 3.}
@@ -1005,26 +1004,26 @@ seconds for real-time calibration.
 Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Comment\\ %\tabularnewline
  &  &  & flux (Jy) & (Jy) &  & (vals derived from Obs. 3\\ %\tabularnewline
 \hline 
-3C10 & 367.9 &  & 397.02 & 0 & 1.08 & VLSS 4 comp.\\ % \tabularnewline
+3C10 & 367.9 & 18.81 & 397.02 &  & 1.08 & VLSS 4 comp.\\ % \tabularnewline
 % \hline 
-3C452 & 152.2 &  & 184.52 &  & 1.21 & VLSS 2 comp.\\ % \tabularnewline
+3C452 & 152.2 & 10.99 & 184.52 &  & 1.21 & VLSS 2 comp.\\ % \tabularnewline
 % \hline 
-3C390.3 & 99 &  & 121.89 &  & 1.23  & VLSS 3 comp.\\ % \tabularnewline
+3C390.3 & 99 & 6.002 & 121.89 &  & 1.23  & VLSS 3 comp.\\ % \tabularnewline
 % \hline 
-3C380 & 156.2 &  & 156.2 &  & 1 & Scaife et. al\\ % \tabularnewline
+3C380 & 156.2 & 2.9981 & 156.2 &  & 1 & Scaife et. al\\ % \tabularnewline
 % \hline 
-3C295 & 134.5 &  & 95.23 &  & 0.71 & Scaife et. al\\ % \tabularnewline
+3C295 & 134.5 & 8.3135 & 95.23 &  & 0.71 & Scaife et. al\\ % \tabularnewline
 % \hline 
 %% 3C405 & 19202 &  & 26927 & 78 & 1.402 & Kassim et. al.\tabularnewline
 %% \hline 
 %% 3C461 & 16145 &  & 31758 & 89 & 1.967 & Kassim et. al.\tabularnewline
 \hline 
 \end{tabular}}
-\tablefoot{The $S_{60}$ flux has been derived from modeled spectra.
-The calibrated flux ratio is derived after imaging the calibrated visibilites and generating light-curves of peak flux from sources in the snapshots.}
+\tablefoot{The $S_{60}$  flux has been  derived from the best  available modeled
+  spectra,  or -0.7  otherwise.   The  calibrated flux  ratio  is derived  after
+  imaging the  calibrated visibilites and  generating light-curves of  peak flux
+  from sources in the snapshots.}
 \end{table*}
-
-
 \subsection{Tracking calibration}
 
 %% The main requirements for calibrating the AARTFAAC array can now be
@@ -1043,22 +1042,23 @@ convergence  \citep{boonstra2003gain}.   Thus   this  approach  is  particularly
 suitable for  our case due to  our latency and compute  budgets.  However, Least
 Squares  algorithms  are quite  sensitive  to  an  initial estimate,  which  can
 otherwise lead to convergence to local minima. Due to the high temporal sampling
-of the calibration parameters, a very good initial estimate can be the solution
+of the calibration parameters, a very  good initial estimate can be the solution
 from  a  previous timeslice.   Thus,  considering  the  known stability  of  the
 instrument   (see  Sec.    \ref{sub:Stability}),  and   the   required  frequent
 re-estimation of the calibration  parameters, we optimize the computational load
 of the  algorithm by reducing the  number of iterations of  the iterative solver
 per timeslice  to just one. This  is supplemented by  propagating solutions from
 previous timeslices as  initial estimates for the model  parameters, which keeps
-the  algorithm  on track.  Spectral  stability can  also  be  utilized to  track
+the  algorithm on  track.   Spectral stability  can  also be  utilized to  track
 solutions in the frequency axis, however, we  choose to use the time axis due to
 the possibility  of the  AARTFAAC subbands being  chosen to sparsely  sample the
 full  bandwidth in  order to  optimize detection  of steep  spectrum transients.
 Note  that computationally,  StEFcal  iterations are  relatively inexpensive  as
-compared to e.g.,  WSF (see Table \ref{tab:Performance-results}. This implies that  their number can be
-increased  in order  to handle  data with  higher errors  with little  effect on
-latency bounds.  Thus, the results from  a single iteration show  the worst case
-calibration (and best case computational) performance of our approach.
+compared to  e.g., WSF  (see Table \ref{tab:Performance-results}).  This implies
+that their  number can be increased in  order to handle data  with higher errors
+with little effect on latency bounds.  Thus, the results from a single iteration
+show the worst case calibration (and best case computational) performance of our
+approach.
 
 The feedback of solutions as initial estimates makes our approach susceptible to
 errors in case  of bad data leading to incorrect solutions.   We prevent this by
@@ -1096,11 +1096,6 @@ calibration algorithm can be summarized as follows:
       history.
   \end{enumerate}
 \end{enumerate}
-A  computational profile  of  the  various algorithmic  components  of both  the
-convergent  and   the  tracking  calibration   schemes  is  depicted   in  Table
-\ref{tab:Performance-results}. A  schematic view of  the tracking calibration  and its
-major          components          is          shown          in          Figure
-\textcolor{black}{\ref{fig:trackcalSchematic}.}
 
 \begin{figure}[tbh]
 \resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/tracking_cal_schematic_new.png}}
@@ -1108,6 +1103,13 @@ major          components          is          shown          in          Figure
 \caption{\label{fig:trackcalSchematic}Schematic view of tracking calibration
 for bounded latency precise calibration.}
 \end{figure}
+
+A  computational profile  of  the  various algorithmic  components  of both  the
+convergent  and   the  tracking  calibration   schemes  is  depicted   in  Table
+\ref{tab:Performance-results}. A schematic view  of the tracking calibration and
+its  major  components  is  shown  in  Figure  \ref{fig:trackcalSchematic}.  The
+calibration solution memory pool is utlized by the goodness of solution block to
+decide on the propagation of an instantaneous solution.
 
 \section{\label{sec:Performance-of-tracking}Observational performance of tracking calibration}
 
@@ -1127,6 +1129,23 @@ previously established best  performance. Here, we carry out  a single iteration
 of both the Major and Minor cycles, consequently providing the worst calibration
 performance,   but  with   minimum  latency   and  compute   load.
 
+\begin{table}[h]
+\caption{Details of commissioning observations carried out with the AARTFAAC}
+\label{tab:Details-of-commissioning}
+\center{%
+\begin{tabular}{ c c c c c c}
+\hline  \hline
+Obs. & Epoch & $\Delta t$ & $\Delta\nu$& Nchan & $\nu_{obs}$\\
+     & UTC   & sec  & kHz & & MHz\\
+\hline 
+1.&2011-Sep-21,1200-1500 & 5 &3&64{*}5&60 \\
+2.&2012-Jul-12,2222-2258 & 1 &3&64{*}5&60 \\
+3.&2012-Jul-12,0140-0200 & 1 &3&64{*}5&60 \\
+4.&2012-Jul-12,0340-0430 & 1 &3&64{*}5&60 \\
+\hline 
+\end{tabular}}
+\end{table}
+
 \textbf{Data Description:} Due to the hardware per-dipole correlator still being
 under development,  these data were obtained  via a unique mode  of operation of
 the LOFAR. Here, the beamformer weights of all antennas in a station were set to
@@ -1142,46 +1161,19 @@ array were  recorded between 1200-1500 UTC,  21 Sep. 2011,  and again throughout
 the  night  of  12  July  2013.   The stations  were  in  the  LBA\_OUTER  array
 configuration during  all observations  to facilitate comparisons.   The salient
 details     of      the     observations     are      tabulated     in     Table
-\ref{tab:Details-of-commissioning}.    Figure   \ref{fig:uncal_cal_deconv_night}
-shows the  all sky imaging  capabilities of the  AARTFAAC array, along  with the
-effect of calibrating the data and subtracting the brightest sources.
+\ref{tab:Details-of-commissioning}. 
 
-\begin{table*}[tbh]
-\caption{Details of commissioning observations carried out with the AARTFAAC}
-\label{tab:Details-of-commissioning}
-\center{%
-\begin{tabular}{ c c c c c c c}
-\hline  \hline
-Obs. & Duration & $\Delta t$ & $\Delta\nu$ & Nchan & $\nu_{obs}$ & Comment \\ %\tabularnewline
-\hline 
-1. & 2011-Sep-21, 1200-1500 UTC & 5s & 3 kHz & 64{*}5 & 60 MHz & Active Sun \\ % \tabularnewline
-% \hline 
-2. & 2012-Jul-12, 2222-2258 UTC & 1s & 3 kHz & 64{*}5 & 60 MHz & Slow scintillation\\ %\tabularnewline
-% \hline 
-3. & 2012-Jul-12, 0140-0200 UTC & 1s & 3 kHz & 64{*}5 & 60 MHz & Rapid scintillation\\ %\tabularnewline
-% \hline 
-4. & 2012-Jul-12, 0340-0430 UTC & 1s & 3 kHz & 64{*}5 & 60 MHz & Local dawn\\ %\tabularnewline
-\hline 
-\end{tabular}}
-\end{table*}
 
-\begin{figure*}[tbh]
-\includegraphics[width=0.9\paperwidth]{Figs/uncal_cal_deconv_night.png}
-
-\caption{\label{fig:uncal_cal_deconv_night} This  series of images  show the all
-  sky imaging  capabilities of  the AARTFAAC. The  axes are in  direction cosine
-  units of a zenith projection of the celestial hemisphere on a tangent plane at
-  the  zenith.   The  boundary  of  the  circular  image  represents  the  local
-  horizon. (left) The uncalibrated field of view dominated by CasA, CygA and the
-  Galactic center. (middle) The same  data after calibration. Note the coherency
-  of the flux  of the dominant point sources.  (right)  The same timeslice after
-  the brightest sources have been  subtracted using their estimated model fluxes
-  and positions.  Note the appearance of secondary bright sources, corresponding
-  to several known 3C sources.}
-\end{figure*}
 
 
 \subsection{\label{sec:calib-accuracy}Calibration accuracy on a single timeslice}
+
+\begin{figure}[tbh]
+\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/major_minor_cycle_conv.eps}}
+
+\caption{\label{fig:Convergence-behaviour-of}Typical   major  and   minor  cycle
+  convergence rates on  a single timeslice.}
+\end{figure}
 
 In this section, we elaborate on the convergence behaviour of the calibration on
 a typical data  segment, while commenting on the aspects  of weighting for model
@@ -1189,68 +1181,67 @@ source flux estimation  and gain constraints.  A timeslice from  Obs.  3 is used
 for this analysis, and could be  considered typical in terms of data quality and
 observing  conditions.    These  data  are  however,   affected  by  significant
 scintillation, which  is expected  for wide field  instruments. The  fraction of
-data    affected    by    RFI     in    the    Low    Band    is    surprisingly
-small \citep{offringa2012lofar},   and   is   not   considered  to   affect   our
+data   affected   by    RFI   in   the   Low   Band    is   surprisingly   small
+\citep{offringa2012lofar},    and   is    not   considered    to    affect   our
 conclusions. Figure \ref{fig:Convergence-behaviour-of}  shows the typical number
 of major and minor cycle  iterations taken for convergence via their convergence
-curves. We see that after initializing antenna gain estimates to unity, the
-DIE  calibration  converges in  tens  of  iterations,  with a  steep  convergence
-curve. This is a motivation to apply tracking calibration for the AARTFAAC.
+curves. Here,  the stars  indicate calibration with  no prior knowledge  of gain
+solutions,  as used  in  convergent  calibration, while  the  diamonds show  the
+convergence  rate  after  pre-initializing  the  solver with  solutions  from  a
+previous timeslice.  We see  that after initializing  antenna gain  estimates to
+unity,  the  DIE calibration  converges  in tens  of  iterations,  with a  steep
+convergence curve.  This is a motivation  to apply tracking  calibration for the
+AARTFAAC.
 
-%% \begin{figure*}[tbh]
-%% \subfloat[Typical minor cycle convergence of StefCal in the first major cycle.
-%% Note the steep slope initially.]{\includegraphics[width=1\columnwidth]{Figs/stefcal_convergence_1st_calext}
 
-%% }\subfloat[Major cycle convergence.]{\includegraphics[width=1\columnwidth]{Figs/calext_convergence}
+\begin{figure*}[tbh]
+\subfloat
+%% [Model error as a function  of point source model complexity (abscissa)
+%%   for a  typical dataset.  The model complexity  increases with the  addition of
+%%   bright   sources  in   decreasing  order   of  expected   flux  contribution.]
+  {\includegraphics[width=1\columnwidth]{Figs/model_efficacy.eps}}
+%%  \hspace{10pt}
+\subfloat
+%% [Phase from the ratio of calibrated and model visibilities of a single 
+%%   timeslice, plotted as a function of increasing calibrated visibility amplitude.
+%%   An increase in phase error on higher amplitude visibilities can be seen to the
+%%   right, but lies well within 1 radian. This is expected to be 0 for an ideal 
+%%   model. The phase error is due to flux from unmodeled sources.]
+  {\includegraphics[width=1\columnwidth]{Figs/selfcal_ph_behaviour_new.eps}}
 
-%% }
+\caption{\label{fig:The-model-amplitude}The  sky model  efficacy evaluated  on a
+  single  timeslice.(Left) Effect  of increasing  sky model  complexity. (Right)
+  Phase behaviour of residual visibilities after model subtraction.}
+\end{figure*}
 
-%% \caption{\label{fig:Convergence-behaviour-of}Convergence behaviour of Major
-%% and Minor cycles of an instantaneous calibration.}
-%% \end{figure*}
+\textbf{Model efficacy:  } We utilize a  simple point source sky  model for self
+calibration. The efficacy of this model can be evaluated via the modelling error
+after calibration.   The parameters of the  brightest sources making  up the sky
+model are given in Table.  \ref{tab:Details-of-model}, where the fractional flux
+contribution of the model sources to  the total received flux has been estimated
+using the 3CR catalog. In the left panel of Figure \ref{fig:The-model-amplitude}
+we  plot the  modelling error  as a  function of  skymodel complexity,  which is
+increased by  the addition of  a point source  into the sky model  in descending
+order of brightness. One can see that  the addition of a larger number of weaker
+sources to the skymodel does  not significantly decrease model error, indicating
+that  a  low   complexity  model  is  adequate.   The   right  panel  of  Figure
+\ref{fig:The-model-amplitude} shows  the phase  of the ratio  between calibrated
+and  model visibilities  as a  function  of calibrated  visibility power.   This
+should be  close to 0, but has  an error contribution due  to unmodeled sources,
+which constitute the real information from the calibrated image. The large phase
+scatter at  the low residual power  end is contributed by  visibilities with low
+SNR, thus  having a  higher calibration error.  Visibilities with high  SNR show
+<0.5 rad phase error, implying that the simple point source sky model containing
+a large fraction  of received flux is adequate  for snapshot calibration.This is
+typical for  the AARTFAAC, unless  RFI or other  unmodeled sources have  a large
+contribution.
+%%  to  points towards The low phase residue with
+%% 90\% of the visibilities having <0.5  rad phase error implies that the vectorial
+%% contribution to a visibility from the residual sources of similar flux range add
+%% up  incoherently,  as  they should  in  the  absence  of a  dominant  systematic
+%% contribution from a bright source. 
 
-\begin{figure}[tbh]
-\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/major_minor_cycle_conv.eps}}
-
-\caption{\label{fig:Convergence-behaviour-of}Typical   major  and   minor  cycle
-  convergence rates on  a single timeslice. The stars  indicate calibration with
-  no prior knowledge of gain solutions, as used in convergent calibration, while
-  the diamonds  show the convergence rate after  pre-initializing with solutions
-  from a previous timeslice.}
-\end{figure}
-
-\textbf{Model efficacy: }The  parameters of the brightest sources  making up the
-sky model are given  in Table.  \ref{tab:Details-of-model}, where the fractional
-flux  contribution of  the model  sources to  the total  received flux  has been
-estimated using the  3CR catalog. The quality of the  model fit after estimation
-of  the  calibration  parameters for  a  single  timeslice  is shown  in  Figure
-\ref{fig:The-model-amplitude}(a).  Here,  the modeling error  is plotted against
-skymodel complexity, which  is increased by the addition of  a point source into
-the sky model  in descending order of brightness. One can  see that the addition
-of a  larger number  of weaker  sources to the  skymodel does  not significantly
-decrease  model error,  indicating  that  a low  complexity  model is  adequate.
-Figure  \ref{fig:The-model-amplitude}(b) shows  the phase  of the  ratio between
-calibrated  and model  visibilities as  a  function of  visibility power.   This
-should be  close to 0, but has  an error contribution due  to unmodeled sources.
-These constitute the real information  from the calibrated image.  The low phase
-residue with 90\%  of the visibilities having <0.5 rad  phase error implies that
-the vectorial contribution to a  visibility from the residual sources of similar
-flux range  add up  incoherently, as they  should in  the absence of  a dominant
-systematic contribution from a bright  source. This is typical for the AARTFAAC,
-unless RFI or other unmodeled sources have a large contribution.
-
-\begin{figure}[tbh]
-  \resizebox{\hsize}{!}{\includegraphics{Figs/model_efficacy.eps}} 
-  \caption{Sky model efficacy for selfcalibration on a single timeslice}
-  \label{fig:The-model-amplitude}
-\end{figure}
-
-\begin{figure}[tbh]
-  \resizebox{\hsize}{!}{\includegraphics{Figs/selfcal_phase_behaviour.png}} 
-  \caption{<Your caption text...>.}
-  \label{<Your label>}
-\end{figure}
-
+%%%%%%% Subfigure arrangement: Doesn't work
 %% \begin{figure}[tbh]
 %%   \centering
 %%         \begin{subfigure}[a]{0.5\textwidth}
@@ -1262,20 +1253,8 @@ unless RFI or other unmodeled sources have a large contribution.
 %%           \resizebox{\hsize}{!}{\includegraphics[width=1\textwidth]{Figs/selfcal_phase_behaviour.png}}
 %%                 \caption{B gull}
 %%         \end{subfigure}
-
-%% \subfloat[Model error as a function  of point source model complexity (abscissa)
-%%   for a  typical dataset.  The model complexity  increases with the  addition of
-%%   bright   sources  in   decreasing  order   of  expected   flux  contribution.]
-%%   {\includegraphics[width=1\columnwidth]{Figs/model_efficacy.eps}}
-%% \subfloat[Phase from the ratio of calibrated and model visibilities of a single 
-%%   timeslice, plotted as a function of increasing calibrated visibility amplitude.
-%%   An increase in phase error on higher amplitude visibilities can be seen to the
-%%   right, but lies well within 1 radian. This is expected to be 0 for an ideal 
-%%   model. The phase error is due to flux from unmodeled sources.]
-%%   {\includegraphics[width=1\columnwidth]{Figs/selfcal_phase_behaviour.png}}
-
-%% \caption{\label{fig:The-model-amplitude}The sky model efficacy evaluated on a single timeslice.}
 %% \end{figure}
+
 
 
 Figure   \ref{fig:Major-and-minor}   shows   the   longer  term   behaviour   of
@@ -1290,17 +1269,52 @@ estimate. The convergence criterion is based  on the rate of change of estimated
 parameters  reaching a  (low)  threshold, rather  than  a limit  on the  fitting
 error. The  slope obtained for the  major cycle while calibrating  a single time
 and frequency  bin, and that for the  minor cycles during the  final major cycle
-are also shown in the figure.
+are also shown in the figure.  
 
-\begin{figure*}[tbh]
-\subfloat[Major cycles]{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_major.eps}}
-\subfloat[Minor cycles]{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_minor.eps}}
+\begin{figure*}[t]
+\includegraphics[width=1\textwidth]{Figs/uncal_cal_deconv_night.eps}
+\caption{AARTFAAC zenith projection  all sky images at ~60  MHz, with 24kHz
+  and  1   second  integration.   (Left)  uncalibrated  image,   (Middle)  after
+  calibration, and (Right) after subtraction of the brightest sources.}
+\label{fig:uncal_cal_deconv_night}
+\end{figure*}
+
+Figure  \ref{fig:uncal_cal_deconv_night}   shows  an  all  sky   image  with  an
+integration of  1 second  as generated by  the AARTFAAC calibration  and imaging
+pipeline,  along with the  effect of  calibrating the  data and  subtracting the
+brightest  sources.  The  axes are  in direction  cosine units  of  a tangential
+projection of the celestial hemisphere on the zenith plane.  The boundary of the
+circular image  represents the local  horizon. The image  on the left  shows the
+uncalibrated field  of view dominated by  CasA, CygA and the  Galactic center at
+the South west corner. The middle panel shows same data after calibration.  Note
+the coherency of the flux of the  dominant point sources, and the absence of the
+bright  Galactic center due  to spatial  filtering.  The  right panel  shows the
+effect of subtracting  the brightest sources using their  estimated model fluxes
+and positions.   Note the appearance of secondary  bright sources, corresponding
+to several known 3C sources.
+
+
+\begin{figure}[tbh]
+\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_majmin.eps}}
 
 \caption{\label{fig:Major-and-minor}Number of iterations of major and minor
-cycles during calibration of Obs. 1. The first
-half of the dataset is affected by the flaring Sun, requiring
-a larger number of major and minor iterations for convergence.}
-\end{figure*}
+ during calibration of Obs. 1. The first
+ of the dataset is affected by the flaring Sun, requiring
+ larger number of major and minor iterations for convergence}
+\end{figure}
+
+ 
+%%\begin{figure*}[t]
+%% \subfloat[Major cycles]{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_major.eps}}
+%% \subfloat[Minor cycles]{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_minor.eps}}
+
+%% \caption{\label{fig:Major-and-minor}Number of iterations of major and minor
+%% cycles during calibration of Obs. 1. The first
+%% half of the dataset is affected by the flaring Sun, requiring
+%% a larger number of major and minor iterations for convergence.}
+%% \end{figure*}
+
+
 %% \textcolor{red}{<TODO:} Additional stuff: error in the estimated parameters
 %% against the number of iterations on a typical snapshot?>
 \subsection{Accuracy of tracking calibration}
@@ -1319,17 +1333,17 @@ calibration solutions as compared to those obtained after iterating
 to convergence, for Obs. 3.}
 \end{figure}
 
-Figure \ref{fig:The-error-timeseries}  shows the  Mean Square Error  of tracking
-calibration  phase   solutions  relative   to  those  obtained   via  convergent
-calibration,  normalized  per parameter.   The  dataset  is  characterized by  a
-disturbed  ionosphere,  probably  due   to  the  recombining  of  the  disturbed
-plasma. This  results in  short timescale amplitude  and position jitter  of the
-model sources.  These are effectively  tracked by the short cadence calibration,
-as  can  be  seen   in  Section  \ref{sub:iono-effect-on-calib}.   The  tracking
-calibration  solution error  per parameter  rises  during certain  times due  to
-slight variations  in model source  position estimates between the  tracking and
-convergent calibration, which are affected  by the convergence error of tracking
-calibration.
+Figure  \ref{fig:The-error-timeseries}  shows  the  Mean Absolute  Deviation  of
+tracking  calibration  phase  solutions   from  those  obtained  via  convergent
+calibration, showing  the worst case  error for a  single major and  minor cycle
+iteration. The dataset is characterized  by a disturbed ionosphere, probably due
+to  the recombining of  the disturbed  plasma. This  results in  short timescale
+amplitude  and position  jitter of  the  model sources.   These are  effectively
+tracked  by  the   short  cadence  calibration,  as  can   be  seen  in  Section
+\ref{sub:iono-effect-on-calib}.   The tracking  calibration  solution error  per
+parameter rises  during certain times due  to slight variations  in model source
+position estimates  between the tracking  and convergent calibration,  which are
+affected by the convergence error of tracking calibration.
 \subsection{\label{sub:Stability}Stability of calibration solutions}
 The stability of  the tracking calibration can be gauged from  the errors on the
 estimated parameters. The aggregate phase of a receiver path is more susceptible
@@ -1454,7 +1468,7 @@ Tracking such  behaviour is the primary  reason for carrying  out near real-time
 calibration, more so  because the streaming nature of  the application precludes
 multiple  calibration   passes  through  the   recorded  visibilities.  Tracking
 calibration is  able to recover such  short term effects  quite successfully, as
-can be seen from the above figure.
+can be seen from Figure \ref{fig:Estimated-flux-of}.
 
 Such a direction dependent correction  is estimated and carried out only towards
 the directions of  a few model sources. Thus, the  instantaneous gains and model
@@ -1468,19 +1482,28 @@ extracted from calibrated images.
 
 
 \subsection{\label{sub:Enhancing-the-transient}Enhancing the transient detection
-sensitivity via difference imaging} The snapshot dynamic range of our calibrated
-images  can  be lower  than  expected  due  to several  reasons.   Observational
-conditions like  a flaring  Sun or significant  ionospheric effects can  only be
-addressed  in a limited  manner due  to latency  and computing  constraints. The
-effect of spatial  filtering of diffuse emission via  visibility tapers for ease
-of  modeling  can give  rise  to beam  sidelobes  ripples  from unmodeled  flux.
-Carrying  out  only a  few  iterations while  calibrating  can  lead to  partial
-convergence of  a snapshot calibration. This,  in turn, can also  lead to higher
-sidelobe  confusion noise. Further,  the ASM  is expected  to hit  its classical
-confusion  limit in  a  few  tens of  seconds  of integration,  due  to its  poor
-resolution. At  short timescales,  all these effects  are systematic due  to the
-negligible  change   in  the   sky  brightness  distribution   and  instrumental
-parameters, and hence do not average down on integration.
+sensitivity via difference imaging} 
+
+\begin{figure}[h]
+\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/diffimg.eps}}
+\caption{\label{fig:Reduction-in-image}Reduction in image noise as a function of
+  integration  time over  raw  and differenced  consecutive  image pairs.   Each
+  member of the pair being differenced is generated by averaging raw images over
+  increasing  cadences.}
+\end{figure}
+
+The snapshot dynamic  range of our calibrated images can  be lower than expected
+due  to  several  reasons.   Observational  conditions like  a  flaring  Sun  or
+significant ionospheric effects can only be addressed in a limited manner due to
+latency and  computing constraints. The  effect of spatial filtering  of diffuse
+emission  via visibility  tapers for  ease  of modeling  can give  rise to  beam
+sidelobes ripples from unmodeled flux.  Carrying out only a few iterations while
+calibrating can lead to partial  convergence of a snapshot calibration. This, in
+turn, can  also lead  to higher  sidelobe confusion noise.  Further, the  ASM is
+expected  to hit  its classical  confusion limit  in a  few tens  of  seconds of
+integration, due to its poor  resolution. At short timescales, all these effects
+are systematic due  to the negligible change in  the sky brightness distribution
+and instrumental parameters, and hence do not average down on integration.
 
 Thus, the ASM is expected to  be a confusion noise limited instrument.  Here, we
 examine the temporal difference image domain as a viable alternative to snapshot
@@ -1491,13 +1514,15 @@ A  difference  image  is expected  to  have  a  higher  sensitivity due  to  the
 cancellation of  the abovementioned systematic effects, with  the residual noise
 expected to better follow Gaussian statistics.  Further, steady sources are also
 cancelled in the  difference domain, making it an  excellent domain for searches
-for short term  transients.  The sensitivity of the  difference image can depend
-on the  extent to which systematics cancel,  which in turn can  be influenced by
+for short term  transients.  The sensitivity of the  difference image depends on
+the  extent to  which systematics  cancel, which  in turn  can be  influenced by
 observing  conditions.  The  effectiveness  of this  domain  is demonstrated  in
 Figure  \ref{fig:Reduction-in-image}, which  shows  the decrease  in noise  with
 integration  time for  a snapshot  image as  well as  a difference  image,  as a
-function of integration time.  The difference image I$^N_{diff}$ with N units of
-time integration is generated as:
+function of  integration time. The difference  image curve follows  the trend of
+the theoretical thermal noise behaviour closely upto about a minute, after which
+Earth rotation is expected to  introduce systematic offsets between sources. The
+difference image I$^N_{diff}$ with N units of time integration is generated as:
 \begin{equation}
 I^N_{diff} = \sum\limits_{i=0}^{N-1} I_{i+N} - \sum\limits_{i=0}^{N-1} I_i \label{eq:diff_img}
 \end{equation}
@@ -1512,18 +1537,14 @@ changes in systematics  due to changes in instrumental  parameters over time are
 ignored  in   this  approach.   In  principle,  short   term  image  differences
 (\textasciitilde{}secs) are enough to reduce noise amplitude by 20-30\%.
 
+\section{\label{sec:Computational-performance}Pipeline architecture and computational performance}
 \begin{figure}[tbh]
-\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/raw_vs_diff_vs_theory}}
-
-\caption{\label{fig:Reduction-in-image}Reduction in image noise as a function of
-  integration  time over  raw  and differenced  consecutive  image pairs.   Each
-  member of the pair being differenced is generated by averaging raw images over
-  increasing  cadences.   The  difference   image  curve  closely   follows  the
-  theoretically expected curve out to about a minute, after which Earth rotation
-  is expected to make difference imaging ineffective.}
+\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/pipeline-design}}
+\caption{\label{fig:pipeline}  High  level  schematic  of  the  calibration  and
+  imaging pipeline design depicting the two stages of parallelism on the subband
+  and channel axis.}
 \end{figure}
 
-\section{\label{sec:Computational-performance}Pipeline architecture and computational performance}
 This  section  describes the  implementation  of the  all  sky  monitor and  its
 performance. The  upstream correlator implementation generates a  time series of
 ACMs per  frequency channel. These are  continuous within a subband  of 192 kHz,
@@ -1532,26 +1553,32 @@ timeslice,   the  low   coupling  between   calibration  of   channels  suggests
 parallelizing along the frequency axis, with a subsequent collation for creating
 a  frequency  collapsed image.   Tracking  calibration  requires a  per-channel,
 conditioned calibration solution  for initialization, which requires maintaining
-this  state information  per channel.  This architecture  is depicted  in Figure
-\ref{fig:pipeline}, with  a spectral distribution  of incoming ACMs  to parallel
-pipelines  which calibrate  and  image  the data.   Further,  the iterative  and
-sequential nature  of the estimators  operating on an  individual time/frequency
-bin is  better suited for  a CPU, rather  than a Single Algorithm  Multiple Data
-architecture  like a  GPU.  We  thus find  that an  implementation  on commodity
-multicore  CPUs is  matched  for our  application.  
+this state information per channel. 
+
+We thus  utlize a two level  parallelization scheme. The first  stage splits the
+visibilities on each  subband, to be processed by a single  pipeline as shown in
+Figure \ref{fig:pipeline}.   The second stage splits each  subband into channels
+which  are  individually  flagged   and  calibrated,  depicted  by  the  stacked
+rectangles within  each pipeline.   Finally, all channels  within a  pipline are
+imaged and combined into an image cube for further analysis.
+
+The iterative and sequential nature of the estimators operating on an individual
+time/frequency bin  is better suited for  a CPU, rather than  a Single Algorithm
+Multiple Data architecture  like a GPU.  We thus find  that an implementation on
+commodity multicore CPUs is matched for our application.
 
 We   utilize   the  Pelican   \citep{salvini2011pelican}   framework  for   data
 distribution,  in   which  a  server  process  provides   high  throughput  data
 distribution to  a collection  of worker threads  on a first-come,  first served
 basis. This scheduling maintains minimal  state between threads, however it does
-not  guarantee delivery  of  data from  a  given spectral  channel  to the  same
-thread.  We thus  utilize the  Pelican service  data channel  (indicated  by the
-dashed  lines  in  Figure.    \ref{fig:pipeline})  to  implement  a  server  for
-distribution  of the  low bandwidth  solutions with  corresponding  channels. We
-implement  the individual  estimators using  the Eigen3  \citep{eigenweb} linear
-algebra library's numerical solvers and matrix operator implementations.  Errors
-and statistics  from each pipeline are  also reported using  the Pelican service
-data channel,  and can be tapped  by network based utilities  for monitoring and
+not guarantee delivery of data from a given spectral channel to the same thread.
+We thus utilize the Pelican service  data channel (indicated by the dashed lines
+in Figure.   \ref{fig:pipeline}) to implement  a server for distribution  of the
+low bandwidth calibration solutions  to the corresponding channels. We implement
+the  individual  estimators using  the  Eigen3  \citep{eigenweb} linear  algebra
+library's  numerical solvers  and matrix  operator implementations.   Errors and
+statistics from each  pipeline are also reported using  the Pelican service data
+channel,  and  can be  tapped  by network  based  utilities  for monitoring  and
 logging. To  minimize data copies between per  CPU core caches, we  tie a single
 core to an individual pipeline implementation.
 
@@ -1571,17 +1598,6 @@ core to an individual pipeline implementation.
 %% set of visibilties that requires calibration. \\ As such, we can process each
 %% subband  independently and each  channel within  a subband  independently for
 %% that subband, giving us two stages of parallellism.
-
-\begin{figure}[tbh]
-\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/pipeline-design}}
-\caption{\label{fig:pipeline}
-High level overview of the imaging-pipeline design. We can see the two stages
-of parallelism. The first stage splits the visibilities on each subband,
-processed by a pipeline.  The second stage splits each subband into channels
-which are each flagged and calibrated, depicted by the stacked rectangles.
-Finally all channels within a pipline are imaged and combined into an image
-cube for further analysis.}
-\end{figure}
 
 %% \subsection{Architectual   dependent    description}   As   the   calibration
 %% algorithm's major, minor cycle and the  WSF are iterative in nature, we chose

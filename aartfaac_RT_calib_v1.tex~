@@ -403,51 +403,47 @@ these effects is due to the ionosphere, discussed next.
 \subsection{\label{sub:All-Sky-cal-iono}Ionospheric effects}
 
 The  antenna complex  gain has  contributions primarily  from the  gains  of the
-electronics,  receiver  characteristics  and  telescope geometry,  but  is  also
-affected at  low frequencies  by the  disturbed ionosphere.
- rapid
-calibration cycles to oversample  ionospheric phase coherency timescales.  Since
-the  delay per  antenna  depends on  the  Total Electron  Content  (TEC) of  the
-ionosphere along the line of sight to the source, and hence on antenna position,
-a phase correction which can vary over the field of view needs to be applied for
-calibrating  low  frequency observations,  and  a  single  phase correction  per
-antenna (as obtained  by SelfCal) is insufficient. Ionization  of the ionosphere
-during  the  day  by  the   Solar  wind  and  photo-ionization  is  balanced  by
+electronics, receiver characteristics and telescope geometry. These usually vary
+slowly ($\sim$hours), are direction independent effects (DIEs) and are estimated
+via  observation  of calibration  sources  or  using  self-calibration.  At  low
+frequencies, the disturbed ionosphere can  act as a phase screen with temporally
+and  spatially varying  refractive and  diffractive effects.  Ionization  of the
+ionosphere during the day by the  Solar wind and photo-ionization is balanced by
 recombination   during   the   night.    These   can   cause   bulk   variations
-$\left(\sim10x\right)$ in large scale TEC with slow temporal variations, as well
-as  fluctuations on relatively  small temporal  and spatial  scales ($\sim0.1\%$
-variations  over a  few kilometer  and over  tens of  secs).  If  the  rapid TEC
-fluctuation sets up an instantaneous  spatial phase gradient across the array in
-the direction  of a source,  an apparent position  shift of the source  is seen.
-However, if the  phase structure function varies from  a gradient, a deformation
-of the source structure may result  due to defocussing, resulting in a reduction
-of the source peak flux.
+$\left(\sim10x\right)$  in large scale  Total Electron  Content (TEC)  with slow
+temporal variations,  as well as  fluctuations on relatively small  temporal and
+spatial scales  ($\sim0.1\%$ variations  over a few  kilometers and over  tens of
+secs).   If the rapid  TEC fluctuation  sets up  an instantaneous  spatial phase
+gradient across  the array in  the direction of  a source, an  apparent position
+shift of  the source is seen.   However, if the phase  structure function varies
+from  a gradient,  a  deformation of  the  source structure  may  result due  to
+defocussing, resulting in a reduction of the recovered source peak flux.
 
- which  can act  as a
-screen with temporally and spatially varying refractive and diffractive effects.
-The  former effects  are  usually slowly  varying  ($\sim$hours), are  direction
-independent  effects (DIEs)  and are  estimated via  observation  of calibration
-sources.   The latter,  particularly  in case  of  wide-field observations,  can
-introduce a direction  dependent effect (DDE).  These can  vary on timescales of
-seconds (see Section  \ref{sub:iono-effect-on-calib}), and usually require rapid
-re-calibration  using the  instantaneous fluxes  and position  shifts  of bright
-sources within the field.  For DDE parameter estimation, we assume that the DDEs
-are  identical  for  all  antennas,  simplifying their  estimation.  This  is  a
-resonable assumption  for a compact  array, whose size projected  to ionospheric
-heights are  expected to  be smaller than  the typical isoplanatic  patch. Thus,
-identical lines  of sight from individual  antennas are expected  to traverse an
-ionospheric  patch  with  the  same  refractive  properties.   Hence,  transient
-monitors are typically wide-field compact arrays.
+Since the arrival  time delay per antenna  depends on the TEC along  the line of
+sight  to the source,  these are  termed Direction  Dependent Effects  (DDEs). A
+phase correction varying over the field of  view needs to be then applied, and a
+single phase  correction per antenna  (as obtained by SelfCal)  is insufficient.
+Uncalibrated  phase errors cause scattering of source power into sidelobes,
+affecting the reliability  of the extracted lightcurves.  Further,  a change in
+apparent  source  shape  leads  to  an  increase  in  residual  sidelobes  after
+deconvolution, as the mean source model deviates from the apparent instantaneous
+sky, and the source subtraction is incomplete. These residual sidelobes increase
+the background noise level, and can introduce spurious structure into the image.
 
-Calibration  of DDEs is  also necessary  to increase  the sensitivity  to weaker
-transients via  adequate deconvolution of  the brightest sources to  lower their
-side-lobe confusion  noise contribution to  the rest of  the image via  the PSF.
+
+During DDE parameter estimation, we make the simplification that the effects are
+identical for all antennas.  This is a reasonable assumption for a compact array,
+whose size projected to ionospheric heights  are expected to be smaller than the
+typical  isoplanatic  patch. Thus,  identical  lines  of  sight from  individual
+antennas are expected to traverse  an ionospheric patch with the same refractive
+properties. 
+
 Although  instrumental parameters  are  expected to  vary  on longer  timescales
 (hours  to days  for LOFAR),  their precise  calibration also  mandates temporal
 oversampling.  If uncorrected, these effects  can raise the image noise floor as
 well as  contribute to variations in  the recovered flux of  sources, leading to
-false  positives.   Thus,  real-time  calibration is  necessary  for  maximizing
-transient detection sensitivity.
+false positives.  Thus, real-time calibration of both DIEs and DDEs is necessary
+for maximizing transient detection sensitivity.
 
 \begin{comment}
 Such an approach is not feasible for the AARTFAAC for several reasons.
@@ -981,6 +977,25 @@ spectral index  fits. The deviations from  published fluxes are  acceptable to a
 transient detection system as long as systematics are absent. This is seen to be
 true due to the limited range of fit errors on the calibrated sources.
 
+\subsubsection{Time/spectral bin for calibration:} 
+The time  and spectral  binning of  the data has  important consequences  on the
+range of science parameter space explored,  as well as on the computational load
+of the  calibration pipeline.  High  spectral resolutions allow  better bandpass
+calibration and RFI discrimination,  while higher time resolutions allow probing
+a larger DM range.  Both, however have a computational cost. Adequate SNR of the
+model sources on each baseline  is required for maintaining reasonable errors on
+the parameter estimates during calibration.  At LOFAR frequencies, model sources
+sufficiently dominate  the visibilities  to allow calibration  using only  a few
+thousand  visibility  samples, and  so  their Signal  to  Noise  Ratio does  not
+constrain  the  resolution.   Considering  the  wide field  of  view,  bandwidth
+smearing  effects  can   affect  the  flux  of  sources  at   the  edge  of  the
+field. Keeping a limit  of 10\% flux attenuation at the edge  of the field for a
+fractional bandwidth  of $10^{-3}$ puts a  limit of $\sim48 kHz$  on the channel
+width.   The time  resolution  is constrained  by  the feasible  latency of  the
+calibration and  imaging pipeline, and is chosen  to be 1 second.   Thus, in our
+standard autonomous  mode of operation,  we choose a  resolution of 16kHz  and 1
+seconds for real-time calibration.
+
 \begin{table*}[tbh]
 \caption{Flux ratios of bright sources withina snapshot from Obs. 3.}
 \label{tab:Flux-ratios-of-1}
@@ -990,7 +1005,7 @@ true due to the limited range of fit errors on the calibrated sources.
 Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Comment\\ %\tabularnewline
  &  &  & flux (Jy) & (Jy) &  & (vals derived from Obs. 3\\ %\tabularnewline
 \hline 
-3C10 & 367.9 &  & 397.02 & 0 & 1.08 & VLSS 4 comp.\\ % \tabularnewline
+3C10 & 367.9 & 32.12 & 397.02 &  & 1.08 & VLSS 4 comp.\\ % \tabularnewline
 % \hline 
 3C452 & 152.2 &  & 184.52 &  & 1.21 & VLSS 2 comp.\\ % \tabularnewline
 % \hline 
@@ -1005,7 +1020,7 @@ Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Commen
 %% 3C461 & 16145 &  & 31758 & 89 & 1.967 & Kassim et. al.\tabularnewline
 \hline 
 \end{tabular}}
-\tablefoot{The $S_{60}$ flux has been derived from modeled spectra.
+\tablefoot{The $S_{60}$ flux has been derived from the best available modeled spectra, or -0.7 otherwise.
 The calibrated flux ratio is derived after imaging the calibrated visibilites and generating light-curves of peak flux from sources in the snapshots.}
 \end{table*}
 
@@ -1127,7 +1142,7 @@ array were  recorded between 1200-1500 UTC,  21 Sep. 2011,  and again throughout
 the  night  of  12  July  2013.   The stations  were  in  the  LBA\_OUTER  array
 configuration during  all observations  to facilitate comparisons.   The salient
 details     of      the     observations     are      tabulated     in     Table
-\ref{tab:Details-of-commissioning}.    Figure   \ref{fig:uncal_cal_deconv_night}
+\ref{tab:Details-of-commissioning}.  Figure \ref{fig:uncal_cal_deconv_night}
 shows the  all sky imaging  capabilities of the  AARTFAAC array, along  with the
 effect of calibrating the data and subtracting the brightest sources.
 
@@ -1150,19 +1165,20 @@ Obs. & Duration & $\Delta t$ & $\Delta\nu$ & Nchan & $\nu_{obs}$ & Comment \\ %\
 \end{tabular}}
 \end{table*}
 
-\begin{figure*}[tbh]
-\includegraphics[width=0.9\paperwidth]{Figs/uncal_cal_deconv_night.png}
+\begin{figure*}[t!]
+\includegraphics[width=1\textwidth]{Figs/uncal_cal_deconv_night.eps}
 
-\caption{\label{fig:uncal_cal_deconv_night} This  series of images  show the all
-  sky imaging  capabilities of  the AARTFAAC. The  axes are in  direction cosine
-  units of a zenith projection of the celestial hemisphere on a tangent plane at
-  the  zenith.   The  boundary  of  the  circular  image  represents  the  local
-  horizon. (left) The uncalibrated field of view dominated by CasA, CygA and the
-  Galactic center. (middle) The same  data after calibration. Note the coherency
-  of the flux  of the dominant point sources.  (right)  The same timeslice after
-  the brightest sources have been  subtracted using their estimated model fluxes
-  and positions.  Note the appearance of secondary bright sources, corresponding
-  to several known 3C sources.}
+\caption{This  series of images  show the  all sky  imaging capabilities  of the
+  AARTFAAC. The axes are in direction cosine units of a zenith projection of the
+  celestial hemisphere  on a tangent plane  at the zenith.  The  boundary of the
+  circular image represents the local  horizon. (left) The uncalibrated field of
+  view dominated by  CasA, CygA and the Galactic center.  (middle) The same data
+  after  calibration. Note  the  coherency of  the  flux of  the dominant  point
+  sources.  (right)  The same  timeslice after the  brightest sources  have been
+  subtracted  using  their  estimated  model  fluxes and  positions.   Note  the
+  appearance  of secondary  bright sources,  corresponding to  several  known 3C
+  sources.}
+\label{fig:uncal_cal_deconv_night}
 \end{figure*}
 
 
@@ -1178,7 +1194,7 @@ data    affected    by    RFI     in    the    Low    Band    is    surprisingly
 small \citep{offringa2012lofar},   and   is   not   considered  to   affect   our
 conclusions. Figure \ref{fig:Convergence-behaviour-of}  shows the typical number
 of major and minor cycle  iterations taken for convergence via their convergence
-curves. We see  that for a default  initial estimate of antenna gains  of 1, the
+curves. We see that after initializing antenna gain estimates to unity, the
 DIE  calibration  converges in  tens  of  iterations,  with a  steep  convergence
 curve. This is a motivation to apply tracking calibration for the AARTFAAC.
 
@@ -1204,31 +1220,41 @@ curve. This is a motivation to apply tracking calibration for the AARTFAAC.
   from a previous timeslice.}
 \end{figure}
 
-\textbf{Model efficacy:  }The parameters of the  brightest sources making
-up  the sky  model are  given  in Table.  \ref{tab:Details-of-model}, where  the
-fractional flux contribution of the model  sources to the total received flux has
-been estimated using the 3CR catalog. The  quality of the model fit after estimation of
-the  calibration  parameters   for  a  single  timeslice  is   shown  in  Figure
-\ref{fig:The-model-amplitude}(a). Here, the modeling error is plotted against skymodel complexity, which is defined as the addition of a source in descending order of brightness to the skymodel. One can see that the addition of a larger number of weaker sources to the skymodel does not significantly decrease model error, indicating that a low complexity model is adequate. Figure \ref{fig:The-model-amplitude}(b) shows the phase of the  ratio between calibrated and model visibilities as a function of visibility power. This should be close to 0, but has an error contribution due to unmodeled sources.  These  constitute the real  information from the
-calibrated image.  The low  phase residue with  90\% of the  visibilities having
-<0.5 rad  phase error  implies that the  vectorial contribution to  a visibility
-from the  residual sources of  similar flux range  add up incoherently,  as they
-should  in the  absence  of a  dominant  systematic contribution  from a  bright
-source. This is typical for the  AARTFAAC, unless RFI or other unmodeled sources
-have a large contribution.
+\textbf{Model efficacy: }The  parameters of the brightest sources  making up the
+sky model are given  in Table.  \ref{tab:Details-of-model}, where the fractional
+flux  contribution of  the model  sources to  the total  received flux  has been
+estimated using the  3CR catalog. The quality of the  model fit after estimation
+of  the  calibration  parameters for  a  single  timeslice  is shown  in  Figure
+\ref{fig:The-model-amplitude}(a).  Here,  the modeling error  is plotted against
+skymodel complexity, which  is increased by the addition of  a point source into
+the sky model  in descending order of brightness. One can  see that the addition
+of a  larger number  of weaker  sources to the  skymodel does  not significantly
+decrease  model error,  indicating  that  a low  complexity  model is  adequate.
+Figure  \ref{fig:The-model-amplitude}(b) shows  the phase  of the  ratio between
+calibrated  and model  visibilities as  a  function of  visibility power.   This
+should be  close to 0, but has  an error contribution due  to unmodeled sources.
+These constitute the real information  from the calibrated image.  The low phase
+residue with 90\%  of the visibilities having <0.5 rad  phase error implies that
+the vectorial contribution to a  visibility from the residual sources of similar
+flux range  add up  incoherently, as they  should in  the absence of  a dominant
+systematic contribution from a bright  source. This is typical for the AARTFAAC,
+unless RFI or other unmodeled sources have a large contribution.
 
-\begin{figure}[tbh]
-  \resizebox{\hsize}{!}{\includegraphics{Figs/model_efficacy.eps}} 
-  \caption{Sky model efficacy for selfcalibration on a single timeslice}
-  \label{fig:The-model-amplitude}
-\end{figure}
+%%%%%% Separate figures
+%% \begin{figure}[tbh]
+%%   \resizebox{\hsize}{!}{\includegraphics{Figs/model_efficacy.eps}} 
+%%   \caption{Sky model efficacy for selfcalibration on a single timeslice}
+%%   \label{fig:The-model-amplitude}
+%% \end{figure}
 
-\begin{figure}[tbh]
-  \resizebox{\hsize}{!}{\includegraphics{Figs/selfcal_phase_behaviour.png}} 
-  \caption{<Your caption text...>.}
-  \label{<Your label>}
-\end{figure}
+%% \begin{figure}[tbh]
+%%   \resizebox{\hsize}{!}{\includegraphics{Figs/selfcal_phase_behaviour.png}} 
+%%   \caption{<Your caption text...>.}
+%%   \label{<Your label>}
+%% \end{figure}
 
+
+%%%%%%% Subfigure arrangement: Doesn't work
 %% \begin{figure}[tbh]
 %%   \centering
 %%         \begin{subfigure}[a]{0.5\textwidth}
@@ -1240,20 +1266,23 @@ have a large contribution.
 %%           \resizebox{\hsize}{!}{\includegraphics[width=1\textwidth]{Figs/selfcal_phase_behaviour.png}}
 %%                 \caption{B gull}
 %%         \end{subfigure}
-
-%% \subfloat[Model error as a function  of point source model complexity (abscissa)
-%%   for a  typical dataset.  The model complexity  increases with the  addition of
-%%   bright   sources  in   decreasing  order   of  expected   flux  contribution.]
-%%   {\includegraphics[width=1\columnwidth]{Figs/model_efficacy.eps}}
-%% \subfloat[Phase from the ratio of calibrated and model visibilities of a single 
-%%   timeslice, plotted as a function of increasing calibrated visibility amplitude.
-%%   An increase in phase error on higher amplitude visibilities can be seen to the
-%%   right, but lies well within 1 radian. This is expected to be 0 for an ideal 
-%%   model. The phase error is due to flux from unmodeled sources.]
-%%   {\includegraphics[width=1\columnwidth]{Figs/selfcal_phase_behaviour.png}}
-
-%% \caption{\label{fig:The-model-amplitude}The sky model efficacy evaluated on a single timeslice.}
 %% \end{figure}
+
+%%%%%%% Subfloat arrangement
+\begin{figure*}
+\subfloat[Model error as a function  of point source model complexity (abscissa)
+  for a  typical dataset.  The model complexity  increases with the  addition of
+  bright   sources  in   decreasing  order   of  expected   flux  contribution.]
+  {\includegraphics[width=1\columnwidth]{Figs/model_efficacy.eps}}
+\subfloat[Phase from the ratio of calibrated and model visibilities of a single 
+  timeslice, plotted as a function of increasing calibrated visibility amplitude.
+  An increase in phase error on higher amplitude visibilities can be seen to the
+  right, but lies well within 1 radian. This is expected to be 0 for an ideal 
+  model. The phase error is due to flux from unmodeled sources.]
+  {\includegraphics[width=1\columnwidth]{Figs/selfcal_phase_behaviour.png}}
+
+\caption{\label{fig:The-model-amplitude}The sky model efficacy evaluated on a single timeslice.}
+\end{figure*}
 
 
 Figure   \ref{fig:Major-and-minor}   shows   the   longer  term   behaviour   of
@@ -1297,17 +1326,17 @@ calibration solutions as compared to those obtained after iterating
 to convergence, for Obs. 3.}
 \end{figure}
 
-Figure \ref{fig:The-error-timeseries}  shows the  Mean Square Error  of tracking
-calibration  phase   solutions  relative   to  those  obtained   via  convergent
-calibration,  normalized  per parameter.   The  dataset  is  characterized by  a
-disturbed  ionosphere,  probably  due   to  the  recombining  of  the  disturbed
-plasma. This  results in  short timescale amplitude  and position jitter  of the
-model sources.  These are effectively  tracked by the short cadence calibration,
-as  can  be  seen   in  Section  \ref{sub:iono-effect-on-calib}.   The  tracking
-calibration  solution error  per parameter  rises  during certain  times due  to
-slight variations  in model source  position estimates between the  tracking and
-convergent calibration, which are affected  by the convergence error of tracking
-calibration.
+Figure  \ref{fig:The-error-timeseries}  shows  the  Mean Absolute  Deviation  of
+tracking  calibration  phase  solutions   from  those  obtained  via  convergent
+calibration, showing  the worst case  error for a  single major and  minor cycle
+iteration. The dataset is characterized  by a disturbed ionosphere, probably due
+to  the recombining of  the disturbed  plasma. This  results in  short timescale
+amplitude  and position  jitter of  the  model sources.   These are  effectively
+tracked  by  the   short  cadence  calibration,  as  can   be  seen  in  Section
+\ref{sub:iono-effect-on-calib}.   The tracking  calibration  solution error  per
+parameter rises  during certain times due  to slight variations  in model source
+position estimates  between the tracking  and convergent calibration,  which are
+affected by the convergence error of tracking calibration.
 \subsection{\label{sub:Stability}Stability of calibration solutions}
 The stability of  the tracking calibration can be gauged from  the errors on the
 estimated parameters. The aggregate phase of a receiver path is more susceptible
@@ -1367,25 +1396,18 @@ calibration}
 
 The expected  strong phase coherence of  a plane wave across  the AARTFAAC array
 due to its  very short baselines can be mitigated  by the ionosphere introducing
-spatially  variant  refractions  and  propagation delays.  This  requires 
+spatially variant  refractions and propagation  delays, which can  require rapid
+calibration  cycles to  oversample ionospheric  phase coherency  timescales (see
+Sec. \ref{sub:All-Sky-cal-iono}).
 
-These  effects  influence the  transient  sensitivity  of  the AARTFAAC  in  two
-ways. Firstly, the phase errors cause scattering of source power into sidelobes,
-affecting the reliability  of the extracted lightcurves.  Secondly,  a change in
-apparent  source  shape  leads  to  an  increase  in  residual  sidelobes  after
-deconvolution, as the mean source model deviates from the apparent instantaneous
-sky, and the source subtraction is incomplete. These residual sidelobes increase
-the background noise level, and can introduce spurious structure into the image.
-
-The very  short baselines of  the AARTFAAC array  were expected to  be minimally
-affected by  the latter. Recent  results \citep{intema2009ionospheric}, however,
-have indicated  towards the  presence of  a turbulent layer  below the  peak TEC
-which has more power in the smaller  scale fluctuations than in the case of pure
-Kolmogorov turbulence. This  is exacerbated by the very large  fields of view of
-the AARTFAAC.  These are expected  to be larger  than the typical scale  size of
-ionospheric fluctuations  when projected onto ionospheric  heights, resulting in
-\emph{anisoplanatic }conditions  where the  ionospheric phase error  varies over
-the field of view of each antenna.
+Recent  results \citep{intema2009ionospheric} have  indicated towards
+the presence of a turbulent layer below the peak TEC which has more power in the
+smaller scale fluctuations than in the case of pure Kolmogorov turbulence.  This
+is exacerbated  by the  very large fields  of view  of the AARTFAAC.   These are
+expected to  be larger than the  typical scale size  of ionospheric fluctuations
+when  projected  onto  ionospheric  heights,  resulting  in  \emph{anisoplanatic
+}conditions where the  ionospheric phase error varies over the  field of view of
+each antenna.
 
 Note that  short baselines between closely  spaced stations were  expected to be
 immune to  ionospheric effects, and are  expected to play a  significant role in
@@ -1393,11 +1415,12 @@ constraining    the     calibration    of    the     full    LOFAR    instrument
 \citep{vdTol2007selfcallofar}.
 
 During our  test observations, the  most common effects  seen seem to be  due to
-small 'bubbles'  of turbulent plasma, which  are able to  affect sightlines from
-different  antennas.  This  results  in  high frequency  scintillations  of  the
+small scales  'bubbles' of turbulent  plasma, which affect  identical sightlines
+from different antennas.   This results in high frequency  scintillations of the
 brightest     sources,     as    well     as     position    wander.      Figure
 \ref{fig:Estimated-flux-of} shows the effect  of the ionosphere on the estimated
-flux of CasA, over the course of $\sim18$ mins for dataset 3.
+flux of  the model  sources, as  well as the  position wander  of CasA  over the
+course of a night.
 
 \begin{figure*}[tbh]
 \subfloat[Obs.2]
@@ -1450,23 +1473,6 @@ flux fluctuations contributed due to the ionosphere. From the test observations,
 this  places another  constraint  on  the achievable  accuracy  of light  curves
 extracted from calibrated images.
 
-\textbf{Time/spectral bin for calibration:} The time and spectral binning of the
-data  has  important  consequences  on  the range  of  science  parameter  space
-explored, as well as on the computational load of the calibration pipeline. High
-spectral resolutions  allow better bandpass calibration  and RFI discrimination,
-while higher  time resolutions allow probing  a larger DM  range.  Both, however
-have a computational cost. Adequate SNR of the model sources on each baseline is
-required  for maintaining reasonable  errors on  the parameter  estimates during
-calibration. At  LOFAR frequencies, the model sources  sufficiently dominate the
-visibilities to allow calibration using  only a few thousand visibility samples,
-and so the SNR does not constrain the resolution.  Considering the wide field of
-view, bandwidth smearing  effects can affect the flux of sources  at the edge of
-the field. Keeping a limit of 10\% flux attenuation at the edge of the field for
-a fractional bandwidth of $10^{-3}$ puts  a limit of $\sim48 kHz$ on the channel
-width.   The time  resolution  is constrained  by  the feasible  latency of  the
-calibration and  imaging pipeline, and is chosen  to be 1 second.   Thus, in our
-standard autonomous  mode of operation,  we choose a  resolution of 16kHz  and 1
-sec.
 
 \subsection{\label{sub:Enhancing-the-transient}Enhancing the transient detection
 sensitivity via difference imaging} The snapshot dynamic range of our calibrated
@@ -1514,7 +1520,7 @@ ignored  in   this  approach.   In  principle,  short   term  image  differences
 (\textasciitilde{}secs) are enough to reduce noise amplitude by 20-30\%.
 
 \begin{figure}[tbh]
-\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/raw_vs_diff_vs_theory}}
+\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/diffimg.eps}}
 
 \caption{\label{fig:Reduction-in-image}Reduction in image noise as a function of
   integration  time over  raw  and differenced  consecutive  image pairs.   Each

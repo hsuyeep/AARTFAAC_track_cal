@@ -943,18 +943,17 @@ imaging.
 \subsubsection{Flux density calibration}
 
 The low resolution of the AARTFAAC allows  the use of a number of bright sources
-for    calibrating     visibility    amplitudes.     Recently,     Scaife    and
-Heald \citet{scaife2012broad} have  modeled the low frequency  spectra of several
-bright  and   compact  sources  to  provide  a   low-frequency,  broadband  flux
-scale. Their set  of six sources span the  full RA range, while due  to the very
-wide field of view of the AARTFAAC, a few of these sources are typically visible
-in  every snapshot.   Hence, the  AARTFAAC fluxes  are tied  to this  scale. The
-dipole  primary beam  response is  derived from  a  full-polarization simulation
-incorporating all  antennas of the  AARTFAAC with individual ground  planes. The
-simulation incorporates  the effects of  mutual coupling between  closely spaced
-antennas {[}Arts,  private comm.{]}.  An average response  over all  antennas is
-then used as the primary beam response,  which is applied as a correction to the
-full field of view in the image domain.
+for calibrating  visibility amplitudes.  Recently,  \citet{scaife2012broad} have
+modeled  the low  frequency spectra  of several  bright and  compact  sources to
+provide a low-frequency, broadband flux scale. Their set of six sources span the
+full  RA range,  and  a few  of these  sources  are typically  visible in  every
+AARTFAAC  snapshot due  to its  very wide  field of  view.  Hence,  the AARTFAAC
+fluxes are tied to this scale.  The dipole primary beam response is derived from
+a full-polarization  simulation incorporating all antennas of  the AARTFAAC with
+individual  ground planes.  The  simulation incorporates  the effects  of mutual
+coupling between closely spaced  antennas {[}Arts, private comm.{]}.  An average
+response over all  antennas is then used as the primary  beam response, which is
+applied as a correction to the full field of view in the image domain.
 
 Table \ref{tab:Flux-ratios-of-1} presents the  ratio of the integrated fluxes of
 several  bright  sources  in  test  observations  to  the  expected  value  from
@@ -966,15 +965,17 @@ integrated flux in  pixel counts is estimated by first  segmenting the data into
 the medians.  The  calibrated fluxes of several bright  sources within the field
 of view  are then compared with  those derived from literature,  as indicated in
 the comment column.  The  dominant source of error to the flux  ratios is due to
-ionospheric scintillation,  which creates structured noise at  timescales of tens
+ionospheric scintillation, which creates systematics noise at timescales of tens
 of seconds. Another  contributor is the error in modeling  the primary beam. The
-fluxes from VLSS  have been scaled to  60 MHz assuming a spectral  index of 0.7,
-while the $S_{60}$  for CasA and CygA has  been taken using the VLA  74 MHz flux
-from \citet{kassim200774},  with a spectral  index (and the  frequency dependent
-secular  flux decrease)  published by  Baars et.  al.  \citep{baars1977absolute}
-spectral index  fits. The deviations from  published fluxes are  acceptable to a
-transient detection system as long as systematics are absent. This is seen to be
-true due to the limited range of fit errors on the calibrated sources.
+fluxes and errors from VLSS have been scaled to 60 MHz assuming a spectral index
+of -0.7.
+
+%% while the $S_{60}$  for CasA and CygA has  been taken using the VLA  74 MHz flux
+%% from \citet{kassim200774},  with a spectral  index (and the  frequency dependent
+%% secular  flux decrease)  published by  Baars et.  al.  \citep{baars1977absolute}
+%% spectral index  fits. The deviations from  published fluxes are  acceptable to a
+%% transient detection system as long as systematics are absent. This is seen to be
+%% true due to the limited range of fit errors on the calibrated sources.
 
 \subsubsection{Time/spectral bin for calibration:} 
 The time  and spectral  binning of  the data has  important consequences  on the
@@ -1002,27 +1003,23 @@ calibration.
 \begin{tabular}{c c c c c c c c}
 \hline \hline
 Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Comment\\ %\tabularnewline
- &  &  & flux (Jy) & (Jy) &  & (vals derived from Obs. 3\\ %\tabularnewline
+ &  &  & flux (Jy) & (Jy) &  & \\ %\tabularnewline
 \hline 
-3C10 & 367.9 & 18.81 & 397.02 &  & 1.08 & VLSS 4 comp.\\ % \tabularnewline
-% \hline 
-3C452 & 152.2 & 10.99 & 184.52 &  & 1.21 & VLSS 2 comp.\\ % \tabularnewline
-% \hline 
-3C390.3 & 99 & 6.002 & 121.89 &  & 1.23  & VLSS 3 comp.\\ % \tabularnewline
-% \hline 
-3C380 & 156.2 & 2.9981 & 156.2 &  & 1 & Scaife et. al\\ % \tabularnewline
-% \hline 
-3C295 & 134.5 & 8.3135 & 95.23 &  & 0.71 & Scaife et. al\\ % \tabularnewline
-% \hline 
+3C10    & 367.9 & 18.81 & 397.02 & 67 & 1.08 & VLSS $N_g$=4, $\alpha$=-0.7\\ 
+3C452   & 152.2 & 10.99 & 184.52 & 28 & 1.21 & VLSS $N_g$=2, $\alpha$=-0.7\\
+3C390.3 &  99   &  6.00 & 121.89 & 35 & 1.23 & VLSS $N_g$=3, $\alpha$=-0.7\\
+3C380   & 156.2 &  2.99 & 156.2  & 38 & 1    & Scaife et. al\\
+3C295   & 134.5 &  8.31 & 95.23  & 37 & 0.71 & Scaife et. al\\
 %% 3C405 & 19202 &  & 26927 & 78 & 1.402 & Kassim et. al.\tabularnewline
 %% \hline 
 %% 3C461 & 16145 &  & 31758 & 89 & 1.967 & Kassim et. al.\tabularnewline
 \hline 
 \end{tabular}}
 \tablefoot{The $S_{60}$  flux has been  derived from the best  available modeled
-  spectra,  or -0.7  otherwise.   The  calibrated flux  ratio  is derived  after
-  imaging the  calibrated visibilites and  generating light-curves of  peak flux
-  from sources in the snapshots.}
+  spectra, or -0.7 otherwise. $N_g$ is  the number of Gaussian components in the
+  source.  The  calibrated flux  ratio is derived  after imaging  the calibrated
+  visibilites  and generating  light-curves of  peak  flux from  sources in  the
+  snapshots.}
 \end{table*}
 \subsection{Tracking calibration}
 

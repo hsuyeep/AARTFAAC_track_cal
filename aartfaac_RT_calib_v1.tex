@@ -330,7 +330,8 @@ scatter broadening limits the DM range irrespective of spectral collapse.
 An  empirical  relationship between  the  scatter  broadening  time due  to  the
 Interstellar     medium     and    the     DM     has     been    derived     by
 \citet{bhat2004multifrequency} and implies  a DM upper limit of  $\sim$100 at 60
-MHz when scatter broadening is restricted to 1 second.
+MHz  for lines  of  sight within  the  Galaxy, and  when  scatter broadening  is
+restricted to 1 second.
 
 The temporal pulse  broadening in microseconds over a  bandwidth $\Delta\nu$ MHz
 at $\nu$ GHz, for a dispersion of DM units is given by Eq. \ref{eq:dm_broad}.
@@ -340,7 +341,7 @@ at $\nu$ GHz, for a dispersion of DM units is given by Eq. \ref{eq:dm_broad}.
 Imaging at the highest available spectral resolution of 16 kHz while restricting
 dispersion broadening to within 1 second allows detection of a source with DM of
 upto  $\sim$1600.  This  allows  probing   along  any  galactic  line  of  sight
-\citep{cordes2001ne2001},  although at  a sensitivity  a factor  $\sim$28 poorer
+\citep{cordes2002ne2001},  although at  a sensitivity  a factor  $\sim$28 poorer
 than  with the  full  13  MHz band. 
 
 Assuming all subbands  are chosen to be contiguous  around the peak instrumental
@@ -350,9 +351,11 @@ DMs of only  a few. However, restricting dispersion smearing  to < 1second under
 the upper  limit of DM 100 imposed  by scattering would allow  a higher spectral
 integration, before the  sum of the two broadening  processes exceed the imaging
 cadence. Finally, as shown by \citet{hassall2013detecting}, de-dispersion is not
-beneficial for highly scattered sources. The scatter broadening of the pulse
-increases more  rapidly with  DM than  the dispersive delay.  At high  DMs, this
-makes the inherent pulse width larger than the dispersion broadening. This would allow the AARTFAAC to probe the high DM domain with full spectral sensitivity.
+beneficial for  highly scattered  sources. The scatter  broadening of  the pulse
+increases more  rapidly with DM  than the dispersive  delay.  At high  DMs, this
+makes  the inherent  pulse  width  (due to  scatter  broadening)larger than  the
+dispersion broadening. This would allow the AARTFAAC to probe the high DM domain
+with full spectral sensitivity.
 
 The ability to  spread subbands over the full  analog bandwidth allows searching
 for  ultra  steep  spectrum  sources,  and can  aid  in  distinguishing  between
@@ -372,10 +375,11 @@ carried out. Since this requires a computationally expensive DM space search, we
 consider a narrow band figure of merit. Assuming continuous availability and the
 simultaneous imaging of  the entire field of view, a per  second figure of merit
 is  $A\Omega/T_{sys}$.  Among  currently  planned ASMs,  the  AARTFAAC's FoM  is
-comparable to the LWA, which has  similar field of view. However, the AARTFAAC's
-higher  spectral  and temporal  resolution,  as  well  as its  larger  processed
-bandwidth  would  give  it   a  higher  sensitivity  towards  scatter  broadened
-transients, as elaborated in Section \ref{sub:AARTFAAC-for-Transient}.
+comparable  to   the  LWA,   which  has  similar   field  of  view   (see  Table
+\ref{tab:AARTFAAC_specs}). However, the  AARTFAAC's higher spectral and temporal
+resolution, as  well as its  larger processed bandwidth  would give it  a higher
+sensitivity  towards  scatter broadened  transients,  as  elaborated in  Section
+\ref{sub:AARTFAAC-for-Transient}.
 
 \citet{backer1999pers} has  shown that the signal  to noise ratio  achieved in a
 continuous  widefield  search  scales  with  the array  filling  factor  $f$  as
@@ -401,21 +405,18 @@ origin, keeping the 2-D relationship  between the visibility and imaging domains
 \citep{cornwell1992radio}.   Thus, wide field  imaging is  simplified as  no 3-D
 transforms  or  their approximations  like  W-projection  are required.   Simple
 facetting recovers  off-axis lines of  sight with high fidelity,  making latency
-bound imaging feasible.
-
-Its compact nature implies that direction dependent antenna gains can be assumed
-identical  across  antennas, enabling  their  correction  in  the image  domain.
-Further, the  requirement of snapshot imaging  implies that the  sky observed by
-every  baseline  remains constant  within  a  visibility  set, thus  making  the
-calibration parameters  amenable to estimation  by self calibration.   Since all
-dipoles  are  physically  aligned  parallel  to  each  other,  the  instrumental
+bound imaging feasible. The requirement of  snapshot imaging implies that the sky
+observed by every baseline remains constant within a visibility set, thus making
+the calibration  parameters amenable to  estimation by self  calibration.  Since
+all  dipoles are  physically aligned  parallel to  each other,  the instrumental
 polarization  can be determined  via a  bi-scalar polarization  calibration, and
 corrections can be applied in the image domain.
 
 Dedicated  hardware is  used to  achieve low  latencies of  transient detection.
 These include  a hardware correlator based  on the Uniboards  for estimating the
 visibilities in  real-time, and a  software solution running on  general purpose
-hardware for the calibration, imaging and transient detection pipelines.
+hardware for  the calibration, imaging and transient  detection pipelines. Thus,
+the AARTFAAC array is well suited for its role as an all sky monitor.
 
 \section{\label{sec:Array-calibration-for}All-Sky calibration}
 Calibrating  a radio  array telescope  entails estimating  the  instrumental and
@@ -502,11 +503,15 @@ spurious structure into the image.
 
 
 During DDE parameter estimation, we make the simplification that the effects are
-identical for all antennas.  This is a reasonable assumption for a compact array,
-whose size projected to ionospheric heights  are expected to be smaller than the
-typical  isoplanatic  patch. Thus,  identical  lines  of  sight from  individual
-antennas are expected to traverse  an ionospheric patch with the same refractive
-properties. 
+identical  for all  antennas.  This  is a  reasonable assumption  for  a compact
+array, whose  size projected to ionospheric  heights are expected  to be smaller
+than  the  typical  isoplanatic  patch.  Thus, identical  lines  of  sight  from
+individual antennas are expected to  traverse an ionospheric patch with the same
+refractive properties. The estimation of a complex gain in the direction of each
+source  is  required,  but  this  can   be  assumed  to  be  identical  for  all
+antennas. Thus, a multi-source,  model based calibration approach is appropriate
+for      the      calibration       of      wide-field,      compact      arrays
+\citep{wijnholds2010calibration}.
 
 Although  instrumental parameters  are  expected to  vary  on longer  timescales
 (hours  to days  for LOFAR),  their precise  calibration also  mandates temporal
@@ -515,21 +520,6 @@ well as  contribute to variations in  the recovered flux of  sources, leading to
 false positives.  Thus, real-time calibration of both DIEs and DDEs is necessary
 for maximizing  transient detection sensitivity of  autonomously operating, near
 real-time instruments.
-
-\begin{comment}
-Such an approach is not feasible for the AARTFAAC for several reasons.
-Its very wide field of view results in the presence of several bright
-source within a field. Further, usual aperture synthesis observations
-can span long time intervals while tracking a target field, in order
-to obtain the necessary UV coverage as well as the SNR on target.
-Thus, a variety of direction dependent effects can limit the final
-dynamic range of such synthesis images, including the effect of a
-non-symmetric beam which may rotate during the course of the observation,
-time variable PSF response due to changing array geometry and changing
-instrumental and ionospheric contributions. This can make calibration
-algorithms for such observations complex and time consuming, and thus
-unideal for our requirements.
-\end{comment}
 
 \subsection{Current approaches to all-sky calibration}
 
@@ -552,27 +542,19 @@ array to its  direction, and the contribution of other  sources is attenuated by
 averaging over their unphased  visibility contribution (fringe washing). Thus, a
 single source calibration  approach is adequate, and a  Least Squares estimation
 of the antenna gains in the direction of the source can be carried out using one
-of  several  methods \citep{boonstra2003gain}.  The  solution  yields  a set  of
-time-variable,  antenna  based  phase  corrections  per  source,  and  a  source
-model.   However,  the  algorithm   requires  the   storage  of   the  estimated
-visibilities,  with multiple  calibration and  imaging passes  through  the data
-before  the   iterative  peeling  can   be  concluded,  and   calibrated  images
-produced. This, along with the  increased computational load makes it unsuitable
-for real-time operation.
-
-Due to the compactness of the  AARTFAAC array, the additional delay along a line
-of sight due to the ionosphere is  expected to be the same for all antennas. The
-estimation of  a complex gain in the  direction of each source  is required, but
-this can  be assumed  to be  identical for all  antennas. Thus,  a multi-source,
-model  based  calibration  approach   is  appropriate  for  the  calibration  of
-wide-field, compact arrays \citep{wijnholds2010calibration}.  Other contemporary
-instruments with  similar specifications  and goals as  ours use  mostly Peeling
-based    approaches.    Their    specifications   are    compared    in   Table.
+of  several methods  \citep{boonstra2003gain}.   The solution  yields  a set  of
+time-variable, antenna based  phase corrections per source, and  a source model.
+However, the algorithm requires the  storage of the estimated visibilities, with
+multiple calibration  and imaging passes  through the data before  the iterative
+peeling can be  concluded, and calibrated images produced.  This, along with the
+increased computational load makes it unsuitable for real-time operation.  Other
+contemporary  instruments with  similar  specifications and  goals  as ours  use
+mostly Peeling  based approaches.  Their  specifications are compared  in Table.
 \ref{tab:AARTFAAC_specs}.
 
 The  MWA   \citep{lonsdale2009murchison},  located  in   Western  Australia  has
 developed an  algorithm for carrying out real-time,  full polarization direction
-dependent  calibration  of  snapshots  of  $\sim$8sec via  a  Peeling  mechanism
+dependent  calibration of snapshots  of $\sim$8seconds  via a  Peeling mechanism
 \citep{mitchell2008real}.   They  use the  sequential  deconvolution of  several
 bright sources in decreasing order of apparent flux, in order to iteratively fit
 apparent angular offsets  induced by ionospheric phase shifts  and antenna gains
@@ -593,11 +575,11 @@ estimation uses  a Direction of  Arrival (DoA) algorithm independently  for each
 spectral channel, and does not require large bandwidths for fitting phase ramps.
 This allows a loosely coupled parallel architecture for our implementation.  The
 AARTFAAC calibration has  a stricter latency bound, and  its lowered sensitivity
-and better PSF make an iterative deconvolution unattractive.
+and better PSF reduce the benefits of  an iterative deconvolution.
 
-The  LWA \citep{ellingsonLWA1}   is  co-located  with  the  VLA   in  New  Mexico
+The  LWA  \citep{ellingsonLWA1}  is  co-located  with  the  VLA  in  New  Mexico
 (USA). Along with forming beams in real-time (its primary mode of operation), it
-can  also operate  in an  'All-sky' mode  for  a single  tuning of  70 kHz.  The
+can  also operate  in an  'All-sky' mode  for a  single tuning  of 70  kHz.  The
 calibration of antenna phases utilizes the method of fringe rate filtering using
 narrow band data to localize one of multiple point source calibrators within the
 field of view. Here, the time-varying phases of visibilities due to contribution
@@ -605,13 +587,14 @@ by discrete sources is converted into a fringe rate spectrum by taking a Fourier
 transform  of the  correlation,  where  the sources  are  apparent as  localized
 components. The fringe  of the brightest source is  filtered, and antenna delays
 extracted by  fitting a  model of  the presumed delay  response to  the measured
-phase response.  Such an approach provides  a phase calibration  solution in the
+phase response.  Such  an approach provides a phase  calibration solution in the
 unique direction of the brightest source.  However, fitting a fringe requires an
 extended period of time to generate  the fit baseline, which is not suitable for
-our streaming, real-time application.  Further, given the calibration approach,
+our streaming, real-time application.   Further, given the calibration approach,
 the presence of a disturbed ionosphere would add a random noise on the parameter
 estimates,  while any  bias due  to  ionospheric systematics  would probably  be
-averaged out over the time period over which the fringe is fitted.
+averaged out  over the time period over  which the fringe is  fitted. This could
+lead to a bias in the snapshot calibrated visibilities.
 
 Field-based  calibration  \citep{cottona2004beyond}  is  another  technique  for
 direction dependent ionospheric phase calibration, and was developed for the VLA
@@ -744,6 +727,30 @@ subsets of parameters is called Weighted Alternating Least Squares (WALS).
 
 
 \subsubsection{\label{sub:Model-generation}Model generation}
+\begin{table*}[tbh]
+\caption{Details of model sources (the A-team) used for All-sky selfcalibration}
+\label{tab:Details-of-model}
+\center{%
+\begin{tabular}{c c c c c}
+\hline \hline
+Src & $S_{60}(Jy)$ & 74 MHz Size  & \% Flux contribution  & Comment \\ 
+\hline 
+3C461 (CasA) & 19605.31 & 7' & $\sim$50 & Spectra from (1), Decay from (2)\\
+3C405 (CygA) & 19201.65 & 4.5' & $\sim$42 & Spectra from (1)\\
+3C144 (TauA) & 2417.31 & 8' & $\sim$11 & Spectra from (1)\\ 
+3C274 (VirA) & 1656.46 & 14' & $\sim$8& Spectra from (2)\\
+\hline 
+\end{tabular}}
+\tablebib{
+ (1)\citet{baars1977absolute}; (2)\citet{helmboldt2008radio}
+}
+\tablefoot{  $S_{60}$   has  been  generated  using  the   spectral  indices  of
+  \citet{helmboldt2008radio}, while  a secular decrease  in the flux of  CasA of
+  0.8\% has been assumed. The  fractional flux contribution of each model source
+  to  the  flux  in the  observed  snapshot  visibilities  assumes the  flux  of
+  unmodeled sources  adds incoherently due  to a random sky  distribution, along
+  with a source density of $\sim66 sr^{-1}$ at 178 MHz.}
+\end{table*}
 
 Forming the  normal equations of  Eq. \ref{eq:normeq} for  minimization requires
 modeling    the    observed   visibilities    using    the    data   model    in
@@ -801,31 +808,6 @@ discussed in more detail in Section \ref{sub:System-noise-estimation}.
     SNR was removed from the table, as it does not provide very much extra information as compared to the total flux contribution from a source.
 \end{comment}
 
-\begin{table*}[tbh]
-\caption{Details of model sources used for All-sky selfcalibration}
-\label{tab:Details-of-model}
-\center{%
-\begin{tabular}{c c c c c}
-\hline \hline
-Src & $S_{60}(Jy)$ & 74 MHz Size  & \% Flux contribution  & Comment \\ 
-\hline 
-3C461 (CasA) & 19605.31 & 7' & $\sim$50 & Spectra from (1), Decay from (2)\\
-3C405 (CygA) & 19201.65 & 4.5' & $\sim$42 & Spectra from (1)\\
-3C144 (TauA) & 2417.31 & 8' & $\sim$11 & Spectra from (1)\\ 
-3C274 (VirA) & 1656.46 & 14' & $\sim$8& Spectra from (2)\\
-\hline 
-\end{tabular}}
-\tablebib{
- (1)\citet{baars1977absolute}; (2)\citet{helmboldt2008radio}
-}
-\tablefoot{  $S_{60}$   has  been  generated  using  the   spectral  indices  of
-  \citet{helmboldt2008radio}, while  a secular decrease  in the flux of  CasA of
-  0.8\% has been assumed. The  fractional flux contribution of each model source
-  to  the  flux  in the  observed  snapshot  visibilities  assumes the  flux  of
-  unmodeled sources  adds incoherently due  to a random sky  distribution, along
-  with a source density of $\sim66 sr^{-1}$ at 178 MHz.}
-\end{table*}
-
 \subsubsection{\label{sub:Direction-independent-gain}Direction independent gain
 estimation (Minor Cycle)}
 
@@ -836,7 +818,7 @@ AARTFAAC  calibration   is  latency  bound,  hence  we   implement  the  StEFCal
 smaller memory footprint, and its computing scales as $\mathcal{O}(N^{2})$ for N
 parameters,   as  against  the   $\mathcal{O}(N^{3})$  scaling   of  traditional
 solvers. This  significantly impacts  the computing during  AARTFAAC calibration
-due  to   the  large  number   of  parameters  being  estimated.    The  StEFCal
+due  to the  large number  of parameters  (~590) being  estimated.   The StEFCal
 implementation led to a measured  increase in calibration throughput of a factor
 $\sim$30 \citep{salvini2013stef}, compared to a traditional estimator, and makes
 real-time calibration  of every time  and frequency slice feasible.   This speed
@@ -866,8 +848,9 @@ the  $\chi^{2}$ error  surface  towards an  identifiable  global minimum,  whose
 convergence  is identified  by a  slow enough  rate of  change of  the estimated
 parameters.
 
-\subsubsection{\label{sub:Direction-dependent-gain}Direction dependent gain estimation
-(Major Cycle)}  The major cycle  creates an updated  model sky using  the higher
+\subsubsection{\label{sub:Direction-dependent-gain}Direction dependent gain estimation(Major Cycle)}  
+
+The major cycle  creates an updated  model sky using  the higher
 accuracy parameter estimates  from the minor cycle. It  uses this for estimating
 direction dependent effects, parameterized  in the apparent fluxes and positions
 of the model sources.
@@ -913,6 +896,35 @@ calibrates the  array and then  carries out a  WSF estimation. Further,  the WSF
 initial DoA  estimates can  be the  catalog positions of  the model  sources. An
 example  of  estimation with  the  WSF on  test  observations,  and its  spatial
 resolution is presented in Figure \ref{fig:Estimated-flux-of}.
+
+
+
+\begin{table*}[tbh]
+\caption{Flux ratios of bright sources withina snapshot from Obs. 3.}
+\label{tab:Flux-ratios-of-1}
+\center{%
+\begin{tabular}{c c c c c c c c}
+\hline \hline
+Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Comment\\ %\tabularnewline
+ &  &  & flux (Jy) & (Jy) &  & \\ %\tabularnewline
+\hline 
+3C10    & 367.9 & 18.81 & 397.02 & 67 & 1.08 & VLSS $N_g$=4, $\alpha$=-0.7\\ 
+3C452   & 152.2 & 10.99 & 184.52 & 28 & 1.21 & VLSS $N_g$=2, $\alpha$=-0.7\\
+3C390.3 &  99   &  6.00 & 121.89 & 35 & 1.23 & VLSS $N_g$=3, $\alpha$=-0.7\\
+3C380   & 156.2 &  2.99 & 156.2  & 38 & 1    & Scaife et. al\\
+3C295   & 134.5 &  8.31 & 95.23  & 37 & 0.71 & Scaife et. al\\
+%% 3C405 & 19202 &  & 26927 & 78 & 1.402 & Kassim et. al.\tabularnewline
+%% \hline 
+%% 3C461 & 16145 &  & 31758 & 89 & 1.967 & Kassim et. al.\tabularnewline
+\hline 
+\end{tabular}}
+\tablefoot{The $S_{60}$  flux has been  derived from the best  available modeled
+  spectra, or -0.7 otherwise. $N_g$ is  the number of Gaussian components in the
+  source.  The  calibrated flux  ratio is derived  after imaging  the calibrated
+  visibilites  and generating  light-curves of  peak  flux from  sources in  the
+  snapshots.}
+\end{table*}
+
 
 \textbf{Bias of the WSF estimator:} The  requirement for the majority of flux in
 the ACM  to be contributed by the  model sources implies that  the algorithm can
@@ -1055,33 +1067,9 @@ $10^{-3}$  puts  a  limit of  $\sim48  kHz$  on  the  channel width.   The  time
 resolution is constrained by the feasible latency of the calibration and imaging
 pipeline, and is  chosen to be 1 second.  Thus, in  our standard autonomous mode
 of  operation, we  choose a  resolution  of 16kHz  and 1  seconds for  real-time
-calibration.
-
-\begin{table*}[tbh]
-\caption{Flux ratios of bright sources withina snapshot from Obs. 3.}
-\label{tab:Flux-ratios-of-1}
-\center{%
-\begin{tabular}{c c c c c c c c}
-\hline \hline
-Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Comment\\ %\tabularnewline
- &  &  & flux (Jy) & (Jy) &  & \\ %\tabularnewline
-\hline 
-3C10    & 367.9 & 18.81 & 397.02 & 67 & 1.08 & VLSS $N_g$=4, $\alpha$=-0.7\\ 
-3C452   & 152.2 & 10.99 & 184.52 & 28 & 1.21 & VLSS $N_g$=2, $\alpha$=-0.7\\
-3C390.3 &  99   &  6.00 & 121.89 & 35 & 1.23 & VLSS $N_g$=3, $\alpha$=-0.7\\
-3C380   & 156.2 &  2.99 & 156.2  & 38 & 1    & Scaife et. al\\
-3C295   & 134.5 &  8.31 & 95.23  & 37 & 0.71 & Scaife et. al\\
-%% 3C405 & 19202 &  & 26927 & 78 & 1.402 & Kassim et. al.\tabularnewline
-%% \hline 
-%% 3C461 & 16145 &  & 31758 & 89 & 1.967 & Kassim et. al.\tabularnewline
-\hline 
-\end{tabular}}
-\tablefoot{The $S_{60}$  flux has been  derived from the best  available modeled
-  spectra, or -0.7 otherwise. $N_g$ is  the number of Gaussian components in the
-  source.  The  calibrated flux  ratio is derived  after imaging  the calibrated
-  visibilites  and generating  light-curves of  peak  flux from  sources in  the
-  snapshots.}
-\end{table*}
+calibration.  The calibrated visibilities  or images  can be  further integrated
+over  a larger time  or frequency  span in  accordance with  transient detection
+requirements.
 
 
 \subsection{Tracking calibration}
@@ -1093,17 +1081,6 @@ Source & $S_{60}$ (Jy) & $\sigma_{S_{60}}$ & Calibrated & error & Ratio & Commen
 for bounded latency precise calibration.}
 \end{figure}
 
-
-%% The main requirements for calibrating the AARTFAAC array can now be
-%% summarized as:
-%% \begin{itemize}
-%% \item A large number of calibration parameters to estimate (antenna elements
-%% + dir. Dependent params), hence computationally expensive (large matrix
-%% operations).
-%% \item Requirement of bounded latency for real-time operation. 
-%% \item Need for rapid calibration to closely track variations in instrumental
-%% and environmental parameters.
-%% \end{itemize}
 An  Alternating   Least  Squares  approach   is  already  known  to   have  high
 computational  efficiency   over  closed  form  estimators,  as   well  as  fast
 convergence  \citep{boonstra2003gain}.   Thus   this  approach  is  particularly
@@ -1182,10 +1159,9 @@ taken  under  different  observing  conditions that  an  autonomous  calibration
 algorithm  might  encounter,  and   evaluate  the  performance  of  the  various
 estimators in  those conditions.   Our metric of  performance is  two-tiered: We
 first establish the calibration efficiency of  our approach on a single time and
-frequency slice by comparison  against theoretically expected thresholds. During
-this  test, we  set high  convergence thresholds  in order  to extract  the best
-performance  from  the  calibration  parameter  estimators.  We  refer  to  this
-estimator as the 'convergent calibration' estimator.
+frequency slice. During  this test, we set high  convergence thresholds in order
+to extract the  best performance from the calibration  parameter estimators.  We
+refer to this estimator as the 'convergent calibration' estimator.
 
 We next compare the calibration  efficiency of the tracking approach against the
 previously established best  performance. Here, we carry out  a single iteration
@@ -1279,26 +1255,26 @@ motivation to apply tracking calibration for the AARTFAAC.
 calibration. The efficacy of this model can be evaluated via the modelling error
 after calibration.   The parameters of the  brightest sources making  up the sky
 model are given in Table.  \ref{tab:Details-of-model}, where the fractional flux
-contribution of the model sources to  the total received flux has been estimated
-using the 3CR catalog. In the left panel of Figure \ref{fig:The-model-amplitude}
-we  plot the  modeling error  as  a function  of skymodel  complexity, which  is
-increased by  the addition of  a point source  into the sky model  in descending
-order of brightness. One can see that  the addition of a larger number of weaker
-sources to the skymodel does  not significantly decrease model error, indicating
-that a low complexity  model is adequate.  This is due to  the brightness of hte
-model sources, which contribute a  significant fraction of the received flux, as
-seen  in   Table  \ref{tab:Detailes-of-model}.    The  right  panel   of  Figure
-\ref{fig:The-model-amplitude} shows  the phase  of the ratio  between calibrated
-and model visibilities as a  function of calibrated visibility power. The ratios
-should ideally  have the response  of a point  source, i.e., 0 phase  across all
-visibilities.  This is  seen in the figure, along with  an error contribution on
-all baselines  due to unmodeled  sources, which constitute the  real information
-from the calibrated image. The large phase scatter at the low residual power end
-is contributed  by visibilities with low  SNR, thus having  a higher calibration
-error.  Visibilities with high SNR show  <0.5 rad phase error, implying that the
-simple point  source sky model containing  a large fraction of  received flux is
-adequate for snapshot  calibration.This is typical for the  AARTFAAC, unless RFI
-or other unmodeled sources have a large contribution.
+contribution of  the model sources to  the total received flux  per snapshot has
+been  estimated   using  the   3CR  catalog.  In   the  left  panel   of  Figure
+\ref{fig:The-model-amplitude}  we  plot the  modeling  error  as  a function  of
+skymodel complexity, which  is increased by the addition of  a point source into
+the sky model  in descending order of brightness. One can  see that the addition
+of a  larger number  of weaker  sources to the  skymodel does  not significantly
+decrease model error, indicating that  a low complexity model is adequate.  This
+is due  to the brightness of  the model sources, which  contribute a significant
+fraction of the received flux, as seen in Table \ref{tab:Details-of-model}.  The
+right panel of Figure \ref{fig:The-model-amplitude} shows the phase of the ratio
+between calibrated and model visibilities as a function of calibrated visibility
+power. The  ratios should ideally have the  response of a point  source, i.e., 0
+phase across all visibilities.  This is  seen in the figure, along with an error
+contribution on  all baselines  due to unmodeled  sources, which  constitute the
+real information from  the calibrated image. The large phase  scatter at the low
+residual power  end is contributed by  visibilities with low SNR,  thus having a
+higher calibration error.  Visibilities with high SNR show <0.5 rad phase error,
+implying that the  simple point source sky model containing  a large fraction of
+received  flux is  adequate for  snapshot  calibration.This is  typical for  the
+AARTFAAC, unless RFI or other unmodeled sources have a large contribution.
 %%  to  points towards The low phase residue with
 %% 90\% of the visibilities having <0.5  rad phase error implies that the vectorial
 %% contribution to a visibility from the residual sources of similar flux range add
@@ -1318,11 +1294,18 @@ or other unmodeled sources have a large contribution.
 %%                 \caption{B gull}
 %%         \end{subfigure}
 %% \end{figure}
+\begin{figure}[tbh]
+\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_majmin.eps}}
 
+\caption{\label{fig:Major-and-minor}Number of iterations of major and minor
+ during calibration of Obs. 1. The first
+ of the dataset is affected by the flaring Sun, requiring
+ larger number of major and minor iterations for convergence}
+\end{figure}
 
 
 Figure   \ref{fig:Major-and-minor}   shows   the   longer  term   behaviour   of
-instantaneously calibrating every timeslice of  the timeseries from dataset 1 to
+instantaneously calibrating  every timeslice  of the timeseries  from Obs.  1 to
 convergence. An average  of close to 40 iterations are taken  in the minor cycle
 (spread over the 3-4 major cycle iterations) in the initial part of the dataset,
 while this reduces to about 30  iterations in the latter half of the observation
@@ -1333,7 +1316,7 @@ estimate. The convergence criterion is based  on the rate of change of estimated
 parameters  reaching a  (low)  threshold, rather  than  a limit  on the  fitting
 error. The  slope obtained for the  major cycle while calibrating  a single time
 and frequency  bin, and that for the  minor cycles during the  final major cycle
-are also shown in the figure.  
+are also shown in the figure.
 
 \begin{figure*}[t]
 \includegraphics[width=1\textwidth]{Figs/uncal_cal_deconv_night.eps}
@@ -1353,19 +1336,9 @@ uncalibrated field  of view dominated by  CasA, CygA and the  Galactic center at
 the South west corner. The middle panel shows same data after calibration.  Note
 the coherency of the flux of the  dominant point sources, and the absence of the
 bright  Galactic center due  to spatial  filtering.  The  right panel  shows the
-effect of subtracting  the brightest sources using their  estimated model fluxes
-and positions.   Note the appearance of secondary  bright sources, corresponding
-to several known 3C sources.
-
-
-\begin{figure}[tbh]
-\resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_majmin.eps}}
-
-\caption{\label{fig:Major-and-minor}Number of iterations of major and minor
- during calibration of Obs. 1. The first
- of the dataset is affected by the flaring Sun, requiring
- larger number of major and minor iterations for convergence}
-\end{figure}
+effect of subtracting  the brightest sources (the A-team)  using their estimated
+model fluxes  and positions.  Note  the appearance of secondary  bright sources,
+corresponding to several known 3C sources.
 
  
 %%\begin{figure*}[t]
@@ -1400,7 +1373,7 @@ calibration, showing  the worst case  error for a  single major and  minor cycle
 iteration. The dataset is characterized  by a disturbed ionosphere, probably due
 to  the recombining of  the disturbed  plasma. This  results in  short timescale
 amplitude  and position  jitter of  the  model sources.   These are  effectively
-tracked  by  the   short  cadence  calibration,  as  can   be  seen  in  Section
+tracked   by  the   short  cadence   calibration,   as  is   shown  in   Section
 \ref{sub:iono-effect-on-calib}.   The tracking  calibration  solution error  per
 parameter rises  during certain times due  to slight variations  in model source
 position estimates  between the tracking  and convergent calibration,  which are

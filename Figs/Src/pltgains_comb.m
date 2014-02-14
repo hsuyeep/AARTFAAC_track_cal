@@ -6,16 +6,19 @@ fname = '../Data/combined_SB002_2_convcalsol.bin.gains';
 gtseries = load (fname);
 t_first = gtseries(1,1);
 num = mjdsec2datenum (t_first);
-col = {'b*', 'm*', 'r*', 'k*', 'g*', 'y*', 'w*', 'c*'};
+%% col = {'b*', 'm*', 'r*', 'k*', 'g*', 'y*', 'w*', 'c*'};
+col = {'b*', 'mx', 'r+', 'ks', 'gd', 'yv', 'w^', 'c<'};
+
 
 subplot (211);
 antoff=23;
 colind = 1;
+xrng = [1:size(gtseries, 1)];
 % NOTE: Dawn data has one whole station missing! Hence the -96
 for ant=2:96:576-96 % Plot only one antenna per station
 % for ant=2:96:576 % Plot only one antenna per station
 	%%%% USE THIS plot command ONLY FOR DAWN DATA
-	plot (gtseries (:,(antoff+ant)), char(col(colind)));
+	plot (gtseries (xrng,(antoff+ant)), char(col(colind)));
 	% plot ((gtseries (:,1)-t_first)/86400.+num, gtseries (:,(antoff+ant)), char(col(colind)));
 	hold on;
 	colind = colind + 1;
@@ -35,7 +38,7 @@ colind = 1;
 for ant=3:96:576-96 % Plot only one antenna per station
 % for ant=3:96:576 % Plot only one antenna per station
 	%%%% USE THIS plot command ONLY FOR DAWN DATA
-	plot (gtseries (:,(antoff+ant)), char(col(colind)));
+	plot (gtseries (xrng,(antoff+ant)), char(col(colind)));
 	% plot ((gtseries (:,1)-t_first)/86400.+num, gtseries (:,(antoff+ant)), char(col(colind)));
 	hold on;
 	fprintf (1, 'Ant: %d, mean gain: %f, var gain: %f\n', ant, mean(gtseries(:,(antoff+ant))), std (gtseries (:, (antoff+ant))));

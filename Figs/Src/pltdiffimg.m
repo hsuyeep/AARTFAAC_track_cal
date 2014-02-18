@@ -10,10 +10,11 @@ hold on;
 loglog (2*diffstat(:,1), diffstat(:,8), 'r*-'); % Raw image integrated std.
 hold on;
 loglog (2*diffstat(:,1), diffstat(:,10), 'b*-'); % Difference integrated image
-grid;
 title ('Noise region std Vs. integration time');
 xlabel ('Integration time(secs)');
 ylabel ('Normalized noise std.');
+set (gca, 'YTick', [0.1:0.1:1]);
+grid on;
 legend ('Theoretical thermal', 'Raw image', 'Difference Image');
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')

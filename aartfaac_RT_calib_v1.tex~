@@ -33,25 +33,16 @@
 
 \title{Real-time calibration of the AARTFAAC array for transient detection}
 
-\author{Peeyush    Prasad    \inst{1,2} 
- \and   Stefan J. Wijnholds  \inst{3}  
- \and   Folkert  Huizinga    \inst{4}  
- \and    Ralph     Wijers    \inst{5}}  
+\author{P. Prasad    \inst{1,2} \email{prasad@astron.nl}
+ \and   S.J. Wijnholds  \inst{2}  
+ \and   F. Huizinga    \inst{1}  
+ \and    R.A.M.J Wijers    \inst{1}}  
  \institute 
  {Anton    Pannekoek    Institute,  University of  Amsterdam, 
-  Postbus  94249, 1090 GE  Amsterdam, The Netherlands\email{prasad@astron.nl} 
+  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \label{1}
 \and
   ASTRON, The  Netherlands Foundation for  Radio Astronomy, 
-  PO Box 2,  7990 AA Dwingeloo, The  Netherlands\email{prasad@astron.nl}
-\and
-  ASTRON, The  Netherlands Foundation for  Radio Astronomy, 
-  PO Box 2,  7990 AA Dwingeloo, The  Netherlands\email{wijnholds@astron.nl}
-\and
-  Anton    Pannekoek    Institute,  University of  Amsterdam, 
-  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \email{F.Huizinga@uva.nl}
-\and
-  Anton    Pannekoek    Institute,  University of  Amsterdam, 
-  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \email{r.a.m.j.wijers@uva.nl}
+  PO Box 2,  7990 AA Dwingeloo, The  Netherlands \label{2}
 }
 
 \date{Received <date> / Accepted <date>}
@@ -84,7 +75,7 @@
   noise  limited transient  detection,  despite the  instrument being  confusion
   noise limited.}
 
-\keywords{Radio Interferometry - Calibration - Radio Transients}
+\keywords{Instrumentation:Interferometers - telescopes - atmospheric effects - methods: observational}
 
 \maketitle
 
@@ -133,7 +124,7 @@ potential variety  of sources which  might fill the unnaturally  empty discovery
 phase  space  of LF  radio  transients.  Thus,  the  development  of wide  field
 monitors like  AARTFAAC is timely  and crucial for detecting  and characterizing
 such   sources.   The  science   case   for   the   AARTFAAC  is   detailed   in
-\citep{wijers2014aartfaac}.
+\mbox{\citep{wijers2014aartfaac}}.
 \begin{table*}[tbhp]
 \caption{Specifications of contemporary radio transient detection machines}
 \label{tab:AARTFAAC_specs}
@@ -313,7 +304,7 @@ as a proxy for distance. Dispersion causes an arrival time delay of the pulse at
 different  frequencies, and  leads  to pulse  broadening  if the  signal is  not
 dedispersed  before  spectral  integration.  However,  this  broadening  can  be
 completely corrected if  the DM of the source is known.  Scattering is caused by
-electron  density  fluctuations along  the  line of  sight,  and  lead to  pulse
+electron  density  fluctuations along  the  line of  sight,  and leads to  pulse
 broadening due  to arrival  of delayed pulses  via multiple paths.  This effect,
 however, cannot  be corrected. Both  effects are enhanced  at large DMs  and low
 frequencies, and  can limit the detection  of pulses, instead  of the limitation
@@ -525,7 +516,7 @@ real-time instruments.
 
 Typical calibration schemes, e.g. as  implemented in the CASA package, address a
 different problem than applicable to the AARTFAAC due to the restricted field of
-view, much longer  baselines and an order of magnitude  fewer number of stations
+view, much longer  baselines and an order of magnitude  fewer stations
 in typical arrays. Their algorithms  are further complicated by compensating for
 higher  order  effects  like the  temporal  variation  in  the PSF  during  long
 synthesis  due  to  changing   array  geometry,  rotating  non-symmetric  beams,
@@ -759,7 +750,7 @@ Galactic plane) are unresolved by the AARTFAAC.  Thus, the sky can be modeled by
 a collection of points at the nominal  locations of the bright sources. We use a
 sky model composed of the brightest  sources in the sky, viz., CasA, CygA, VirA,
 TauA and the Sun, whose nominal  positions are determined from the revised third
-cambridge (revised) catalog (3CR).  The  model parameters used are summarized in
+Cambridge (revised) catalog (3CR).  The  model parameters used are summarized in
 Table  \ref{tab:Details-of-model}.  The efficacy  of  this  model for  parameter
 estimation    is    elaborated    upon    using    real    data    in    Section
 \ref{sec:calib-accuracy}.  Of these model soures, CasA is visible throughout the
@@ -827,25 +818,21 @@ These, although computationally costly, are  essential to other solvers like the
 Levenberg-Marquardt minimizer.  StEFCal algorithm  has been shown to be unbiased
 with rapid convergence.
 
-\textbf{Gain Constraints:} Since the gain  estimator does not have a closed form
-solution, the iterative algorithm for  gain estimation needs to be appropriately
-constrained in order  to guide the optimization towards the  global minima and a
-physically viable  solution in every  iteration.  Typically, constraints  on the
-estimated parameters are based on the positivity of source emission, confinement
-of  source structure,  conservation  of the  total  flux of  model sources  etc.
-However, the variability of model source fluxes due to ionospheric scintillation
-prevents using the  conservation of flux as a constraint  in our context.  Doing
-so couples the estimated gain solutions to variability in the model fluxes, thus
-transferring the  scintillation to calibrated  visibilities, and hence  over the
-entire field  of view.  To break this  coupling, we instead use  a constraint on
-the  average  gain amplitude  over  all antennas,  setting  it  to unity.   This
-reflects the  behaviour of  antenna gain amplitudes,  which were observed  to be
-stable  to  a  few percent  across  all  antennas  and  over long  times  during
-commissioning.  The phases  are referenced to the first antenna  in the array as
-an  additional  constraint.   These  constraints  guide  the  traversal  of  the
-$\chi^{2}$  error   surface  towards  an  identifiable   global  minimum,  whose
-convergence  is identified  by a  slow enough  rate of  change of  the estimated
-parameters.
+\textbf{Gain  Constraints:} Since  we simultaneously  solve for  apparent source
+fluxes as  well as antenna  gain amplitudes, a  constraint on either  the source
+fluxes  or the gain  amplitudes are  needed. However,  the variability  of model
+source fluxes due  to ionospheric scintillation prevents their  use to constrain
+the  self-calibration.   Doing  so  couples  the  estimated  gain  solutions  to
+variability  in  the  model  fluxes,  thus  transferring  the  scintillation  to
+calibrated visibilities, and hence over the entire field of view.  To break this
+coupling, we  instead use a  constraint on the  average gain amplitude  over all
+antennas,  setting it to  unity.  This  reflects the  behaviour of  antenna gain
+amplitudes,  which were  observed  to be  stable  to a  few  percent across  all
+antennas and over long times during commissioning.  The phases are referenced to
+the first antenna  in the array as an  additional constraint.  These constraints
+guide  the traversal  of the  $\chi^{2}$ error  surface towards  an identifiable
+global minimum, whose convergence is identified  by a slow enough rate of change
+of the estimated parameters.
 
 \subsubsection{\label{sub:Direction-dependent-gain}Direction dependent gain estimation (Major Cycle)}  
 
@@ -908,8 +895,8 @@ Source & $S_{60}$ & $\sigma_{S_{60}}$ & Calibrated & $\sigma$  & Ratio & Comment
 3C10    & 367.9 & 18.81 & 397.02 & 67 & 1.08 & VLSS $N_g$=4, $\alpha$=-0.7\\ 
 3C452   & 152.2 & 10.99 & 184.52 & 28 & 1.21 & VLSS $N_g$=2, $\alpha$=-0.7\\
 3C390.3 &  99   &  6.00 & 121.89 & 35 & 1.23 & VLSS $N_g$=3, $\alpha$=-0.7\\
-3C380   & 156.2 &  2.99 & 156.2  & 38 & 1    & Scaife et. al\\
-3C295   & 134.5 &  8.31 & 95.23  & 37 & 0.71 & Scaife et. al\\
+3C380   & 156.2 &  2.99 & 156.2  & 38 & 1    & \citep{scaife2012broad}\\
+3C295   & 134.5 &  8.31 & 95.23  & 37 & 0.71 & \citep{scaife2012broad}\\
 %% 3C405 & 19202 &  & 26927 & 78 & 1.402 & Kassim et. al.\tabularnewline
 %% \hline 
 %% 3C461 & 16145 &  & 31758 & 89 & 1.967 & Kassim et. al.\tabularnewline
@@ -1034,9 +1021,9 @@ integrated flux in  pixel counts is estimated by first  segmenting the data into
 100 second blocks, finding the median of each block, and then taking the mean of
 the medians.  The  calibrated fluxes of several bright  sources within the field
 of view  are then compared with  those derived from literature,  as indicated in
-the comment column.  The  dominant source of error to the flux  ratios is due to
+the  comment  column.  The  dominant  source  of error  to  the  flux ratios  is
 ionospheric scintillation, which creates  systematic variations at timescales of
-tens  of seconds.  Another  contributor is  the  error in  modeling the  primary
+tens  of seconds.   Another contributor  is the  error in  modeling  the primary
 beam. The  fluxes and errors  from VLSS  have been scaled  to 60 MHz  assuming a
 spectral index of -0.7.
 
@@ -1268,7 +1255,7 @@ phase across all visibilities.  This is  seen in the figure, along with an error
 contribution on  all baselines  due to unmodeled  sources, which  constitute the
 real information from  the calibrated image. The large phase  scatter at the low
 residual power  end is contributed by  visibilities with low SNR,  thus having a
-higher calibration error.  Visibilities with high SNR show <0.5 rad phase error,
+higher calibration error.  Visibilities with high SNR show <0.15 rad phase error,
 implying that the  simple point source sky model containing  a large fraction of
 received  flux is  adequate for  snapshot  calibration.This is  typical for  the
 AARTFAAC, unless RFI or other unmodeled sources have a large contribution.
@@ -1864,12 +1851,12 @@ Thus,  tracking calibration  is an appropriate  strategy for  an autonomous,
 real-time instrument like the \mbox{AARTFAAC} all-sky monitor.
 
 \begin {acknowledgements}
-This work is being funded by the ERC grant <num> awarded to Prof.  Ralph Wijers,
-University of  Amsterdam. We thank the  LOFAR team for  building an extremely
+This work is funded by the ERC grant C.2320.0056 awarded to Prof.  Ralph Wijers,
+University  of Amsterdam.  We thank  the LOFAR  team for  building  an extremely
 configurable instrument,  allowing the collection  of dipole level raw  data for
-commissioning observations for the \mbox{AARTFAAC}. We thank The Netherlands Foundation
-for  Radio  Astronomy  (ASTRON)  for   support  provided  in  carrying  out  the
-commissioning observations. We thank Jown  Swinbank, Alexander van der Horst and
+commissioning  observations for  the \mbox{AARTFAAC}.  We thank  The Netherlands
+Foundation for Radio Astronomy (ASTRON) for support provided in carrying out the
+commissioning observations. We thank John  Swinbank, Alexander van der Horst and
 Antonia Rowlinson for helpful comments.
 \end{acknowledgements}
 \bibliographystyle{aa}

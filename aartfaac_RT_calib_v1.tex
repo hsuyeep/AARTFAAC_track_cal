@@ -103,7 +103,7 @@
 \section{\label{sec:Introduction}Introduction}
 The detection  and characterization of low  frequency radio transients  is a Key
 Science  Project \citep{fender2006lofar}  for  the Low  Frequency Array  (LOFAR)
-\citep{unhealed2013lofar}    radio   telescope.     In    this   context,    the
+\textbf{\citep{vanhaarlem2013lofar}}  radio  telescope.   In this  context,  the
 Amsterdam-ASTRON    Radio    Transients    Facility    and    Analysis    Center
 (AARTFAAC) \footnote{see  www.aartfaac.org }  has initiated building  an All-Sky
 Monitor  (ASM) to  survey most  of the  locally visible  sky for  transients and
@@ -166,7 +166,7 @@ Spectral resolution (kHz)   & 16                      & 40         & 75       & 
 Processed Bandwidth (MHz)   & 13                      & 30.72      & 0.075    & LWA: Narrow band Imaging \\
 Temporal resolution (sec)   & 1                       & 8          & 5        & \\ 
 %% Transient detection FoM $(m^2sr K^{-1})$ & 2.3        & 1.3        & 0.830    & Per unit BW and unit time \\ \hline 
-Transient detection FoM $(m^2sr K^{-1})$ & 2.28        & 1.48        & 2.08    & Per unit BW and unit time \\ \hline 
+Transient detection FoM\tablefootmark{d} $(m^2sr K^{-1})$ & 2.28        & 1.48        & 2.08    & Per unit BW and unit time \\ \hline 
 \end{tabular}}
 
 \tablefoot{The  parameters are  estimated  at the  highest  sensitivity of  each
@@ -176,7 +176,8 @@ Transient detection FoM $(m^2sr K^{-1})$ & 2.28        & 1.48        & 2.08    &
   is  also evaluated  at the  same frequencies,  from \citep{bregman2000concept}.
   \tablefoottext{a}{From    \citep{wijnholds2011situ}}    
   \tablefoottext{b}{From    \citep{ellingsonLWA1}} 
-  \tablefoottext{c}{From \citep{tingay2013murchison}} }
+  \tablefoottext{c}{From \citep{tingay2013murchison}} 
+  \tablefoottext{d}{see Sec. \ref{sec:The-AARTFAAC-All} for FoM definition}}
 \end{table*}
 
 
@@ -200,15 +201,15 @@ to the  timescales of  coherent emission,  which are expected  to be  short from
 light  travel time arguments,  and the  fact that  beamforming can  provide high
 temporal resolutions and sensitivities, although over a reduced field of view.
 
-  Another  promising alternative  for  detecting short  term  transients is  the
-  bispectrum  method of \citet{law2012all}.   This uses  interferometric closure
-  quantities  from triplets  of time  differenced visibilities,  which  makes it
-  independent of instrumental phase errors.   However, for an array with a large
-  number of elements and low SNR per baseline, the methods' absolute sensitivity
-  is lower than that of an imaging array.  It is also sensitive to residual flux
-  after the subtraction of constant  emission from visibilities.  This can arise
-  due  to changes  in the  visibility fringe  over the  subtraction  period, and
-  imposes an upper limit on the duration of candidate transients.
+Another  promising  alternative  for  detecting  short term  transients  is  the
+bispectrum  method  of \citet{law2012all}.   This  uses interferometric  closure
+quantities  from  triplets of  time  differenced  visibilities,  which makes  it
+independent of  instrumental phase errors.  However,  for an array  with a large
+number of elements  and low SNR per baseline,  the methods' absolute sensitivity
+is lower than that  of an imaging array.  It is also  sensitive to residual flux
+after the  subtraction of constant  emission from visibilities.  This  can arise
+due to changes in the visibility fringe over the subtraction period, and imposes
+an upper limit on the duration of candidate transients.
 
 The usually  sparse UV  coverage in snapshot  observations from  imaging arrays,
 result in  low instantaneous sensitivities  and image dynamic  ranges, mandating
@@ -261,7 +262,10 @@ performance  of the calibration  approach on  commissioning data,  while Section
 \ref{sec:Computational-performance} elaborates  on the computational performance
 of our strategy.  Section \ref{sec:Challenges-to-tracking} elaborates on some of
 the challenges faced by the  AARTFAAC ASM under real observing conditions, after
-which we present our conclusions.
+which we present  our conclusions. \textbf {The results  presented in this paper
+  have  been obtained  on test  observations  carried out  using existing  LOFAR
+  system infrastructure  while the  AARTFAAC Uniboard based  piggyback recording
+  system was being built.}
 
 
 \section{\label{sec:The-AARTFAAC-All}The AARTFAAC All Sky Monitor System
@@ -356,18 +360,30 @@ up  to  $\sim$1600.   This allows  probing  along  any  galactic line  of  sight
 \citep{cordes2002ne2001},  although at  a sensitivity  a factor  $\sim$28 poorer
 than with the full 13 MHz band.
 
-Assuming all subbands  are chosen to be contiguous  around the peak instrumental
-sensitivity while the  dispersion broadening is limited to 1  second, the 13 MHz
-continuum sensitivity of  the AARTFAAC would limit detection  of transients with
-DMs of only a few.  However, restricting dispersion smearing to \mbox{<1} second
-under  the upper limit  of DM  100 imposed  by scattering  would allow  a higher
-spectral integration, before the sum  of the two broadening processes exceed the
-imaging   cadence.   Finally,    as   shown   by   \citet{hassall2013detecting},
-de-dispersion  is  not beneficial  for  highly  scattered  sources. The  scatter
-broadening  of the  pulse increases  more rapidly  with DM  than  the dispersive
-delay.   At high  DMs,  this makes  the  inherent pulse  width  (due to  scatter
-broadening)larger than the dispersion  broadening. This would allow the AARTFAAC
-to probe the high DM domain with full spectral sensitivity.
+%% Assuming all subbands  are chosen to be contiguous  around the peak instrumental
+%% sensitivity while the  dispersion broadening is limited to 1  second, the 13 MHz
+%% continuum sensitivity of  the AARTFAAC would limit detection  of transients with
+%% DMs of only a few.  However, restricting dispersion smearing to \mbox{<1} second
+%% under  the upper limit  of DM  100 imposed  by scattering  would allow  a higher
+%% spectral integration, before the sum  of the two broadening processes exceed the
+%% imaging   cadence.   
+
+\textbf{The  AARTFAAC  imager  does  not  carry  out  DM  measure  searches  via
+  de-dispersion  on  trial  DMs.   Thus,  attempts  to  increase  the  transient
+  detection sensitivity of AARTFAAC by spectral integration over its full 13 MHz
+  band would  leads to a lowered detection  SNR for any pulses  with DMs greater
+  than  a few.  This  is because  dispersion broadening  would spread  the pulse
+  beyond the 1 second imaging  cadence, restricting the transient search spatial
+  radius. However,  as stated  above, scattering along  Galactic lines  of sight
+  broadens pulses with DM ~100 to  beyond 1 second. Thus, some level of spectral
+  integration can  be afforded  by this limit  before scattering  and dispersion
+  broaden  the  pulse  beyond  the  AARTFAAC cadence.}   Finally,  as  shown  by
+\citet{hassall2013detecting},  de-dispersion   is  not  beneficial   for  highly
+scattered sources.  The scatter broadening  of the pulse increases  more rapidly
+with DM than  the dispersive delay.  At high DMs, this  makes the inherent pulse
+width  (due to scatter  broadening)larger than  the dispersion  broadening. This
+would  allow  the AARTFAAC  to  probe  the high  DM  domain  with full  spectral
+sensitivity.
 
 The ability to  spread subbands over the full  analog bandwidth allows searching
 for  ultra  steep  spectrum  sources,  and can  aid  in  distinguishing  between
@@ -399,8 +415,10 @@ $\sqrt{f}$. Thus, the highly sampled  aperture of the AARTFAAC dense array would
 be an advantage for our application. The resulting zenith pointing PSF is stable
 and repeatable in  time. At its peak sensitivity at $\sim$$58$  MHz, the PSF has
 high roll-off,  low side lobes  $\sim$$15$ dB below  peak, with a  resolution of
-$\sim$$0.8$ sq.  deg.  This results in a classical confusion noise of $\sim$$10$
-Jy.   The large  number of  antennas  also make  the AARTFAAC  a very  sensitive
+$\sim$$0.8$ sq.   deg.  \textbf{Assuming a  confusion noise limit  being reached
+  with  the presence of  one source  per ten  PSFs, and  the source  counts from
+  \citet{bregman2012system} results in a classical confusion noise of $\sim$$10$
+  Jy.}  The  large number of  antennas also make  the AARTFAAC a  very sensitive
 instrument,   with   a  combined   $A_{eff}/T_{sys}$   of  $\sim$0.7   $m^{2}/K$
 \citep{wijnholds2011situ}, and an instantaneous thermal noise of $\sim$8 Jy, for
 the standard imaging mode of 1sec/16  kHz.  This implies that the sensitivity of
@@ -415,12 +433,13 @@ visibilities.  However,  the co-planarity  of the array  results in  the spatial
 coherence  sampling function  being  confined  to a  plane  passing through  the
 origin, keeping the 2-D relationship  between the visibility and imaging domains
 \citep{cornwell1992radio}.   Thus, wide field  imaging is  simplified as  no 3-D
-transforms  or  their approximations  like  W-projection  are required.   Simple
-faceting recovers  off-axis lines  of sight with  high fidelity,  making latency
-bound imaging feasible. The requirement of snapshot imaging implies that the sky
-observed by every baseline remains constant within a visibility set, thus making
-the calibration  parameters amenable to  estimation by self  calibration.  Since
-all  dipoles are  physically aligned  parallel to  each other,  the instrumental
+transforms       or      their       approximations       like      W-projection
+\textbf{\citep{cornwell2008noncoplanar}} are required.  Simple faceting recovers
+off-axis  lines  of sight  with  high  fidelity,  making latency  bound  imaging
+feasible. The requirement  of snapshot imaging implies that  the sky observed by
+every  baseline  remains constant  within  a  visibility  set, thus  making  the
+calibration parameters  amenable to estimation  by self calibration.   Since all
+dipoles  are  physically  aligned  parallel  to  each  other,  the  instrumental
 polarization  can be determined  via a  bi-scalar polarization  calibration, and
 corrections can be applied in the image domain.
 
@@ -537,11 +556,11 @@ real-time instruments.
 
 Typical calibration schemes, e.g. as  implemented in the CASA package, address a
 different problem than applicable to the AARTFAAC due to the restricted field of
-view, much longer  baselines and an order of magnitude  fewer stations
-in typical arrays. Their algorithms  are further complicated by compensating for
-higher  order  effects  like the  temporal  variation  in  the PSF  during  long
-synthesis  due  to  changing   array  geometry,  rotating  non-symmetric  beams,
-etc. which are moot in our application. Snapshot, zenith pointing imaging from a
+view, much longer baselines and an  order of magnitude fewer stations in typical
+arrays.  \textbf{Their algorithms are further  complicated by the need to compensate for
+higher order effects like the temporal variation of the primary beam during long
+synthesis due to  changing array geometry, or the beam  rotation of altaz mounts
+etc. which are moot in our application.} Snapshot, zenith pointing imaging from a
 co-planar array simplifies the calibration and imaging from the ASM to a certain
 extent.
 
@@ -622,7 +641,7 @@ sensitivity  preclude   the  interpolation  between  the   widely  spaced  phase
 calibrator  sources.  This  implies that  sources in  locations  intermediate to
 model sources may be affected  by ionospheric amplitude and position variations,
 which result in  the presence of structured variations in  a lightcurve for such
-sources, as can be seen in Figure \ref{fig:Light-curves-of}.
+sources. % , as can be seen in Figure \ref{fig:Light-curves-of}.
 
 \section{\label{sec:An-Optimal,-tracking}An Optimal tracking calibration
 scheme for transient detection}
@@ -773,11 +792,11 @@ Eq. \ref{eq:datamodel} and the current  estimates of the parameters.  Due to the
 limited resolution of  the array, most of the brightest  objects (apart from the
 Galactic plane) are unresolved by the AARTFAAC.  Thus, the sky can be modeled by
 a collection of points at the nominal  locations of the bright sources. We use a
-sky model composed of the brightest  sources in the sky, viz., CasA, CygA, VirA,
-TauA and the Sun, whose nominal  positions are determined from the revised third
-Cambridge (revised) catalog (3CR).  The  model parameters used are summarized in
-Table  \ref{tab:Details-of-model}.  The  efficacy  of this  model for  parameter
-estimation    is    elaborated    upon    using    real    data    in    Section
+sky model composed of the  brightest sources in the \textbf{Northern} sky, viz.,
+CasA, CygA, VirA, TauA and the  Sun, whose nominal positions are determined from
+the revised third Cambridge (revised)  catalog (3CR).  The model parameters used
+are summarized in Table  \ref{tab:Details-of-model}.  The efficacy of this model
+for  parameter  estimation  is  elaborated  upon  using  real  data  in  Section
 \ref{sec:calib-accuracy}.  Of  these model  sources, CasA is  visible throughout
 the year from the location of the AARTFAAC.
 
@@ -878,10 +897,13 @@ Here, the  array configuration is  assumed known to  a high accuracy,  while the
 number of  sources requiring flux estimation  is assumed to be  smaller than the
 number of  resolution elements in the  field of view.  This  approach allows the
 deconvolved flux of a model source  to be estimated, due to the incorporation of
-a    deconvolution    operator   as    part    of    the   estimator.     Figure
-\ref{fig:Estimated-flux-of} shows  the extracted  flux of the  brightest visible
-model sources, and clearly shows the  effect of the element beam and ionospheric
-scintillation.  The model  source flux estimator uses a  sparse weighting matrix
+a    deconvolution    operator   as    part    of    the   estimator.
+
+%% Figure  \ref{fig:Estimated-flux-of} shows  the extracted  flux of  the brightest
+%% visible model  sources, and  clearly shows  the effect of  the element  beam and
+%% ionospheric scintillation.
+
+  The model  source flux estimator uses a  sparse weighting matrix
 due to the modeling of mutual  coupling via a non-diagonal noise matrix (Section
 \ref{sub:System-noise-estimation}), which prevents a bias in estimation.
 
@@ -904,9 +926,11 @@ least-squares fit of  the two subspaces. A crucial assumption  is that the array
 manifold  is known,  implying that  the array  is calibrated.   To  satisfy this
 requirement, our  approach generates initial calibration solutions  based on the
 catalog positions  of the model sources,  calibrates the array  and then carries
-out  a  WSF  estimation.   An  example  of  estimation  with  the  WSF  on  test
-observations,   and   its   spatial    resolution   is   presented   in   Figure
-\ref{fig:Estimated-flux-of}.
+out  a  WSF  estimation. 
+
+%%   An  example  of  estimation  with  the  WSF  on  test
+%% observations,   and   its   spatial    resolution   is   presented   in   Figure
+%% \ref{fig:Estimated-flux-of}.
 
 
 

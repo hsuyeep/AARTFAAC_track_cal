@@ -9,7 +9,7 @@ loglog (2*diffstat(:,1), diffstat(:,6), 'k-'); % Theoretical curve
 hold on;
 loglog (2*diffstat(:,1), diffstat(:,8), 'r*-'); % Raw image integrated std.
 hold on;
-loglog (2*diffstat(:,1), diffstat(:,10), 'b*-'); % Difference integrated image
+loglog (2*diffstat(:,1), diffstat(:,10), 'bs-'); % Difference integrated image
 title ('Noise region std Vs. integration time');
 xlabel ('Integration time(secs)');
 ylabel ('Normalized noise std.');

@@ -2,7 +2,7 @@
 % frequency.
 % pep/29Nov13
 
-col = {'b*', 'm*', 'r*', 'k*', 'g*', 'y*', 'w*', 'c*'};
+col = {'b*', 'mo', 'r*', 'k*', 'g*', 'y*', 'w*', 'c*'};
 SB0 = load ('../Data/SB000_LBA_OUTER_SPREAD_1ch_1_convcalsol.bin.sigmas');
 SB4 = load ('../Data/SB004_LBA_OUTER_SPREAD_1ch_1_convcalsol.bin.sigmas');
 

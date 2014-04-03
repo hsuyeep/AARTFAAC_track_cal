@@ -1,0 +1,134 @@
+# Referee report replies for AA/2014/23668
+# Editor comments:
+# Also make sure that the figure and table captions are formatted in accordance 
+with the A&A instructions (see http://www.aanda.org/index.php?option=com_content&view=article&id=136&Itemid=200&lang=en_GB.utf8%2C+en_GB.UT#paper_organisation and 
+the current A&A macro for examples).
+# - In your cover letter, please indicate precisely all the changes made in the revised version,
+# - Mark all the changes clearly (using boldface) in your manuscript.
+
+# Referee comments:
+This paper describes the calibration process for the AARTFAAC ASM which is a 
+passive backend to the LOFAR telescope front-end hardware, designed for the 
+detection of (bright) transients in real-time. This paper is suitably complete in 
+its overview of the system, which is described nicely in plain style appropriate 
+for a general readership. I have no major issues with the draft as it stands but 
+only a few more minor comments. Some general observations:
+
+
+
+(1) The order of the paper is not optimal. Figures are frequently referenced 
+(a long way) out of sequence. e.g. Sec 3.2, Fig. 10 is referenced before Fig. 2.
+Reply:
+  - The forward references to Fig. 10 (in the last line of Sec. 3) and Fig. 11 
+	(Sec. 4.1.3, second last line under Model source flux estimation, and again 
+    in Sec. 4.1.3 above 'Bias of the WSF estimator') have been removed.
+  - All figures are now in the same or the next page of being referenced. Fig. 11
+    is too big to afford much movement, and has been placed 2 pages away by 
+    latex.
+
+
+
+(2) It is not made clear until quite far into the paper that the calibration 
+ pipeline is not being tested on the actual AARTFAAC correlated data, since the 
+ Uniboard system is not in place yet, but is instead being tested on a subset of 
+ LOFAR data. I think this should be made clear earlier in the paper.
+Reply: Added a sentence above Section 2 (The AARTFAAC All Sky Monitor System):
+	  "The  results presented in this paper have been obtained  on   test  
+	   observations  carried  out  using   existing  LOFAR  system infrastructure 
+	   while the AARTFAAC  Uniboard based piggyback recording system was being 
+	   built."
+
+
+(3) The figures are not suitable for B&W viewing. The best example of this is 
+  Figure 12, where it is not possible by eye to distinguish the raw and 
+  difference image data when the figure is in B&W. It would be better to use 
+  different shapes for the data markers.
+ Reply: The following figures have been changed to incorporate different symbols 
+     and colors for the different parameters:
+     - Fig. 9: Temporal stability of the complex gain of a randomly chosen set 
+	   of 6 antennas from the 288 AARTFAAC antennas over a period of ~3 hrs.
+     - Fig. 11: Short term ionospheric ... separated by ~30MHz.
+     - Fig. 12: Reduction in ... increasing cadences.
+
+Minor Comments:
+
+Sec 1: para 1: LOFAR reference should be van Haarlem et~al. 2013
+Reply: Corrected.
+
+
+Sec 1: Table 1: There should be a reference in the table caption to Sec 2 where 
+       the form of the FOM is explained.
+Reply: Table footnote d added with a reference to Sec. 2, which includes the 
+       definition. 
+
+
+Sec 2.1: para 5: the wording here is rather convoluted and could be clarified.
+Reply  : This paragraph attempts to justify spectral integration by AARTFAAC 
+		 while not de-dispersing.
+
+The paragraph has been changed to:
+"The AARTFAAC imager does not carry out DM measure searches via de-dispersion on trial DMs. Thus, attempts to increase the transient detection sensitivity of AARTFAAC by spectral integration over its full 13 MHz band would leads to a lowered detection SNR for any pulses with DMs greater than a few. This is because dispersion broadening would spread the pulse beyond the 1 second imaging cadence, restricting the transient search spatial radius. However, as stated above, scattering along Galactic lines of sight broadens pulses with DM ~100 to beyond 1 second. Thus, some level of spectral integration can be afforded by this limit before scattering and dispersion broaden the pulse beyond the AARTFAAC cadence. Finally, as shown by Hassall et al. (2013), de-dispersion is not beneficial for highly scattered sources. The scatter broadening of the pulse increases more rapidly with DM than the dispersive delay. At high DMs, this makes the inherent pulse width (due to scatter broadening)larger than the dispersion broadening. This would allow the AARTFAAC to probe the high DM domain with full spectral sensitivity."
+ 
+
+
+Sec 2.1: para 8: confusion limit calculations are model dependent. The assumed 
+	     source counts model should be cited, as should the specific definition 
+		 of confusion used here since this varies in the literature.
+Reply  : The following was added:
+		 "Assuming a  confusion noise limit  being reached  with  the presence of  			one source  per ten  PSFs coupled with the source  counts from
+  		  \citet{bregman2012system} results in a classical confusion noise of 
+		  $\sim$$10$ Jy."
+
+
+
+Sec 2.1: para 9: w-projection should be referenced.
+Reply  : Reference added.
+
+
+Sec 3.2: para 1: "temporal variation in the PSF" - I am not sure exactly what 
+		 this refers to. Do the authors mean temporal variation in the PB, i.e. 
+		 A-projection?
+Reply  : Yes, the PSF should be replaced by PB. The implication is that 
+		calibration for snapshot imaging from a coplanar array can be carried out 
+		more efficiently by implementing a stripped down calibration and imaging 
+		algorithm than reusing available tools, which are overkill for this 
+		application.
+		The relevant sentence has been modified to:
+		"Their algorithms are further  complicated by the need to compensate for  		  higher order effects like the temporal variation of the primary beam 
+		during long  synthesis due to  changing array geometry, or the beam  
+		rotation of altaz mounts etc. which are moot in our application."}
+
+
+
+Sec 4: bullet 5: this reference to bandpass calibration is made before bandpass 
+		 calibration is described. In neither section is the stability of the 
+		 bandpass discussed.
+Reply: The forward reference to bandpass calibration is part of the algorithmic
+	   summary. In section 4.1.5, the bandpass temporal variation is sampled 
+	   per channel and per second by calibration, and hence can be unilaterally
+	   corrected. Thus, bandpass stability is not discussed.
+
+
+
+Sec 4.1.1.:para 1: "brightest sources in the sky" -> "brightest sources in the 
+		 Northern sky"
+Reply  : Corrected.
+
+
+
+Sec 5.1: para 4: when referring to Fig. 7, "the absence of the Galactic centre 
+		 due to spatial filtering". Where is this filtering described? Is it a 
+		 consequence of the calibration method?
+Reply  : Yes, the filtering of the low spatial frequencies is carried out during
+		 calibration in order to use a point source model sky for 
+		 selfcalibration. 
+
+		This is described in Sec. 4.1.1 (Model generation), paragraph 2:
+		"Galactic  emission,  having a  steep  spectrum,  is  extremely bright  
+		 at  LOFAR frequencies and also difficult to model due to the detailed 
+		 structure resolvable at  the AARTFAAC's  resolution and  sensitivity. 
+		 Hence,  we filter  out  the low spatial frequencies to suppress this  
+		 emission during calibration. The model can then  account  for  a large 
+		 fraction  of  the  received  flux on  the  filtered visibilities,  and 
+		 is  constrained  by the  fluxes  and positions  of the  model sources, 
+		 as well as the noise model."

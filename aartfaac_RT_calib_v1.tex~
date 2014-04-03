@@ -33,17 +33,38 @@
 
 \title{Real-time calibration of the AARTFAAC array for transient detection}
 
-\author{P. Prasad    \inst{1,2} \email{prasad@astron.nl}
- \and   S.J. Wijnholds  \inst{2}  
- \and   F. Huizinga    \inst{1}  
- \and    R.A.M.J Wijers    \inst{1}}  
+\author{P. Prasad    \inst{1,2} 
+ \and   S. J. Wijnholds  \inst{3}  
+ \and   F. Huizinga    \inst{4}  
+ \and    R.A.M.J Wijers    \inst{5}}  
  \institute 
  {Anton    Pannekoek    Institute,  University of  Amsterdam, 
-  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \label{1}
+  Postbus  94249, 1090 GE  Amsterdam, The Netherlands\email{prasad@astron.nl} 
 \and
   ASTRON, The  Netherlands Foundation for  Radio Astronomy, 
-  PO Box 2,  7990 AA Dwingeloo, The  Netherlands \label{2}
+  PO Box 2,  7990 AA Dwingeloo, The  Netherlands\email{prasad@astron.nl}
+\and
+  ASTRON, The  Netherlands Foundation for  Radio Astronomy, 
+  PO Box 2,  7990 AA Dwingeloo, The  Netherlands\email{wijnholds@astron.nl}
+\and
+  Anton    Pannekoek    Institute,  University of  Amsterdam, 
+  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \email{F.Huizinga@uva.nl}
+\and
+  Anton    Pannekoek    Institute,  University of  Amsterdam, 
+  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \email{r.a.m.j.wijers@uva.nl}
 }
+
+%\author{P. Prasad    \inst{1,2} \email{prasad@astron.nl}
+% \and   S.J. Wijnholds  \inst{2}  
+% \and   F. Huizinga    \inst{1}  
+% \and    R.A.M.J Wijers    \inst{1}}  
+% \institute 
+% {Anton    Pannekoek    Institute,  University of  Amsterdam, 
+%  Postbus  94249, 1090 GE  Amsterdam, The Netherlands \label{1}
+%\and
+%  ASTRON, The  Netherlands Foundation for  Radio Astronomy, 
+%  PO Box 2,  7990 AA Dwingeloo, The  Netherlands \label{2}
+%}
 
 \date{Received <date> / Accepted <date>}
 
@@ -82,14 +103,14 @@
 \section{\label{sec:Introduction}Introduction}
 The detection  and characterization of low  frequency radio transients  is a Key
 Science  Project \citep{fender2006lofar}  for  the Low  Frequency Array  (LOFAR)
-\citep{vanhaarlem2013lofar}   radio    telescope.    In   this    context,   the
+\citep{unhealed2013lofar}    radio   telescope.     In    this   context,    the
 Amsterdam-ASTRON    Radio    Transients    Facility    and    Analysis    Center
 (AARTFAAC) \footnote{see  www.aartfaac.org }  has initiated building  an All-Sky
 Monitor  (ASM) to  survey most  of the  locally visible  sky for  transients and
 variable sources.   The ASM  will be  an image plane  transient detector  at low
 radio frequencies, with images generated  via aperture synthesis.  It will carry
 out continuous, autonomous  and near real-time sky monitoring  for detecting the
-brightest  ($\sim$tens of  Jy)  transients  occuring at  a  variety of  cadences
+brightest  ($\sim$tens of  Jy) transients  occurring  at a  variety of  cadences
 (seconds to minutes). Its main aim  is the rapid detection of Low Frequency (LF)
 transients and  the production of  their rough position estimates  for immediate
 follow up at high sensitivity and resolution with the full LOFAR telescope. With
@@ -103,9 +124,9 @@ The discoveries of  transients are currently biased towards  objects emitting at
 higher  energies, in  the X-ray  or $\gamma$-ray  regime, primarily  due  to the
 success of  various satellite  based ASMs operating  at those energy  levels. At
 radio frequencies, searches  for transients have usually been  limited to mining
-archives  \citep{bower2007submillijansky, bower2011search}, follow-up  studies of
+archives \citep{bower2007submillijansky,  bower2011search}, follow-up studies of
 discovered  transients \citep{chandra2012radio}, and  a few  dedicated observing
-programs  \citep{bannister2012limits,  katz2003survey}.  However,  the  dynamic
+programs  \citep{bannister2012limits,  katz2003survey}.   However,  the  dynamic
 nature of the sky  at low radio frequencies has not been  studied in detail yet,
 mostly  due to  the  restricted fields  of  view, and  the  low availability  of
 existing instruments  for carrying out dedicated searches  for transients.  This
@@ -159,13 +180,13 @@ Transient detection FoM $(m^2sr K^{-1})$ & 2.28        & 1.48        & 2.08    &
 \end{table*}
 
 
-\textbf{Transient detection  approaches:} A variety  of approaches exist  for the
+\textbf{Transient detection  approaches:} A variety of approaches  exist for the
 detection  of transient  phenomena,  depending on  factors  like the  luminosity
 distribution, spatial distribution and  location of sources (primarily affecting
 dispersion  smearing and  scatter  broadening), their  timescales of  variation,
 emission mechanism, as well as  the spatial and temporal behaviour of background
 noise.  These  include beam formed observations, deep  imaging (staring), rapid,
-shallow imaging  (tiling) etc.
+shallow imaging (tiling) etc.
 
 Traditionally,  image domain  transient detection  has been  considered suitable
 only  for incoherent  sources of  emission, whose  timescales of  transience are
@@ -179,30 +200,30 @@ to the  timescales of  coherent emission,  which are expected  to be  short from
 light  travel time arguments,  and the  fact that  beamforming can  provide high
 temporal resolutions and sensitivities, although over a reduced field of view.
 
-  Another  promising  alternative  for  detecting  short term  transients  is  the
-bispectrum  method  of \citet{law2012all}.   This  uses interferometric  closure
-quantities  from  triplets of  time  differenced  visibilities,  which makes  it
-independent of  instrumental phase errors.  However,  for an array  with a large
-number of elements  and low SNR per baseline,  the methods' absolute sensitivity
-is lower than that  of an imaging array.  It is also  sensitive to residual flux
-after the  subtraction of constant  emission from visibilities.  This  can arise
-due to changes in the visibility fringe over the subtraction period, and imposes
-an upper limit on the duration of candidate transients.
+  Another  promising alternative  for  detecting short  term  transients is  the
+  bispectrum  method of \citet{law2012all}.   This uses  interferometric closure
+  quantities  from triplets  of time  differenced visibilities,  which  makes it
+  independent of instrumental phase errors.   However, for an array with a large
+  number of elements and low SNR per baseline, the methods' absolute sensitivity
+  is lower than that of an imaging array.  It is also sensitive to residual flux
+  after the subtraction of constant  emission from visibilities.  This can arise
+  due  to changes  in the  visibility fringe  over the  subtraction  period, and
+  imposes an upper limit on the duration of candidate transients.
 
 The usually  sparse UV  coverage in snapshot  observations from  imaging arrays,
 result in  low instantaneous sensitivities  and image dynamic  ranges, mandating
-long  integrations. This  makes  them unsuitable  for  short duration  transient
+long  integration.  This makes  them  unsuitable  for  short duration  transient
 detection.   Another contributor  to  the  lack of  imaging  detectors at  short
 timescales has been  the time consuming step of  calibration and imaging. Recent
-arrays  are being  constructed using  a large  number of  small,  low senstivity
+arrays  are being constructed  using a  large number  of small,  low sensitivity
 elements. These provide  a perfect base for all-sky monitors,  due to their very
 good instantaneous UV  coverage, high collective sensitivity and  wide fields of
 view.  The challenge of real-time calibration and imaging from these instruments
 is becoming feasible due to developments in high-speed calibration algorithms as
-well as  advances in computing resources.  Thus, image plane  detection of short
+well as advances  in computing resources.  Thus, image  plane detection of short
 duration  bright transients  is now  feasible. Further,  for transients  with an
-isotropic spatial distribution,  unknown durations and luminosity distributions,
-a tiling  strategy of shallow  but rapid observations  would result in  a larger
+isotropic spatial distribution, unknown duration and luminosity distributions, a
+tiling  strategy of  shallow but  rapid observations  would result  in  a larger
 number  of  discovered transients  \citep  {nemiroff2003tile}.  Imaging  all-sky
 monitors are hence matched for this application.
 
@@ -216,17 +237,17 @@ Observational  constraints,  especially  due   to  the  ionosphere  require  the
 calibration to be carried out in  close to real-time for achieving the necessary
 high imaging dynamic  range.  We have developed a  calibration scheme capable of
 handling  rapid,  direction dependent  variations  of  system parameters,  which
-results in achieving close to thermal noise limited imaging. This is demonstrated
-using test data  taken under a variety of  observational conditions.  The scheme
-has been incorporated into a  calibration and imaging pipeline, and an optimised
-implementation  of  the  algorithm  allows  the instrument  to  carry  out  near
-real-time  calibration and  imaging with  high  dynamic ranges  of ~2000:1.   To
+results  in  achieving   close  to  thermal  noise  limited   imaging.  This  is
+demonstrated using test data taken  under a variety of observational conditions.
+The scheme has been incorporated into a calibration and imaging pipeline, and an
+optimized implementation  of the  algorithm allows the  instrument to  carry out
+near real-time calibration and imaging  with high dynamic ranges of ~2000:1.  To
 verify  that  the  proposed  calibration  scheme allows  thermal  noise  limited
 transient  detection,  we  have  analyzed  the  difference  between  consecutive
 snapshot images for  which the systematic confusion noise  is expected to cancel
 out. This analysis shows the expected reduction in noise being consistent with a
 thermal noise limited observation. The achieved noise limit of difference images
-is found  to be ~2-3 Jy  over tens of  seconds.
+is found to be ~2-3 Jy over tens of seconds.
  
 This paper is  organized as follows.  We begin by  describing the AARTFAAC array
 and   its    suitability   as   a   transient   search    machine   in   Section
@@ -286,11 +307,11 @@ $\sim$$20$  sq. deg,  and the  arbitrary  pointing of  the analog  beam of  this
 system, its use is not discussed further in this paper.
 
 Table   \ref{tab:AARTFAAC_specs}  lists  the   current  specifications   of  the
-instrument, and  compares it  with other low  frequency wide  field instruments
-with     transient     detection     as     an    explicit     goal.      Figure
+instrument, and compares it with other low frequency wide field instruments with
+transient      detection       as      an      explicit       goal.       Figure
 \ref{fig:The-AARTFAAC-calibration}  shows  the   functional  components  of  the
 AARTFAAC  monitor,  with  details  of  the near  real-time  transient  detection
-pipeline.  The  calibration component of the pipeline is  the subject of this
+pipeline.   The calibration component  of the  pipeline is  the subject  of this
 paper.
 
 
@@ -331,9 +352,9 @@ at $\nu$ GHz, for a dispersion of DM units is given by Eq. \ref{eq:dm_broad}.
 \end{equation}
 Imaging at the highest available spectral resolution of 16 kHz while restricting
 dispersion broadening to within 1 second allows detection of a source with DM of
-upto  $\sim$1600.  This  allows  probing   along  any  galactic  line  of  sight
+up  to  $\sim$1600.   This allows  probing  along  any  galactic line  of  sight
 \citep{cordes2002ne2001},  although at  a sensitivity  a factor  $\sim$28 poorer
-than  with the  full  13  MHz band. 
+than with the full 13 MHz band.
 
 Assuming all subbands  are chosen to be contiguous  around the peak instrumental
 sensitivity while the  dispersion broadening is limited to 1  second, the 13 MHz
@@ -376,8 +397,8 @@ sensitivity  towards  scatter broadened  transients,  as  elaborated in  Section
 continuous  widefield  search  scales  with  the array  filling  factor  $f$  as
 $\sqrt{f}$. Thus, the highly sampled  aperture of the AARTFAAC dense array would
 be an advantage for our application. The resulting zenith pointing PSF is stable
-and repeatible in  time. At its peak sensitivity at $\sim$$58$  MHz, the PSF has
-high  roll-off, low sidelobes  $\sim$$15$ dB  below peak,  with a  resolution of
+and repeatable in  time. At its peak sensitivity at $\sim$$58$  MHz, the PSF has
+high roll-off,  low side lobes  $\sim$$15$ dB below  peak, with a  resolution of
 $\sim$$0.8$ sq.  deg.  This results in a classical confusion noise of $\sim$$10$
 Jy.   The large  number of  antennas  also make  the AARTFAAC  a very  sensitive
 instrument,   with   a  combined   $A_{eff}/T_{sys}$   of  $\sim$0.7   $m^{2}/K$
@@ -395,8 +416,8 @@ coherence  sampling function  being  confined  to a  plane  passing through  the
 origin, keeping the 2-D relationship  between the visibility and imaging domains
 \citep{cornwell1992radio}.   Thus, wide field  imaging is  simplified as  no 3-D
 transforms  or  their approximations  like  W-projection  are required.   Simple
-facetting recovers  off-axis lines of  sight with high fidelity,  making latency
-bound imaging feasible. The requirement of  snapshot imaging implies that the sky
+faceting recovers  off-axis lines  of sight with  high fidelity,  making latency
+bound imaging feasible. The requirement of snapshot imaging implies that the sky
 observed by every baseline remains constant within a visibility set, thus making
 the calibration  parameters amenable to  estimation by self  calibration.  Since
 all  dipoles are  physically aligned  parallel to  each other,  the instrumental
@@ -445,7 +466,7 @@ calibration time and a limited computational budget, in view of the large number
 of parameters to be estimated.  These dictate quick and timebound convergence of
 the  calibration parameter  estimators.  Further,  the streaming  nature  of the
 application  and the  large  number  of visibilities  makes  their buffering  or
-multiple passes of processing infeasible.
+multiple passes of processing unfeasible.
 
 Finally,  the  calibration  should  be  robust against  sources  of  terrestrial
 transients due to, e.g., Radio Frequency Interference (RFI), which can cause the
@@ -468,12 +489,12 @@ electronics, receiver characteristics and telescope geometry. These usually vary
 slowly ($\sim$hours), are direction independent effects (DIEs) and are estimated
 via  observation  of calibration  sources  or  using  self-calibration.  At  low
 frequencies, the disturbed ionosphere can  act as a phase screen with temporally
-and  spatially varying  refractive and  diffractive effects.  Ionization  of the
+and  spatially varying refractive  and diffractive  effects.  Ionization  of the
 ionosphere during the day by the  Solar wind and photo-ionization is balanced by
 recombination   during   the   night.    These   can   cause   bulk   variations
 $\left(\sim10x\right)$  in large scale  Total Electron  Content (TEC)  with slow
 temporal variations,  as well as  fluctuations on relatively small  temporal and
-spatial scales  ($\sim0.1\%$ variations  over a few  kilometers and over  tens of
+spatial scales  ($\sim0.1\%$ variations over a  few kilometers and  over tens of
 secs).   If the rapid  TEC fluctuation  sets up  an instantaneous  spatial phase
 gradient across  the array in  the direction of  a source, an  apparent position
 shift of  the source is seen.   However, if the phase  structure function varies
@@ -555,7 +576,7 @@ approach to theirs  is in the estimation of image  wander, and the deconvolution
 of sources affected by the ionosphere.  The sequential nature of peeling ensures
 that the sidelobe contamination of the  brighter source does not affect the flux
 measurement of the weaker source, and hence its deconvolution.  In our case, the
-apparent fluxes of the brightest sources are simultaneoulsy estimated, and their
+apparent fluxes of the brightest sources are simultaneously estimated, and their
 effects subtracted together as well.   This is efficient computationally, and is
 aided  by the  filled  nature of  the AARTFAAC  UV  plane which  results in  low
 sidelobe contamination. Further, the  ionospheric effect is estimated by fitting
@@ -597,7 +618,7 @@ arbitrary viewing directions to image the  full field of view.  Such a technique
 is applicable  to a limited  field of view  of a high sensitivity  system, which
 implies the  presence of bright sources  close enough to  interpolate the phases
 attributed  to  the  ionosphere. The  AARTFAAC  wide  field  of view  and  lower
-sensitivitiy  preclude  the  interpolation   between  the  widely  spaced  phase
+sensitivity  preclude   the  interpolation  between  the   widely  spaced  phase
 calibrator  sources.  This  implies that  sources in  locations  intermediate to
 model sources may be affected  by ionospheric amplitude and position variations,
 which result in  the presence of structured variations in  a lightcurve for such
@@ -634,7 +655,11 @@ Minor cycle which carries out calibration of direction independent effects.
   parameters.}
 \item {The time  axis is used to feed forward parameter  estimates as an initial
   guess for the next timeslice, leading to faster convergence.}
-\item {The frequency axis is compensated for the known spectral response of the dipoles during bandpass calibration, allowing spectral averaging of the calibrated visibilities. Finally, an appropriate flux scale is provided by scaling the recovered flux of a few model sources to their actual, known fluxes.}
+\item {The frequency axis is compensated  for the known spectral response of the
+  dipoles  during  bandpass  calibration,  allowing spectral  averaging  of  the
+  calibrated  visibilities. Finally, an  appropriate flux  scale is  provided by
+  scaling  the recovered  flux of  a few  model sources  to their  actual, known
+  fluxes.}
 \end{enumerate}
 
  In the  following,  we first  describe  the calibration  of an  ACM
@@ -687,9 +712,9 @@ The model parameters to solve for are of the form:
 \bm{\theta}=[\gamma_{1},\ldots\gamma_{p},\phi_{2}...,\phi_{p,}\sigma_{s1}^{2},...\sigma_{sq}^{2},\mathbf{l_{1}}^{T},...\mathbf{l_{q}}^{T},\sigma_{n1},...,\sigma_{np}],\label{eq:estparam}
 \end{equation}
  where $\mathbf{\gamma_{i}}$  is the direction independent gain  of each antenna
- and $\phi_{i}$ is the  associated phase. $\sigma_{si}$ and $\mathbf{l_i}^{T}$ are
- the estimated fluxes and positions of the model sources, while $\sigma_{ni}$ is
- the system noise, assumed to be independent for each antenna.
+ and $\phi_{i}$  is the  associated phase. $\sigma_{si}$  and $\mathbf{l_i}^{T}$
+ are  the   estimated  fluxes  and   positions  of  the  model   sources,  while
+ $\sigma_{ni}$ is the system noise, assumed to be independent for each antenna.
 
 Since  all  signals  are  assumed  to be  independent,  identically  distributed
 Gaussian random variables, the Normal  Equations for this estimation problem are
@@ -751,10 +776,10 @@ a collection of points at the nominal  locations of the bright sources. We use a
 sky model composed of the brightest  sources in the sky, viz., CasA, CygA, VirA,
 TauA and the Sun, whose nominal  positions are determined from the revised third
 Cambridge (revised) catalog (3CR).  The  model parameters used are summarized in
-Table  \ref{tab:Details-of-model}.  The efficacy  of  this  model for  parameter
+Table  \ref{tab:Details-of-model}.  The  efficacy  of this  model for  parameter
 estimation    is    elaborated    upon    using    real    data    in    Section
-\ref{sec:calib-accuracy}.  Of these model soures, CasA is visible throughout the
-year from the location of the AARTFAAC.
+\ref{sec:calib-accuracy}.  Of  these model  sources, CasA is  visible throughout
+the year from the location of the AARTFAAC.
 
 Galactic  emission,  having a  steep  spectrum,  is  extremely bright  at  LOFAR
 frequencies and also difficult to model due to the detailed structure resolvable
@@ -786,16 +811,18 @@ discussed in more detail in Section \ref{sub:System-noise-estimation}.
  Values  of  A-team   and  galactic  plane  contribution  is   based  on  actual
  contribution to visibilities in night time data (for CasA/CygA and Galaxy), and
  day  time data  for  VirA,TauA and  the  Sun.  The  total  power of  calibrated
- visibilties = sum(abs(acccalgal(:)).^2), where acccalgal = (gainsol' * gainsol)
- .* acc; The Galactic contribution  = sum (abs(sigman(:)).^2), but also includes
- the autocorrs, which is  a sum of Tsys and Tsky, and  which cannot be separated
- without external measurements of Tsys. This explains the high value of galactic
- contribution, against an expected 40% contribution.  The RAteam contribution is
- estimated by generating model  visibilities from fluxes estimated by LSimaging,
- ie, the apparent  flux, and so is elevation dependent.  NOTE  that we dont have
- observations in which  all Ateam sources are at high  elevations, in which case
- we multiply their visibility contribution by the approximate beam attenuation.
-    SNR was removed from the table, as it does not provide very much extra information as compared to the total flux contribution from a source.
+ visibilities  =  sum(abs(acccalgal(:)).^2),   where  acccalgal  =  (gainsol'  *
+ gainsol) .* acc; The Galactic  contribution = sum (abs(sigman(:)).^2), but also
+ includes the autocorrs,  which is a sum  of Tsys and Tsky, and  which cannot be
+ separated without external  measurements of Tsys. This explains  the high value
+ of  galactic contribution, against  an expected  40% contribution.   The RAteam
+ contribution  is  estimated  by   generating  model  visibilities  from  fluxes
+ estimated by LSimaging,  ie, the apparent flux, and  so is elevation dependent.
+ NOTE that  we dont  have observations in  which all  Ateam sources are  at high
+ elevations,  in which  case we  multiply their  visibility contribution  by the
+ approximate beam attenuation.   SNR was removed from the table,  as it does not
+ provide very much extra information  as compared to the total flux contribution
+ from a source.
 \end{comment}
 
 \subsubsection{\label{sub:Direction-independent-gain}Direction independent gain
@@ -808,15 +835,15 @@ AARTFAAC  calibration   is  latency  bound,  hence  we   implement  the  StEFCal
 smaller memory footprint, and its computing scales as $\mathcal{O}(N^{2})$ for N
 parameters,   as  against  the   $\mathcal{O}(N^{3})$  scaling   of  traditional
 solvers. This  significantly reduces  the computing during  AARTFAAC calibration
-due  to the  large number  of parameters  ($\sim$$590$) being  estimated.   The StEFCal
-implementation led to a measured  increase in calibration throughput of a factor
-$\sim$30 \citep{salvini2014stef}, compared to a traditional estimator, and makes
-real-time calibration  of every time  and frequency slice feasible.   This speed
-gain is primarily due to linearizing the cost function, allowing the solution to
-be  computed analytically  and hence  avoiding the  need for  matrix inversions.
-These, although computationally costly, are  essential to other solvers like the
-Levenberg-Marquardt minimizer.  StEFCal algorithm  has been shown to be unbiased
-with rapid convergence.
+due  to the  large  number  of parameters  ($\sim$$590$)  being estimated.   The
+StEFCal implementation led to a measured increase in calibration throughput of a
+factor  $\sim$30 \citep{salvini2014stef}, compared  to a  traditional estimator,
+and  makes real-time  calibration of  every time  and frequency  slice feasible.
+This speed gain is primarily due  to linearizing the cost function, allowing the
+solution  to be computed  analytically and  hence avoiding  the need  for matrix
+inversions.   These, although  computationally  costly, are  essential to  other
+solvers  like the  Levenberg-Marquardt  minimizer.  StEFCal  algorithm has  been
+shown to be unbiased with rapid convergence.
 
 \textbf{Gain  Constraints:} Since  we simultaneously  solve for  apparent source
 fluxes as  well as antenna  gain amplitudes, a  constraint on either  the source
@@ -884,7 +911,7 @@ observations,   and   its   spatial    resolution   is   presented   in   Figure
 
 
 \begin{table*}[tbh]
-\caption{Flux ratios of bright sources withina snapshot from Obs. 3.}
+\caption{Flux ratios of bright sources within snapshot from Obs. 3.}
 \label{tab:Flux-ratios-of-1}
 \center{%
 \begin{tabular}{c c c c c c c c}
@@ -905,7 +932,7 @@ Source & $S_{60}$ & $\sigma_{S_{60}}$ & Calibrated & $\sigma$  & Ratio & Comment
 \tablefoot{The $S_{60}$  flux has been  derived from the best  available modeled
   spectra, or -0.7 otherwise. $N_g$ is  the number of Gaussian components in the
   source.  The  calibrated flux  ratio is derived  after imaging  the calibrated
-  visibilites  and generating  light-curves of  peak  flux from  sources in  the
+  visibilities  and generating  light-curves of  peak flux  from sources  in the
   snapshots.}
 \end{table*}
 
@@ -925,12 +952,12 @@ corrected in the image plane via a beam model which incorporates the effects.
 presence of Galactic emission and antenna mutual coupling}
 
 Both Galactic  emission and coupling  between closely spaced antennas  can cause
-correlated  noise on  the visibility  formed from  a pair  of  antennas. Mutual
+correlated  noise on  the  visibility formed  from  a pair  of antennas.  Mutual
 coupling due to  the antennas being placed closer than half  a wavelength at the
 lower frequencies can result in fluctuation  of the PSF gain and sidelobe levels
-as a function of pointing direction \citep{agrawal1972mutual}.  This implies that
-antenna  pattern multiplication  (assuming that  a  single element  of an  array
-behaves similarly  to it  being isolated)  may not apply.  Mutual coupling  is a
+as  a function  of pointing  direction \citep{agrawal1972mutual}.   This implies
+that antenna pattern multiplication (assuming  that a single element of an array
+behaves similarly  to it being  isolated) may not  apply.  Mutual coupling  is a
 short baseline effect, and can be  ignored between the antennas of the different
 stations making  up the AARTFAAC. The  impact of mutual coupling  to the antenna
 primary beam  in the typical  LBA\_OUTER mode of  observation is expected  to be
@@ -982,15 +1009,15 @@ excess flux at the shortest baselines and the calibration parameters.
 
 \subsubsection{Bandpass calibration}
 
-The ASM  operates in  a narrow-band  mode by default.  The incoming  raw complex
+The ASM  operates in a  narrow-band mode by  default.  The incoming  raw complex
 voltages from each antenna are organized as several subbands of $\sim$$192$ kHz,
-which  are further  filtered to  give  the correlator  spectral resolution  of
+which  are  further filtered  to  give  the  correlator spectral  resolution  of
 $\sim$$16$  kHz. These  subbands can  be spread  anywhere within  the  $100$ MHz
 baseband bandwidth via  the configurable hardware, and as  such sample different
-components  of  the  receiver  bandpass.  The ASM  generates  channel  collapsed
+components  of  the receiver  bandpass.   The  ASM  generates channel  collapsed
 calibrated  visibilities for  imaging spanning  multiple subbands  and typically
-over a MHz. However, the LBA bandpass  can have variations of upto 80\% from the
-peak  resonance   at  $\sim$$58$  MHz \citep{vanhaarlem2013lofar}. Thus,  bandpass
+over a MHz. However, the LBA bandpass can have variations of up to 80\% from the
+peak  resonance at  $\sim$$58$ MHz  \citep{vanhaarlem2013lofar}.  Thus, bandpass
 calibration  is necessary,  and the  calibrated visibilities  are scaled  by the
 known bandpass response of the  LBA unilaterally. This is adequate to spectrally
 collapse  narrow  bandwidths, and  allow  a  multi-frequency  synthesis mode  of
@@ -1096,7 +1123,7 @@ maintaining a  short time window of  solutions, against which  all new estimates
 are  compared  before being  used  for feedback.   In  case  of an  inconsistent
 solution, an average gain over the  window is used.  This approach works well to
 eliminate biases in estimates due to incorrect tracking. A schematic view of the
-tracking calibration  and its major components  as described, is  shown in Figure
+tracking calibration and  its major components as described,  is shown in Figure
 \ref{fig:trackcalSchematic}.
 
 The  StEFCal  algorithm already  utilizes  the  gain  estimate from  a  previous
@@ -1131,7 +1158,7 @@ calibration algorithm can be summarized as follows:
 
 A  computational profile  of  the  various algorithmic  components  of both  the
 convergent  and   the  tracking  calibration   schemes  is  depicted   in  Table
-\ref{tab:Performance-results}.  The calibration  solution memory pool is utlized
+\ref{tab:Performance-results}.  The calibration solution memory pool is utilized
 by  the  goodness  of  solution  block  to  decide  on  the  propagation  of  an
 instantaneous solution.
 
@@ -1210,7 +1237,7 @@ their convergence  curves. Here,  the stars indicate  calibration with  no prior
 knowledge  of gain  solutions,  as  used in  convergent  calibration, while  the
 diamonds  show  the convergence  rate  after  pre-initializing  the solver  with
 solutions from a  previous timeslice.  Both the major and  minor cycles are seen
-to  benefit  from  the  initializations.  Their  steep  convergence  rate  is  a
+to  benefit  from  the  initialization.  Their  steep  convergence  rate  is  a
 motivation to apply tracking calibration for the AARTFAAC.
 
 
@@ -1325,24 +1352,12 @@ model fluxes  and positions.  Note  the appearance of secondary  bright sources,
 corresponding to several known 3C sources.
 
  
-%%\begin{figure*}[t]
-%% \subfloat[Major cycles]{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_major.eps}}
-%% \subfloat[Minor cycles]{\includegraphics[width=1\columnwidth]{Figs/SB000_ch30-35_5sec_3hr_9_convcalsol_bin_iter_minor.eps}}
-
-%% \caption{\label{fig:Major-and-minor}Number of iterations of major and minor
-%% cycles during calibration of Obs. 1. The first
-%% half of the dataset is affected by the flaring Sun, requiring
-%% a larger number of major and minor iterations for convergence.}
-%% \end{figure*}
-
-
-%% \textcolor{red}{<TODO:} Additional stuff: error in the estimated parameters
-%% against the number of iterations on a typical snapshot?>
 \subsection{Accuracy of tracking calibration}
 We present the performance of our  algorithm on Obs. 3. The performance is tuned
 for maximum computational  efficiency by restricting the major  and minor cycles
-to  just  one.  The  tracking  solutions  are  compared  to  those  obtained  by
-calibration to  convergence.  The  comparison is carried  out on  estimated phase parameters, which affects image fidelity the most.
+to  just  one.   The  tracking  solutions  are compared  to  those  obtained  by
+calibration to  convergence.  The comparison  is carried out on  estimated phase
+parameters, which affects image fidelity the most.
 \begin{figure}[tbh]
 
 \resizebox{\hsize}{!}{\includegraphics[width=1\columnwidth]{Figs/cmpcalsol.eps}}
@@ -1401,8 +1416,8 @@ fluxes. This is  now demonstrated for our calibration scheme.   We carry out DFT
 imaging of data calibrated with  the tracking calibration algorithm, and extract
 out fluxes  of some field  sources in the  observation.  These are  presented in
 Figure  \ref{fig:Light-curves-of}.  One  can  see that  the  dominant source  of
-variation in  the extracted flux  is due to  systematic variations on   short
-timescales, most probably  caused by the ionosphere.   This limits the estimation
+variation  in  the extracted  flux  is due  to  systematic  variations on  short
+timescales, most probably caused by  the ionosphere.  This limits the estimation
 accuracy on the extracted light-curve.
 
 \begin{figure}[tbh]
@@ -1421,8 +1436,8 @@ calibration}
 
 The expected  strong phase coherence of  a plane wave across  the AARTFAAC array
 due to its  very short baselines can be mitigated  by the ionosphere introducing
-spatially variant  refractions and propagation  delays, which can  require rapid
-calibration  cycles to  oversample ionospheric  phase coherency  timescales (see
+spatially  variant refraction and  propagation delays,  which can  require rapid
+calibration cycles  to over sample  ionospheric phase coherency  timescales (see
 Sec. \ref{sub:All-Sky-cal-iono}).
 
 Recent results \citep{intema2009ionospheric} have indicated towards the presence
@@ -1441,7 +1456,7 @@ constraining    the     calibration    of    the     full    LOFAR    instrument
 
 During our  test observations, the  most common effects  seen seem to be  due to
 small scales  'bubbles' of turbulent  plasma, which affect  identical sightlines
-from different antennas.   This results in high frequency  scintillations of the
+from different antennas.   This results in high frequency  scintillation of the
 brightest     sources,     as    well     as     position    wander.      Figure
 \ref{fig:Estimated-flux-of} shows the effect  of the ionosphere on the estimated
 flux of  the model  sources, as  well as the  position wander  of CasA  over the
@@ -1470,17 +1485,8 @@ course of a night.
 The variation  of the position of  model sources from catalog  locations under a
 typical  ionosphere is  demonstrated  by Figure  \ref{fig:Estimated-flux-of}(d).
 Here,  the  actual   position  estimates  have  been  obtained   using  the  WSF
-algorithm. Systematic variations of upto 20\%  of a PSF are present and are seen
+algorithm. Systematic variations of up to 20\% of a PSF are present and are seen
 to be a strong function of frequency, as expected due to the ionosphere.
-
-%% \begin{figure}[tbh]
-%% \includegraphics[width=1\columnwidth]{Figs/CasAsrcposoff}
-
-%% \caption{\label{fig:Deviation-of-the}Deviation of the WSF estimated position
-%% of 3C461 over \textasciitilde{}1000 sec, as compared to its catalog
-%% position. Shown at two frequencies separated by \textasciitilde{}30MHz.}
-%% \end{figure}
-
 
 Tracking such  behaviour is the primary  reason for carrying  out near real-time
 calibration, more so  because the streaming nature of  the application precludes
@@ -1529,7 +1535,7 @@ images for  transient searches, and  quantify the improvement in  sensitivity of
 such images.
 
 A  difference  image  is expected  to  have  a  higher  sensitivity due  to  the
-cancellation of  the abovementioned systematic effects, with  the residual noise
+cancellation of the above mentioned  systematic effects, with the residual noise
 expected to better follow Gaussian statistics.  Further, steady sources are also
 cancelled in the  difference domain, making it an  excellent domain for searches
 for short term  transients.  The sensitivity of the  difference image depends on
@@ -1537,8 +1543,8 @@ the  extent to  which systematics  cancel, which  in turn  can be  influenced by
 observing  conditions.  The  effectiveness  of this  domain  is demonstrated  in
 Figure  \ref{fig:Reduction-in-image}, which  shows  the decrease  in noise  with
 integration  time for  a snapshot  image as  well as  a difference  image,  as a
-function of  integration time.  The
-difference image I$^N_{diff}$ with N units of time integration is generated as:
+function of integration time.  The difference image I$^N_{diff}$ with N units of
+time integration is generated as:
 \begin{equation}
 I^N_{diff} = \sum\limits_{i=0}^{N-1} I_{i+N} - \sum\limits_{i=0}^{N-1} I_i \label{eq:diff_img}
 \end{equation}
@@ -1568,11 +1574,11 @@ a  frequency  collapsed image.   Tracking  calibration  requires a  per-channel,
 conditioned calibration solution  for initialization, which requires maintaining
 this state information per channel. 
 
-We thus  utlize a two level  parallelization scheme. The first  stage splits the
+We thus utilize  a two level parallelization scheme. The  first stage splits the
 visibilities on each  subband, to be processed by a single  pipeline as shown in
 Figure \ref{fig:pipeline}.   The second stage splits each  subband into channels
 which  are  individually  flagged   and  calibrated,  depicted  by  the  stacked
-rectangles within  each pipeline.   Finally, all channels  within a  pipline are
+rectangles within  each pipeline.  Finally,  all channels within a  pipeline are
 imaged and combined into an image cube for further analysis.
 
 The iterative and sequential nature of the estimators operating on an individual
@@ -1595,34 +1601,6 @@ channel,  and  can be  tapped  by network  based  utilities  for monitoring  and
 logging. To  minimize data copies between per  CPU core caches, we  tie a single
 core to an individual pipeline implementation.
 
-%% - Problem  description,  parallelization  hierarchy,  use of  CPU,  not  GPU.
-%% - Architecture   description.   Pelican,   suitability   for  \mbox{AARTFAAC}   like
-%% - application. E3, suitability for matops Mention time alignment and handling
-%% - of  missing  data  in  above  point, FCFS  sched  Tracking  cal.  component
-%% - description.   Error/stat.  reporting   for  pipelined  operation.   Actual
-%% - hardware implementation description, description of results.  Timing.
-
-%% The \mbox{AARTFAAC}  All-sky monitor is a  realtime system, requiring it  to keep up
-%% with incoming datastreams from the correlator. Furthermore it is desired that
-%% the latency of  the imaging pipeline remains below $1$s.  In order to achieve
-%% these requirements  the parallelizable components need to  be identified, see
-%% Figure  \ref{fig:pipeline}. Each  stream  represents a  subband which  itself
-%% holds a number of channels. A  single channel corresponds to a single ACM, or
-%% set of visibilties that requires calibration. \\ As such, we can process each
-%% subband  independently and each  channel within  a subband  independently for
-%% that subband, giving us two stages of parallellism.
-
-%% \subsection{Architectual   dependent    description}   As   the   calibration
-%% algorithm's major, minor cycle and the  WSF are iterative in nature, we chose
-%% a  cpu based  approach using  C++ as  the main  language in  combination with
-%% Eigen3 \citep{eigenweb}. Eigen  3 is A high performance  template library for
-%% linear  algebra with  a  clean and  expressive  API. \\  The high  throughput
-%% pipeline is built on the Pelican  (TODO REF) framework, which is suitable for
-%% creating a loosely coupled realtime  worker pool (pipelines), fed by a single
-%% server in a  first come, first served mode.  Each  pipeline receives a single
-%% subband for  timestep $t$  from the  server, next it  flags bad  antennae and
-%% calibrates each  individual channel per  thread and finally creates  a single
-%% image by combining the channels again, see Figure \ref{fig:pipeline}.
 
 \subsection{Performance results}
 
@@ -1722,21 +1700,21 @@ higher layers like the TraP.
 
 The quiet Sun  is a well-known broadband radio source at  frequencies of tens of
 MHz, due to black-body radiation from  the Corona being in the Rayleigh regime .
-Inspite of the radio extent of the  quiet Sun being much larger than the optical
+In spite of the radio extent of the quiet Sun being much larger than the optical
 disk, simple point  or gaussian models are adequate  for its representation with
 the  \mbox{AARTFAAC} PSF.  However,  during periods  of sunspot  activity, small
 regions of emission can extend over several solar radii. These typically have an
-inverted  spectrum, making  them  the  brightest sources  in  the low  frequency
-sky.  During  intense  activity,  these   components  can  be  resolved  by  the
+inverted spectrum, making  them the brightest sources in  the low frequency sky.
+During   intense   activity,  these   components   can   be   resolved  by   the
 \mbox{AARTFAAC},  thus invalidating  the point  source assumption  of  the Solar
 model. A  multi-component point  source Solar model  which varies with  time and
 frequency would then be required for adequate modeling the solar contribution to
-observed visibilities.  Such a model can  be extracted from a  snapshot via high
+observed visibilities.  Such  a model can be extracted from  a snapshot via high
 resolution  beamforming  towards the  Sun  and  the  calibration model  updated.
 However,  our  latency  bounds  preclude  such an  operation  currently.   Thus,
 timeslices with  a flaring Sun are  either discarded using filters  based on the
 ACM total  power, or lead to  images with significantly higher  noise, which are
-appropriately  handled  by  higher   level  processors.  The  dynamic  range  of
+appropriately  handled  by  higher  level  processors.   The  dynamic  range  of
 \mbox{AARTFAAC} images after tracking calibration is $\sim2200:1$, and so images
 in the presence of the quiet Sun can be considered for transient detection.
 
@@ -1753,8 +1731,8 @@ non-convergence  of  tracking calibration  on  data  with  poor SNR.   A  simple
 solution  for this  has been  found  to be  the periodic  recalibration to  full
 convergence of  the incoming data every few  minutes. This limits the  bias to a
 small fraction of the  estimates.  The effect of this can be  seen on the phases
-in  Figure \ref{fig:The-error-timeseries},  being  subsequently brought  back  on track  via a  convergent
-calibration.
+in  Figure \ref{fig:The-error-timeseries},  being subsequently  brought  back on
+track via a convergent calibration.
 
 %% \begin{figure*}[tbh]
 %% \center{\includegraphics[width=0.7\paperwidth,height=7cm]{Figs/cmpcalsol}}\caption{\label{fig:The-error-timeseries-1}The error timeseries of tracking
@@ -1825,7 +1803,7 @@ suited  to  perform   as  a  real-time  monitor  for   bright  and  short  radio
 transients.The \mbox{AARTFAAC} tracking calibration is optimized for the precise
 2-D  nature  of  the ASM,  its  snapshot  imaging  mode  of operation,  and  its
 sensitivity  and  field  of  view.  Other  established  calibration  algorithms,
-typically optimised for earth rotation synthesis, apply poorly to the simplified
+typically optimized for earth rotation synthesis, apply poorly to the simplified
 constraints of the  ASM and do not satisfy the  latency and compute requirements
 of the real-time monitor.  We have shown under a variety of conditions that both
 RFI  and   ionospheric  visibility  distortions  do   not  significantly  affect

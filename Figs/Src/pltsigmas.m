@@ -6,7 +6,7 @@ fname = '../Data/combined_SB002_2_convcalsol.bin.sigmas';
 % fname = '../Data/SB000_ch30-35_5sec_3hr_9_convcalsol.bin.sigmas';
 % fname = '../Data/SB000_LBA_OUTER_2222-2258_1ch_1_convcalsol.bin.sigmas';
 % fname = '../Data/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol.bin.sigmas';
-col = {'b*', 'm*', 'r*', 'k*', 'g*', 'y*', 'w*', 'c*'};
+col = {'b*', 'mo', 'r>', 'kd', 'g+', 'y*', 'w*', 'c*'};
 
 %%%% NOTE SPECIAL TICK LOCATIONS FOR THE COMBINED DAWN DATA!!! %%%%
 flux_tseries = load (fname);
@@ -20,7 +20,7 @@ while ind < size(flux_tseries, 2)
 	% plot ((flux_tseries(:,1)-t_first)/86400+num, flux_tseries(:,ind), char(col(colind)));
 
 	%%%% USE THIS plot command ONLY FOR DAWN DATA
-	plot (flux_tseries(:,ind), char(col(colind)));
+    plot (flux_tseries(:,ind), char(col(colind)));
 	colind = colind + 1;
 	ind = ind + 3;
 	hold on;

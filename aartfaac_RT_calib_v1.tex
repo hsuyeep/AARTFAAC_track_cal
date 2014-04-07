@@ -882,51 +882,35 @@ of the estimated parameters.
 
 \subsubsection{\label{sub:Direction-dependent-gain}Direction dependent gain estimation (Major Cycle)}  
 
-The major cycle  creates an updated  model sky using  the higher
-accuracy parameter estimates  from the minor cycle. It  uses this for estimating
-direction dependent effects, parameterized  in the apparent fluxes and positions
-of the model sources.
+The major cycle creates an updated model sky using the higher accuracy parameter
+estimates from the minor cycle.  It uses this for estimating direction dependent
+effects,  parameterized  in the  apparent  fluxes  and  positions of  the  model
+sources. \textbf{The cycle begins with a one-time estimation of the model source
+  positions via the WSF algorithm.  This operation is equivalent of one round of
+  phase-only selfcal,  before commencing the  iterative estimation of  the model
+  source fluxes, and the per antenna gains.}
 
-\textbf{Model    source   flux    estimation:}   As    explained    in   Section
-\ref{sub:Model-generation},    instantaneous   estimates    of    the   apparent
-(deconvolved) model source flux are  required for model generation.  This can be
-framed  as a parameter  estimation problem,  for which  a closed  form estimator
-based     on     the     COMET     approach    has     been     developed     in
-\citep{wijnholds2008fundamental}  in an approach  called Least  Squares Imaging.
-Here, the  array configuration is  assumed known to  a high accuracy,  while the
-number of  sources requiring flux estimation  is assumed to be  smaller than the
-number of  resolution elements in the  field of view.  This  approach allows the
-deconvolved flux of a model source  to be estimated, due to the incorporation of
-a    deconvolution    operator   as    part    of    the   estimator.
 
-%% Figure  \ref{fig:Estimated-flux-of} shows  the extracted  flux of  the brightest
-%% visible model  sources, and  clearly shows  the effect of  the element  beam and
-%% ionospheric scintillation.
-
-  The model  source flux estimator uses a  sparse weighting matrix
-due to the modeling of mutual  coupling via a non-diagonal noise matrix (Section
-\ref{sub:System-noise-estimation}), which prevents a bias in estimation.
-
-\textbf{Model source position estimation:}The tracking calibration approach also
-incorporates  a Direction  of Arrival  (DoA) algorithm  using a  vector subspace
-technique  called Weighted  Subspace Fitting  (WSF) \citep{viberg1991detection}.
-This allows  us to estimate the  instantaneous position of a  model source, thus
-compensating  for   the  image  wander   of  the  sources  due   to  ionospheric
-refraction. The WSF  is an algorithm for determining  the directions of multiple
-narrow-band, far-field  emitters whose uncorrelated  signals are received  by an
-arbitrary (but known) array geometry. It  is a high resolution algorithm, with a
-resolution better than $\lambda/D$ (D being the array size) possible for sources
-with a high SNR. It operates by  partitioning the received ACM into a signal and
-a  noise subspace based  on its  eigen-structure.  It  then confines  the signal
-subspace corresponding to the true  signal parameters to the subspace spanned by
-the array  manifold vectors,  which represent the  functional dependence  of the
-array  response vector  to a  source over  the region  of interest  in parameter
-space.  Then,  the   signal  parameters  are  estimated  by   finding  the  best
-least-squares fit of  the two subspaces. A crucial assumption  is that the array
-manifold  is known,  implying that  the array  is calibrated.   To  satisfy this
-requirement, our  approach generates initial calibration solutions  based on the
-catalog positions  of the model sources,  calibrates the array  and then carries
-out  a  WSF  estimation. 
+\textbf{Pre-calibration   model   source   position   estimation:}The   tracking
+calibration approach  also incorporates a  Direction of Arrival  (DoA) algorithm
+using  a  vector  subspace  technique  called Weighted  Subspace  Fitting  (WSF)
+\citep{viberg1991detection}.   This  allows  us  to estimate  the  instantaneous
+position  of a  model source,  thus  compensating for  the image  wander of  the
+sources due to  ionospheric refraction. The WSF is  an algorithm for determining
+the directions  of multiple  narrow-band, far-field emitters  whose uncorrelated
+signals are  received by an arbitrary (but  known) array geometry. It  is a high
+resolution algorithm,  with a  resolution better than  $\lambda/D$ (D  being the
+array size)  possible for sources with  a high SNR. It  operates by partitioning
+the  received   ACM  into  a   signal  and  a   noise  subspace  based   on  its
+eigen-structure.  It then confines the signal subspace corresponding to the true
+signal parameters to  the subspace spanned by the  array manifold vectors, which
+represent the  functional dependence  of the array  response vector to  a source
+over the region of interest in parameter space.  Then, the signal parameters are
+estimated by finding the best least-squares  fit of the two subspaces. A crucial
+assumption  is that  the array  manifold is  known, implying  that the  array is
+calibrated.   To  satisfy  this  requirement,  our  approach  generates  initial
+calibration  solutions based  on the  catalog  positions of  the model  sources,
+calibrates the array and then carries out a WSF estimation.
 
 %%   An  example  of  estimation  with  the  WSF  on  test
 %% observations,   and   its   spatial    resolution   is   presented   in   Figure
@@ -971,6 +955,26 @@ ionosphere into  the model visibilities,  leading to lower modeling  errors, and
 hence better estimates of the calibration parameters.  Calibrating the data then
 requires applying  the DIE solutions  to the incoming  data, while the  DDEs are
 corrected in the image plane via a beam model which incorporates the effects.
+
+\textbf{Model    source   flux    estimation:}   As    explained    in   Section
+\ref{sub:Model-generation},    instantaneous   estimates    of    the   apparent
+(deconvolved) model source flux are  required for model generation.  This can be
+framed  as a parameter  estimation problem,  for which  a closed  form estimator
+based     on     the     COMET     approach    has     been     developed     in
+\citep{wijnholds2008fundamental}  in an approach  called Least  Squares Imaging.
+Here, the  array configuration is  assumed known to  a high accuracy,  while the
+number of  sources requiring flux estimation  is assumed to be  smaller than the
+number of  resolution elements in the  field of view.  This  approach allows the
+deconvolved flux of a model source  to be estimated, due to the incorporation of
+a    deconvolution    operator   as    part    of    the   estimator.
+
+%% Figure  \ref{fig:Estimated-flux-of} shows  the extracted  flux of  the brightest
+%% visible model  sources, and  clearly shows  the effect of  the element  beam and
+%% ionospheric scintillation.
+
+  The model  source flux estimator uses a  sparse weighting matrix
+due to the modeling of mutual  coupling via a non-diagonal noise matrix (Section
+\ref{sub:System-noise-estimation}), which prevents a bias in estimation.
 
 \subsubsection{\label{sub:System-noise-estimation}System noise estimation in the
 presence of Galactic emission and antenna mutual coupling}

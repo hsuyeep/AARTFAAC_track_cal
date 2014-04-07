@@ -35,8 +35,8 @@ Reply:
 Reply: Added a sentence above Section 2 (The AARTFAAC All Sky Monitor System):
 	  "The  results presented in this paper have been obtained  on   test  
 	   observations  carried  out  using   existing  LOFAR  system infrastructure 
-	   while the AARTFAAC  Uniboard based piggyback recording system was being 
-	   built."
+	   while the AARTFAAC  Uniboard \footnote{http://www.radionet-eu.org/uniboard}
+	   based piggyback recording system was being built."
 
 
 (3) The figures are not suitable for B&W viewing. The best example of this is 
@@ -75,8 +75,9 @@ Sec 2.1: para 8: confusion limit calculations are model dependent. The assumed
 	     source counts model should be cited, as should the specific definition 
 		 of confusion used here since this varies in the literature.
 Reply  : The following was added:
-		 "Assuming a  confusion noise limit  being reached  with  the presence of  			one source  per ten  PSFs coupled with the source  counts from
-  		  \citet{bregman2012system} results in a classical confusion noise of 
+		 "Assuming the  confusion noise limit  to be reached  with  the presence 
+		  of one source  per ten  PSFs and the source  counts from
+  		  \citet{bregman2012system}, results in a classical confusion noise of 
 		  $\sim$$10$ Jy."
 
 
@@ -132,3 +133,15 @@ Reply  : Yes, the filtering of the low spatial frequencies is carried out during
 		 fraction  of  the  received  flux on  the  filtered visibilities,  and 
 		 is  constrained  by the  fluxes  and positions  of the  model sources, 
 		 as well as the noise model."
+
+--------------- Other corrections  ---------------
+- Added a reference to a proceedings:
+@inproceedings{salvini2014stefursi,
+  title={StEFCal - An Alternating Direction Implicit Method for Fast Full Polarization Array Calibration},
+  author={Salvini, Stef and Wijnholds, S. J.},
+  Booktitle={Proc. URSI General Assembly, Beijing},
+  year={2014}
+}
+ 
+- Acknowledgements: "The Netherlands Foundation for Radio Astronomy" -> "the Netherlands Institute for Radio Astronomy"
+

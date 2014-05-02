@@ -148,9 +148,7 @@ Reply  : Yes, the filtering of the low spatial frequencies is carried out during
 - Clarified (in Section 4.1.3) that WSF source position estimation is carried out
   just once, and not in every major cycle:
   "The cycle begins with a one-time estimation of the model source positions via 
-   the WSF algorithm. This operation is equivalent of one round of phase-only 
-   selfcal, before commencing the iterative estimation of the model source fluxes,
-   and the per antenna gains."
+   the WSF algorithm." 
 
 - Reordered the WSF description to be above the model source flux estimations.
 - Modified Fig. 2 to show WSF being done only once, outside the major cycle.

@@ -23,7 +23,7 @@ semilogy (major_cycle_conv(:,1), major_cycle_conv(:,4), 'rd-');
 grid on;
 xlabel ('Iteration number');
 ylabel ('Change in parameter estimates');
-title ('Convergence of major cycle per timeslice');
+title ('Convergence of major cycle per time slice');
 legend ('Convergent cal. minor cycle ', 'Tracking cal. minor cycle ', ...
         'Convergent cal. major cycle ', 'Tracking cal. major cycle ');
 set(gca,'FontSize', 16,'fontWeight','bold')

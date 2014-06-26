@@ -1,0 +1,18 @@
+23Jun14
+
+Dear Editor,
+
+  Please find attached the revised manuscript of our paper after language editing and other minor corrections. I would like to thank the Language Editor for going through our manuscript in great detail. His suggestions have certainly improved the readability of the paper.
+
+regards,
+-- Peeyush Prasad
+
+This round of corrections were mostly for Language Editing. However, the following mentionable changes were made:
+
+- Sec. 4.2, para 2:
+"Spectral  stability can also  be utilized  to track  solutions in  the frequency
+axis;  however,  non-contiguous subbands  may  be  chosen  during operations  to
+optimize  detection of  steep spectrum  sources  by sparsely  sampling the  full
+bandwidth. The  nature of  solutions is then  sufficiently different  to prevent
+tracking  along the spectral  axis. Thus,  we choose  to use  the time  axis for
+solution tracking."

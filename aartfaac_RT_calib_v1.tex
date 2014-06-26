@@ -1,5 +1,5 @@
-\documentclass[referee]{aa}
-% \documentclass{aa}
+%% \documentclass[referee]{aa}
+\documentclass{aa}
 \usepackage[varg]{txfonts}
 \usepackage{color}
 \usepackage{graphicx}
@@ -89,10 +89,10 @@
   to  accurate calibration,  these  can be  corrected  in the  direction of  the
   brightest few  sources to significantly improve image  quality.  Our real-time
   calibration pipeline  implementation processes a single spectral  channel of a
-  snapshot observation  in $\sim$  0.2 seconds on  test hardware, which  is well
+  snapshot observation  in $\sim$$0.2$ seconds on  test hardware, which  is well
   within its  latency budget.  Autonomously  calibrating and imaging  one second
-  snapshots, our approach leads  to a typical image noise of $\sim$  10 Jy for a
-  $\sim$ 90 kHz channel, reaching dynamic ranges of $\sim$ 2000:1.  We also show
+  snapshots, our approach leads  to a typical image noise of $\sim$$10$ Jy for a
+  $\sim$$90$ kHz channel, reaching dynamic ranges of $\sim$$2000:1$.  We also show
   that  difference imaging  allows  thermal-noise  limited transient  detection,
   despite the instrument being confusion-noise limited.}
 
@@ -243,13 +243,13 @@ results  in  achieving   close  to  thermal-noise  limited   imaging.  This  is
 demonstrated using test data taken  under a variety of observational conditions.
 The scheme has been incorporated into a calibration and imaging pipeline, and an
 optimized implementation  of the  algorithm allows the  instrument to  carry out
-near real-time calibration and imaging  with high dynamic ranges of ~2000:1.  To
+near real-time calibration and imaging  with high dynamic ranges of $\sim$$2000:1$.  To
 verify  that  the  proposed  calibration  scheme allows  thermal  noise  limited
 transient  detection,  we  have  analyzed  the  difference  between  consecutive
 snapshot images for  which the systematic confusion noise  is expected to cancel
 out. This analysis shows the expected reduction in noise being consistent with a
 thermal noise limited observation. The achieved noise limit of difference images
-is found to be ~2-3 Jy over tens of seconds.
+is found to be $\sim$$2-3$ Jy over tens of seconds.
  
 This paper is  organized as follows.  We begin by  describing the AARTFAAC array
 and   its    suitability   as   a   transient   search    machine   in   Section
@@ -342,13 +342,13 @@ Since  pulse  attenuation is  proportional  to  broadening, transient  detectors
 routinely  increase the  pulse detection  sensitivity by  carrying out  trial DM
 searches.   However,  the  AARTFAAC  does  not carry  out  de-dispersion  before
 imaging.   Thus, given  a sensitivity  threshold  and a  temporal resolution  of
-$\sim$0.1 to  1 second of the  AARTFAAC, the transient  sensitivity achieved via
+$\sim$$0.1$ to  1 second of the  AARTFAAC, the transient  sensitivity achieved via
 dispersed spectral  collapse limits the DM  range of a  detectable source, while
 scatter broadening limits the DM range irrespective of spectral collapse.
 
 An  empirical  relationship between  the  scatter  broadening  time due  to  the
 interstellar     medium     and    the     DM     has     been    derived     by
-\citet{bhat2004multifrequency}. This implies a DM upper limit of $\sim$100 at 60
+\citet{bhat2004multifrequency}. This implies a DM upper limit of $\sim$$100$ at 60
 MHz when  lines of sight  are within the  Galaxy and when scatter  broadening is
 restricted to 1 second.
 
@@ -359,8 +359,8 @@ at $\nu$ GHz for a dispersion of DM units is given by Eq. \ref{eq:dm_broad}.
 \end{equation}
 Imaging at the  highest available spectral resolution of  16 kHz and restricting
 dispersion broadening to within 1 second  at the same time allows detection of a
-source with  a DM of up to  $\sim$1600.  This allows probing  along any galactic
-line of sight \citep{cordes2002ne2001}, although  at a sensitivity that is a factor  $\sim$28 times poorer than that with the full 13 MHz band.
+source with  a DM of up to  $\sim$$1600$.  This allows probing  along any galactic
+line of sight \citep{cordes2002ne2001}, although  at a sensitivity that is a factor  $\sim$$28$ times poorer than that with the full 13 MHz band.
 
 %% Assuming all subbands  are chosen to be contiguous  around the peak instrumental
 %% sensitivity while the  dispersion broadening is limited to 1  second, the 13 MHz
@@ -376,7 +376,7 @@ AARTFAAC  by spectral integration  over its  full 13  MHz band  would lead  to a
 lowered  detected SNR  for any  pulses with  DMs greater  than a  few.   This is
 because dispersion broadening would spread the pulse beyond the 1 second imaging
 cadence, restricting  the transient search  spatial RADIUS2. However,  as stated
-above, scattering along Galactic lines of  sight broadens pulses with DM ~100 to
+above, scattering along Galactic lines of  sight broadens pulses with DM $\sim$$100$ to
 beyond 1  second. Thus, some  level of spectral  integration can be  afforded by
 this  limit before  scattering, and  dispersion  broadens the  pulse beyond  the
 AARTFAAC   cadence.    Finally,   as  shown   by   \citet{hassall2013detecting},
@@ -420,12 +420,12 @@ deg.  Assuming the confusion limit to be reached with the presence of one source
 per ten PSFs and the  source counts from \citet{bregman2012system}, results in a
 classical confusion noise  of $\sim$$10$ Jy.  The large  number of antennas also
 make the AARTFAAC a very  sensitive instrument with a combined $A_{eff}/T_{sys}$
-of  $\sim$0.7 $m^{2}/K$ \citep{wijnholds2011situ}  and an  instantaneous thermal
-noise of $\sim$8 Jy for the  standard imaging mode of 1sec/16 kHz.  This implies
+of  $\sim$$0.7$ $m^{2}/K$ \citep{wijnholds2011situ}  and an  instantaneous thermal
+noise of $\sim$$8$ Jy for the  standard imaging mode of 1sec/16 kHz.  This implies
 that the sensitivity  of typical snapshot images are  limited by confusion noise
 and not thermal noise.
 
-The  array is  2-D to  high accuracy  ($\sim$1.4 cm  rms in  the  z-axis); thus,
+The  array is  2-D to  high accuracy  ($\sim$$1.4$ cm  rms in  the  z-axis); thus,
 imaging  the  zenith  region  can  be  done  via  a  simple  \mbox{2-D}  Fourier
 transformation of  the calibrated  visibilities.  Lines of  sight away  from the
 phase center (the zenith) have a  neglected phase term due to the w-component of
@@ -584,7 +584,7 @@ mostly Peeling  based approaches.
 
 The  MWA   \citep{lonsdale2009murchison},  located  in   Western  Australia,  has
 developed an  algorithm for carrying out real-time,  full polarization direction-
-dependent  calibration of snapshots  of $\sim$8 seconds  via a  Peeling mechanism
+dependent  calibration of snapshots  of $\sim$$8$ seconds  via a  Peeling mechanism
 \citep{mitchell2008real}.   They  use the  sequential  deconvolution of  several
 bright sources in decreasing order of apparent flux to iteratively fit
 apparent angular offsets  induced by ionospheric phase shifts  and antenna gains
@@ -770,10 +770,10 @@ subsets of parameters is called weighted alternating least squares (WALS).
 \hline \hline
 Src & $S_{60}(Jy)$ & 74 MHz Size  & \% Flux contribution  & Comment \\ 
 \hline 
-3C461 (CasA) & 19605.31 & 7' & $\sim$50 & Spectra from (1), Decay from (2)\\
-3C405 (CygA) & 19201.65 & 4.5' & $\sim$42 & Spectra from (1)\\
-3C144 (TauA) & 2417.31 & 8' & $\sim$11 & Spectra from (1)\\ 
-3C274 (VirA) & 1656.46 & 14' & $\sim$8& Spectra from (2)\\
+3C461 (CasA) & 19605.31 & 7' & $\sim$$50$ & Spectra from (1), Decay from (2)\\
+3C405 (CygA) & 19201.65 & 4.5' & $\sim$$42$ & Spectra from (1)\\
+3C144 (TauA) & 2417.31 & 8' & $\sim$$11$ & Spectra from (1)\\ 
+3C274 (VirA) & 1656.46 & 14' & $\sim$$8$& Spectra from (2)\\
 \hline 
 \end{tabular}}
 \tablebib{
@@ -857,7 +857,7 @@ $\mathcal{O}(N^{2})$  for  N parameters,  compared  to the  $\mathcal{O}(N^{3})$
 scaling of traditional solvers.  This significantly reduces the computing during
 AARTFAAC calibration due  to the large number of  parameters ($\sim$$590$) being
 estimated.  The StEFCal implementation led to a measured increase in calibration
-throughput  of   a  factor   $\sim$30  \citep{salvini2014stef}  compared   to  a
+throughput  of   a  factor   $\sim$$30$  \citep{salvini2014stef}  compared   to  a
 traditional  estimator  and  makes  real-time  calibration  of  every  time  and
 frequency slice feasible.   This speed gain is primarily  due to linearizing the
 cost  function, allowing  the solution  to  be computed  analytically and  hence
@@ -1103,7 +1103,7 @@ few  thousand time  samples, so  their SNR  does not  constrain  the resolution.
 Considering the  wide field of view,  bandwidth smearing effects  can affect the
 flux  of sources  at  the  edge of  the  field. Keeping  a  limit  of 10\%  flux
 attenuation at  the edge of  the field for  a fractional bandwidth  of $10^{-3}$
-puts  a limit of  $\sim48$ kHz  on the  channel width.   The time  resolution is
+puts  a limit of  $\sim$$48$ kHz  on the  channel width.   The time  resolution is
 constrained by the feasible latency  of the calibration and imaging pipeline and
 is chosen to  be 1 second.  Thus, in our standard  autonomous mode of operation,
 we choose  a resolution of 16kHz  and 1 seconds for  real-time calibration.  The
@@ -1362,7 +1362,7 @@ are also shown in the figure.
 
 \begin{figure*}[t]
 \includegraphics[width=1\textwidth]{Figs/uncal_cal_deconv_night.eps}
-\caption{AARTFAAC zenith projection of all sky images at ~60  MHz with 90 kHz
+\caption{AARTFAAC zenith projection of all sky images at $\sim$$60$  MHz with 90 kHz
   and  1   second  integration.   (Left)  Uncalibrated  image   (Middle)  after
   calibration and (Right) after subtraction of the brightest sources.}
 \label{fig:uncal_cal_deconv_night}
@@ -1581,7 +1581,7 @@ I^N_{diff} = \sum\limits_{i=0}^{N-1} I_{i+N} - \sum\limits_{i=0}^{N-1} I_i. \lab
 Here, all operations are  carried out per pixel, and the noise  is measured in a
 source  free region  of the  image.  The  theoretical curve  shows  the expected
 $\sqrt{N}$ enhancement on the integration of  N timeslices, and we see the noise
-in  a difference  image  that closely  following  this curve  out  to about  ~30
+in  a difference  image  that closely  following  this curve  out  to about  $\sim$$30$
 seconds, beyond which is when residuals  is when start getting affected by earth
 rotation.     In    principle,     \mbox    {short-term}    image    differences
 (\textasciitilde{}secs) are enough to reduce noise amplitude by 20-30\%.
@@ -1745,7 +1745,7 @@ However,  our  latency  bounds  preclude  such an  operation  currently.   Thus,
 time slices with  a flaring Sun are  either discarded using filters  based on the
 ACM total  power or lead to  images with significantly higher  noise, which are
 appropriately  handled  by  higher  level  processors.   The  dynamic  range  of
-\mbox{AARTFAAC} images after tracking calibration is $\sim2200:1$, so images
+\mbox{AARTFAAC} images after tracking calibration is $\sim$$2200:1$, so images
 in the presence of the quiet Sun can be considered for transient detection.
 
 
@@ -1852,7 +1852,7 @@ careful  selection of  thresholds on  the relative  error on  the  time series o
 calibration solutions while feeding the tracking loop. Coupled with a 'coasting'
 strategy,  this  has  been  found  to be  effective  for  real-time,  autonomous
 operation. With a current  C++ implementation, the tracking calibration operates
-within $\sim$ 0.25 seconds on a single time and frequency time slice of a typical
+within $\sim$$0.25$ seconds on a single time and frequency time slice of a typical
 observation, which is well within the compute budget.
 
 Thus,  tracking calibration  is an appropriate  strategy for  an autonomous,

@@ -68,13 +68,15 @@ set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 subplot (212);
 plot ((iter(:,1)-t_first)/86400.+num, iter(:,4), 'ob');
 axis tight; grid on;
-ylim([10 65]);
-datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+ylim([0 65]);
+set (gca, 'YTick', [15 30 45 60]); 
+set (gca, 'YTickLabel', {'15','30','45','60'}); 
+datetick ('x', 15, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 xlabel (sprintf ('UTC past %s, 00:00:00', datestr(num, 1))); % For datetick
 ylabel ('Minor iterations');
 samexaxis ('ytac', 1, 'join');
-p=mtit('Major and Minor cycle iterations',...
-	   'xoff',-.07,'yoff',.015);
+% p=mtit('Major and Minor cycle iterations',...
+% 	   'xoff',-.07,'yoff',.015);
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 print (strcat (strrep (strcat (name, ext), '.', '_'), '_majmin.eps'), '-depsc', '-r300');

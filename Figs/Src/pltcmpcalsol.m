@@ -13,8 +13,8 @@ xlabel ('UTC past 12-Jul-2012, 00:00:00');
 hold on;
 grid on;
 axis tight;
-title ('Temporal variation of phase error between calib. sols.');
-datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+% title ('Temporal variation of phase error between calib. sols.');
+datetick ('x', 15, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 print (gcf, '../cmpcalsol.eps', '-depsc', '-r300');

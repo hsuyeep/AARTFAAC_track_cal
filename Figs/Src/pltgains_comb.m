@@ -58,8 +58,8 @@ axis tight; grid on;
 % datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 
 samexaxis ('join');
-p=mtit('Estimated gain phase and amplitude.  ',...
-	   'xoff',-.07,'yoff',.015);
+%p=mtit('Estimated gain phase and amplitude.  ',...
+%	   'xoff',-.07,'yoff',.015);
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 [pathstr, name, ext] = fileparts (fname);	

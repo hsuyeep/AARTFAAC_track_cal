@@ -23,15 +23,17 @@ for ind = 1:nsrcs
 % 		hold on;
 		grid on; axis tight;  
 		ylim ([0 20]);
+		set (gca, 'YTick', [5 10 15]);
+		set (gca, 'YTickLabel', {'5', '', '15'});
         legend (sprintf ('%s', srcname{ind}));
-		datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+		datetick ('x', 15, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 		set(gca,'FontSize', 16,'fontWeight','bold')
 		set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 end;
 
 samexaxis ('join');
-p=mtit('Light curves of bright field sources',...
-	   'xoff',-.07,'yoff',.015);
+% p=mtit('Light curves of bright field sources',...
+% 	   'xoff',-.07,'yoff',.015);
 % suplabel ('Light curves of bright field sources', 't');
 xlabel ('UTC past 12-Jul-2012, 00:00:00');
 suplabel ('Flux (arbit.)', 'y');

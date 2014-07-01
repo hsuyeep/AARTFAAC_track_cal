@@ -28,10 +28,13 @@ hold off;
 axis tight;
 % axis ([xlim -0.1 0.1]);
 ylim([-0.1 0.1]);
+set (gca, 'YTick', [-0.1 -0.05 0 0.05 0.1]);
+set (gca, 'YTickLabel', {'', '-0.05', '0', '0.05', ''});
 xlabel (sprintf ('UTC past %s, 00:00:00', datestr(num, 1))); ylabel ('Azi. offset (deg)', 'interpreter', 'none');
 grid on;
+
 % set (gca, 'XLim', [num, (t_last-t_first)/86400. + num], 'XTick', linspace (num, (t_last-t_first)/86400. + num, 4));
-datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+datetick ('x', 15, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 legend ('40 MHz', '70 MHz');
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
@@ -48,16 +51,19 @@ ind=4;
 	ind=ind+3;
 % end;
 grid on;
+
 axis tight;
 ylim([-0.1 0.1]);
+set (gca, 'YTick', [-0.1 -0.05 0 0.05 0.1]);
+set (gca, 'YTickLabel', {'', '-0.05', '0', '0.05', ''});
 xlabel (sprintf ('UTC past %s, 00:00:00', datestr(num, 1))); ylabel ('Ele. offset (deg)', 'interpreter', 'none');
 % set (gca, 'XLim', [num, (t_last-t_first)/86400. + num], 'XTick', linspace (num, (t_last-t_first)/86400. + num, 4));
-datetick ('x', 13, 'keepticks'); % Print HH:MM:SS legend on the time axis.
+datetick ('x', 15, 'keepticks'); % Print HH:MM:SS legend on the time axis.
 legend ('40 MHz', '70 MHz');
 
 samexaxis ('join', 'YLabelDistance', 1.0);
-p=mtit('Variation of estimated position of CasA from catalog position.     ',...
-       'xoff',-.07,'yoff',.015);
+% p=mtit('Variation of estimated position of CasA from catalog position.     ',...
+%        'xoff',-.07,'yoff',.015);
 set(gca,'FontSize', 16,'fontWeight','bold')
 set(findall(gcf,'type','text'),'FontSize', 16, 'fontWeight','bold')
 print (gcf, '../CasAsrcposoff.eps', '-depsc', '-r300');

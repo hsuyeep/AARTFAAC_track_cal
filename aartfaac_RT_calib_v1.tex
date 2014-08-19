@@ -1273,19 +1273,21 @@ motivation to apply tracking calibration for the AARTFAAC.
 
 
 \begin{figure*}[tbh]
-\subfloat
+\begin{subfigure}[b]{\columnwidth}
 %% [Model error as a function  of point source model complexity (abscissa)
 %%   for a  typical dataset.  The model complexity  increases with the  addition of
 %%   bright   sources  in   decreasing  order   of  expected   flux  contribution.]
-  {\includegraphics[width=1\columnwidth]{Figs/model_efficacy.eps}}
+  \includegraphics[width=\columnwidth]{Figs/model_efficacy.eps}
+\end{subfigure}
 %%  \hspace{10pt}
-\subfloat
 %% [Phase from the ratio of calibrated and model visibilities of a single 
 %%   timeslice, plotted as a function of increasing calibrated visibility amplitude.
 %%   An increase in phase error on higher amplitude visibilities can be seen to the
 %%   right, but lies well within 1 radian. This is expected to be 0 for an ideal 
 %%   model. The phase error is due to flux from unmodeled sources.]
-  {\includegraphics[width=1\columnwidth]{Figs/selfcal_ph_behaviour_new.eps}}
+\begin{subfigure}[b]{\columnwidth}
+  \includegraphics[width=\columnwidth]{Figs/selfcal_ph_behaviour_new.eps}
+\end{subfigure}
 
 \caption{\label{fig:The-model-amplitude}The  sky model  efficacy evaluated  on a
   single  time slice.(Left) Effect  of increasing  sky model  complexity. (Right)
@@ -1430,10 +1432,17 @@ while  showing  the  segregation  of  sources of  error  into  instrumental  and
 observational.
 
 \begin{figure*}[tbh]
-\subfloat[Obs. 3]
-{\includegraphics[width=1\columnwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol_bin_gains.eps}}
-\subfloat[Obs. 4]
-{\includegraphics[width=1\columnwidth]{Figs/combined_SB002_2_convcalsol_bin_gains.eps}}
+
+\begin{subfigure}[b]{\columnwidth}
+\includegraphics[width=1\columnwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol_bin_gains.eps}
+\caption{Obs. 3}
+\end{subfigure}
+
+\begin{subfigure}[b]{\columnwidth}
+\includegraphics[width=1\columnwidth]{Figs/combined_SB002_2_convcalsol_bin_gains.eps}
+\caption{Obs. 4}
+\end{subfigure}
+
 \caption{\label{fig:gain-Temporal-stability}Temporal  stability  of the  complex
   gain of  a randomly chosen  set of 6  antennas from the 288  AARTFAAC antennas
   over  a  period  of \textasciitilde3  hrs.  The  outliers  are caused  due  to
@@ -1493,14 +1502,25 @@ shows the  effect of the ionosphere on  the estimated flux of  the model sources
 and the position wander of CasA over the course of a night.
 
 \begin{figure*}[tbh]
-\subfloat[Obs.2]
-{\includegraphics[width=\columnwidth]{Figs/SB000_LBA_OUTER_2222-2258_1ch_1_convcalsol_bin_sigmas.eps}}
-\subfloat[Obs. 3]
-{\includegraphics[width=\columnwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol_bin_sigmas.eps}}\par
-\subfloat[Obs. 4]
-{\includegraphics[width=\columnwidth]{Figs/combined_SB002_2_convcalsol_bin_sigmas.eps}}
-\subfloat[Obs. 3: CasA WSF estimated position variation from catalog ]
-{\includegraphics[width=\columnwidth]{Figs/CasAsrcposoff.eps}}
+\begin{subfigure}[b]{\columnwidth}
+\includegraphics[width=\columnwidth]{Figs/SB000_LBA_OUTER_2222-2258_1ch_1_convcalsol_bin_sigmas.eps}
+\caption{Obs. 2}
+\end{subfigure}
+
+\begin{subfigure}[b]{\columnwidth}
+\includegraphics[width=\columnwidth]{Figs/SB002_LBA_OUTER_SPREAD_1ch_8_convcalsol_bin_sigmas.eps}
+\caption{Obs. 3}
+\end{subfigure}
+
+\begin{subfigure}[b]{\columnwidth}
+\includegraphics[width=\columnwidth]{Figs/combined_SB002_2_convcalsol_bin_sigmas.eps}
+\caption{Obs. 4}
+\end{subfigure}
+
+\begin{subfigure}[b]{\columnwidth}
+\includegraphics[width=\columnwidth]{Figs/CasAsrcposoff.eps}
+\caption{Obs. 3: CasA WST estimated position variation from catalog}
+\end{subfigure}
 
 \caption{\label{fig:Estimated-flux-of}Short term ionospheric effects in the form
   of amplitude  scintillation and  position wander being  successfully recovered
